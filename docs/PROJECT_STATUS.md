@@ -84,9 +84,9 @@
 ### 9. Gumroad Overlay Checkout Implementation ✅
 - ✅ **Added Gumroad embed script** to `public/index.html`, `public/checkout.html`, and `public/thank-you/index.html`.
 - ✅ **Converted CTAs** to `gumroad-button` overlay triggers with consistent styling.
+- ✅ **Embedded full Gumroad product widget** (image, price, CTA) in the landing-page product section for richer merchandising.
 - ✅ **Implemented `<noscript>` fallbacks** so direct checkout links work without JavaScript.
 - ✅ **Documented provider setup** in `README-checkout.md` and handover guides.
-- ✅ **Embedded product purchase card** directly in the landing page via Gumroad widget for richer merchandising.
 - 🔄 **Test overlay functionality** and fallback behavior whenever URLs change.
 
 ### 10. Dedicated Thank You Page Implementation ✅
