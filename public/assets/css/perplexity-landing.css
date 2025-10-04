@@ -76,7 +76,7 @@
   font-size: clamp(1.1rem, 2vw, 1.35rem);
   color: rgba(var(--color-slate-500-rgb, 98, 108, 113), 0.9);
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0 auto 0.5rem;
 }
 
 .sap-landing .stars {

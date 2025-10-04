@@ -241,23 +241,25 @@ function setupLandingCountdown() {
         return;
     }
 
-    const COUNTDOWN_KEY = 'sapCountdownTarget';
-    const now = Date.now();
-    let targetTime = parseInt(sessionStorage.getItem(COUNTDOWN_KEY), 10);
+    const calculateTarget = () => {
+        const now = new Date();
+        const target = new Date();
+        target.setHours(24, 0, 0, 0); // midnight next day
+        if (target <= now) {
+            target.setDate(target.getDate() + 1);
+        }
+        return target.getTime();
+    };
 
-    if (!targetTime || targetTime < now) {
-        targetTime = now + 24 * 60 * 60 * 1000;
-        sessionStorage.setItem(COUNTDOWN_KEY, targetTime.toString());
-    }
+    let targetTime = calculateTarget();
 
     const updateCountdown = () => {
-        const distance = targetTime - Date.now();
-
-        if (distance <= 0) {
-            targetTime = Date.now() + 24 * 60 * 60 * 1000;
-            sessionStorage.setItem(COUNTDOWN_KEY, targetTime.toString());
+        const now = Date.now();
+        if (now >= targetTime) {
+            targetTime = calculateTarget();
         }
 
+        const distance = targetTime - now;
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
