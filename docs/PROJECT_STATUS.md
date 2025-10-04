@@ -2,24 +2,17 @@
 
 ## ✅ COMPLETED FEATURES
 
-### 1. Blog System Implementation
-- ✅ Created `blog/` directory structure
-- ✅ Built `blog/index.html` - dedicated blog listing page with 5 articles
-- ✅ Created 3 comprehensive blog posts:
-  - `blog/hormone-balance.html` - 5 Herbs for Natural Hormone Balance
-  - `blog/mindful-eating.html` - Mindful Eating for Digestive Wellness
-  - `blog/morning-rituals.html` - Creating Sacred Morning Rituals
-- ✅ Updated main navigation to link to actual blog URLs
-- ✅ Added proper SEO meta tags to all blog pages
-- ✅ Included Open Graph and Twitter Card meta tags
-- ✅ Added structured data (JSON-LD) for better search visibility
+### 1. Marketing Site Implementation
+- ✅ Structured the single-page experience (`public/index.html`) with hero, benefits, testimonials, and product storytelling.
+- ✅ Implemented responsive navigation (desktop/mobile) with smooth hash routing and an external Ghost blog link (`https://blog.sacredapothecary.xyz`).
+- ✅ Maintained Astro-powered About/Product pages with shared layouts and styling parity.
+- ✅ Preserved the Astro blog route with a "coming soon" empty state for future native posts while removing outdated placeholders.
 
-### 2. E-commerce Integration (Lemon Squeezy)
-- ✅ Created `checkout.html` - professional checkout page
-- ✅ Integrated Lemon Squeezy checkout flow
-- ✅ Updated "Add to Cart" buttons to "Buy Now - $37" links
-- ✅ Added product details, pricing, guarantees, and trust signals
-- ✅ Included secure payment options display
+### 2. E-commerce Integration (Gumroad)
+- ✅ Created `public/checkout.html` - professional checkout page with product recap, FAQs, and CTA.
+- ✅ Integrated Gumroad overlay checkout across hero CTAs, product section, checkout page, and mobile sticky banner.
+- ✅ Added graceful `noscript` fallbacks and consistent styling for the direct checkout link.
+- ✅ Centralised provider configuration in `config/commerce.json` to simplify URL updates.
 
 ### 3. Thank You Page & Conversion Tracking
 - ✅ Created `thank-you.html` - post-purchase confirmation page
@@ -68,27 +61,14 @@
 
 ## 🔧 CONFIGURATION NEEDED (Manual Setup)
 
-- 🔄 **GA4 Measurement ID**: Replace `GA4_MEASUREMENT_ID` in `public/assets/js/analytics.js`
-  - Get from Google Analytics 4 property
-  - Format: `G-XXXXXXXXXX`
-- 🔄 **Meta Pixel ID**: Replace `META_PIXEL_ID` in `public/assets/js/analytics.js`
-  - Get from Facebook Business Manager > Events Manager
-  - Format: `XXXXXXXXXXXXXXXX`
+### Analytics & Tracking Setup
+- 🔄 **GA4 Measurement ID**: Replace `GA4_MEASUREMENT_ID` in `public/assets/js/analytics.js` and thank-you snippets (format `G-XXXXXXXXXX`).
+- 🔄 **Meta Pixel ID**: Replace `META_PIXEL_ID` in the same locations for Meta tracking.
 
-### Lemon Squeezy E-commerce Setup
-- 🔄 **Create Lemon Squeezy Account**
-  - Sign up at lemonsqueezy.com
-  - Set up payment processing and tax settings
-- 🔄 **Create Product**
-  - Add "Menopause Support Guide" product ($37)
-  - Set up digital download delivery
-  - Configure checkout flow and branding
-- 🔄 **Update Checkout URL**
-  - Replace placeholder URL in `checkout.html`
-  - Format: `https://sacred.lemonsqueezy.com/checkout/buy/YOUR_PRODUCT_ID_HERE`
-- 🔄 **Configure Webhooks** (Optional)
-  - Set up webhooks for order fulfillment
-  - Configure email delivery for downloads
+### Gumroad Commerce Setup
+- 🔄 Confirm Gumroad product URL (`https://sacredankh.gumroad.com/l/menopause-relief`) in `config/commerce.json` and all CTA buttons.
+- 🔄 Configure Gumroad overlay + post-purchase redirect to `https://sacredapothecary.xyz/thank-you/` within the Gumroad dashboard.
+- 🔄 Test overlay and fallback purchases across desktop and mobile flows.
 
 ### Social Media & Branding
 - 🔄 **Update Social Media Links**
@@ -100,14 +80,12 @@
   - Add product images to checkout and blog posts
   - Update Open Graph images
 
-### 9. Lemon Squeezy Overlay Checkout Implementation ✅
-- ✅ **Created overlay checkout script** (`public/assets/js/lemonsqueezy.js`)
-- ✅ **Updated CTA buttons** to use `data-ls-overlay` attributes
-- ✅ **Implemented fallback behavior** with `<noscript>` tags
-- ✅ **Added script to all HTML pages** (index.html, checkout.html)
-- ✅ **Created setup documentation** (`LEMON_SQUEEZY_SETUP.md`)
-- 🔄 **Replace placeholder URLs** with actual Lemon Squeezy buy URLs
-- 🔄 **Test overlay functionality** and fallback behavior
+### 9. Gumroad Overlay Checkout Implementation ✅
+- ✅ **Added Gumroad embed script** to `public/index.html`, `public/checkout.html`, and `public/thank-you/index.html`.
+- ✅ **Converted CTAs** to `gumroad-button` overlay triggers with consistent styling.
+- ✅ **Implemented `<noscript>` fallbacks** so direct checkout links work without JavaScript.
+- ✅ **Documented provider setup** in `README-checkout.md` and handover guides.
+- 🔄 **Test overlay functionality** and fallback behavior whenever URLs change.
 
 ### 10. Dedicated Thank You Page Implementation ✅
 - ✅ **Created `/thank-you/` directory** with standalone HTML page
@@ -119,17 +97,14 @@
 - ✅ **Created analytics setup documentation** (`docs/ANALYTICS_SETUP.md`)
 - ✅ **Provided GA4 and Meta base code snippets** for site-wide implementation
 
-### 11. Email Signup System ✅
-- ✅ **Enhanced existing email signup form** with proper backend functionality
-- ✅ **Added localStorage fallback** for testing before ESP setup
-- ✅ **Created ESP-ready configuration** for easy Mailchimp/ConvertKit integration
-- ✅ **Added privacy notice** and form validation
-- ✅ **Implemented success/error states** with user feedback
-- ✅ **Created setup documentation** (`docs/EMAIL_SETUP.md`) for ESP integration
-- ✅ **Added utility functions** for subscriber management and export
+### 11. Newsletter & Lead Capture ✅
+- ✅ **Embedded Ghost signup widget** on the home page with branded styling and privacy messaging.
+- ✅ **Updated analytics tracking** (`public/assets/js/analytics.js`) to fire GA4/Meta lead events on Ghost interactions.
+- ✅ **Archived legacy form handling** in docs while pointing maintainers to Ghost configuration.
+- ✅ **Documented email capture updates** in `docs/EMAIL_SETUP.md` and handover notes.
 
 ### 12. Serverless Purchase Attribution ✅
-- ✅ **Created Lemon Squeezy webhook handler** (`src/pages/api/webhooks/lemon-squeezy.js`)
+- ✅ **Created Lemon Squeezy webhook handler** (`src/pages/api/webhooks/lemon-squeezy.js`) for optional server-side tracking (kept for future use).
 - ✅ **Implemented GA4 Measurement Protocol integration** for server-side purchase events
 - ✅ **Added Meta Conversions API integration** with proper user data hashing
 - ✅ **Included webhook signature validation** for security
@@ -162,11 +137,10 @@
 - ✅ **Added troubleshooting guides** and development workflow documentation
 
 ### 15. Vercel Deployment Runtime Fix ✅
-- ✅ **Fixed Vercel function runtime error** by converting API function to ES modules format
-- ✅ **Changed from CommonJS handler(req, res)** to **Web API POST({ request })** format
-- ✅ **Updated response format** from Express res.status().json() to Web API Response
-- ✅ **Ensured nodejs18 runtime compatibility** with proper ES modules syntax
-- ✅ **Committed and pushed fixes** to resolve deployment blocking issue
+- ✅ **Aligned Astro configuration** with `output: 'server'` and the modern `@astrojs/vercel` adapter.
+- ✅ **Converted API handler** to the Web API `Response` format so Vercel Functions run without ES module errors.
+- ✅ **Documented framework detection** in `vercel.json` and cleaned up deprecated settings.
+- ✅ **Resolved deployment error** "Function Runtimes must have a valid version" by letting Vercel supply `nodejs22.x`.
 
 ### 16. Commerce Provider Migration: Lemon Squeezy → Gumroad ✅
 - ✅ **Created commerce configuration** (`config/commerce.json`) with Gumroad provider settings
@@ -177,56 +151,43 @@
 - ✅ **Maintained existing button styles** while ensuring overlay functionality
 - ✅ **Committed and pushed changes** to complete the commerce migration
 
-### 17. Commerce Provider Migration: Lemon Squeezy → Gumroad ✅
-- ✅ **Created commerce configuration** (`config/commerce.json`) with Gumroad provider settings
-- ✅ **Added Gumroad embed script** to all HTML pages (`public/index.html`, `public/checkout.html`, `public/thank-you/index.html`)
-- ✅ **Converted all Buy Now CTAs** from Lemon Squeezy `data-ls-overlay` to Gumroad `gumroad-button` class
-- ✅ **Updated fallback behavior** with proper noscript links for JavaScript-disabled users
-- ✅ **Removed Lemon Squeezy script references** and updated page comments
-- ✅ **Maintained existing button styles** while ensuring overlay functionality
-- ✅ **Committed and pushed changes** to complete the commerce migration
+### 17. Astro + MDX + TinaCMS Infrastructure ✅
+- ✅ **Set up Astro project** with MDX collections and TinaCMS schema for future native blog content.
+- ✅ **Built blog index + dynamic routes** with filtering support; currently displays a "coming soon" state while Ghost owns live articles.
+- ✅ **Maintained static pages** alongside Astro routes without routing conflicts.
+- ✅ **Resolved legacy issues** (duplicate files, script bundling, public directory structure) to stabilise builds.
+- ✅ **Verified local development** across /, /blog, /blog/[slug], /about, /product, /checkout.html, /thank-you/.
 
 ### 18. Final Vercel Runtime Configuration Fix ✅
-- ✅ **Confirmed Astro server output** with `@astrojs/vercel` adapter for production SSR
-- ✅ **Kept `framework: "astro"`** in `vercel.json` so Vercel auto-detects the project
-- ✅ **Removed custom functions runtime override** allowing adapter to supply the correct `nodejs22.x` runtime
-- ✅ **Validated build + deploy logs** now complete without "Function Runtimes must have a valid version" error
-- ✅ **Documented deployment procedure** in `docs/VERCEL_DEPLOYMENT.md`
+- ✅ **Confirmed Astro server output** with `@astrojs/vercel` adapter for production SSR.
+- ✅ **Kept `framework: "astro"`** in `vercel.json` so Vercel auto-detects the project.
+- ✅ **Removed custom functions runtime override** allowing the adapter to supply the correct `nodejs22.x` runtime.
+- ✅ **Validated build + deploy logs** now complete without the "Function Runtimes must have a valid version" error.
+- ✅ **Documented deployment procedure** in `docs/VERCEL_DEPLOYMENT.md`.
 
-### 19. Astro + MDX + TinaCMS Blog Implementation ✅
-- ✅ **Set up Astro project** with MDX and TinaCMS integration
-- ✅ **Created content collections** for blog posts with frontmatter schema
-- ✅ **Built blog index page** with tag filtering (pagination ready for expansion)
-- ✅ **Created dynamic blog post pages** with cover images and TOC structure
-- ✅ **Implemented RSS feed generation** for blog content
-- ✅ **Added pretty typography** and responsive design
-- ✅ **Maintained existing static pages** (index.html, product, about)
-- ✅ **Created sample blog content** with proper frontmatter
-- ✅ **Set up development scripts** and configuration
-- ✅ **Cleaned up duplicate files** - removed redundant thank-you pages and legacy blog HTML files
-- ✅ **Fixed build issues** - resolved script bundling conflicts by removing external script references from Astro layout
-- ✅ **Removed problematic TinaCMS admin** - temporarily removed to focus on core blog functionality
-- ✅ **Fixed continuous loading issue** - moved static HTML files to public/ directory, resolved Astro configuration conflicts, and created proper root route redirect
-- ✅ **Local development server working** - all routes loading correctly (/, /blog, /blog/[slug], /about, /product, /checkout.html, /thank-you/)
-- ✅ **Hybrid architecture complete** - static HTML pages coexist with Astro-powered blog
+### 19. Static Asset Publishing Fix ✅
+- ✅ **Moved CSS/JS/images** into `public/assets/` so Vercel publishes them with each deploy.
+- ✅ **Updated Astro references** to the new asset paths and removed stale copies.
+- ✅ **Refreshed docs + README** so maintenance steps point to the correct locations.
+- ✅ **Rebuilt project** confirming `.vercel/output/static/assets/` includes the required files.
 
-### 20. Static Asset Publishing Fix ✅
-- ✅ **Moved CSS/JS/images** into `public/assets/` so Vercel publishes them with each deploy
-- ✅ **Updated MDX posts** to reference the deployed asset paths for cover images
-- ✅ **Refreshed docs + README** so maintenance steps point to the new asset locations
-- ✅ **Rebuilt project** confirming `.vercel/output/static/assets/` includes the required files
+### 20. Mobile Product CTA Enhancement ✅
+- ✅ **Added mobile-only sticky CTA** on the product page to spotlight the Gumroad offer.
+- ✅ **Implemented session-aware logic** (sessionStorage + thank-you flag) so it hides after purchase.
+- ✅ **Injected responsive padding adjustments** to prevent overlap with footers/banners.
+- ✅ **Wired accessibility attributes & hash routing** so `/product` redirects immediately show the CTA.
 
-### 21. Mobile Product CTA Enhancement ✅
-- ✅ **Added mobile-only sticky CTA** on the product page to spotlight the Gumroad offer
-- ✅ **Implemented session-aware logic** (sessionStorage + thank-you flag) so it hides after purchase
-- ✅ **Injected responsive padding adjustments** preventing overlap with footers/banners on small screens
-- ✅ **Wired accessibility attributes & hash routing** so `/product` redirects immediately show the CTA
+### 21. Placeholder Blog Content Removed ✅
+- ✅ **Removed static blog previews** and navigation links pointing to unfinished articles.
+- ✅ **Deleted temporary blog HTML/MDX files** so Vercel no longer deploys sample posts.
+- ✅ **Added a "coming soon" empty state** to the Astro blog route for direct visitors.
+- ✅ **Linked navigation/footer** to the live Ghost blog at `blog.sacredapothecary.xyz`.
 
-### 22. Placeholder Blog Content Removed ✅
-- ✅ **Removed static blog previews** and navigation links pointing to unfinished articles
-- ✅ **Deleted temporary blog HTML/MDX files** so Vercel no longer deploys sample posts
-- ✅ **Added a "coming soon" empty state** to the Astro blog route for direct visitors
-- ✅ **Re-linked navigation/footer** to the live Ghost blog at `blog.sacredapothecary.xyz`
+### 22. Branding & Newsletter Integration ✅
+- ✅ **Converted uploaded logo** into a 256×256 favicon (`public/favicon.png`) and wired it through all static pages and Astro layout.
+- ✅ **Archived source asset** under `public/assets/images/` for reuse.
+- ✅ **Replaced onsite email form** with Ghost's embed (`blog.sacredapothecary.xyz`) while keeping privacy messaging + styling.
+- ✅ **Updated analytics instrumentation** to track Ghost signup interactions across GA4 and Meta Pixel.
 
 ## 🚀 DEPLOYMENT STEPS
 

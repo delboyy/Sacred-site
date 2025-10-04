@@ -52,6 +52,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -194,14 +195,21 @@
                     <div class="signup__content">
                         <h2>Join Our Wellness Community</h2>
                         <p>Get exclusive access to natural health tips, early product releases, and special offers.</p>
-                        <form class="signup__form" onsubmit="handleEmailSignup(event)">
-                            <div class="form__group">
-                                <input type="text" name="name" placeholder="Your Name" class="form-control signup-name" required>
-                                <input type="email" name="email" placeholder="Your Email" class="form-control signup-email" required>
-                                <button type="submit" class="btn btn--secondary">Join Now</button>
+                        <div class="signup__form" data-ghost-signup>
+                            <div class="ghost-signup-embed">
+                                <div class="ghost-signup-embed__container">
+                                    <script
+                                      src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js"
+                                      data-button-color="#C4A46B"
+                                      data-button-text-color="#FFFFFF"
+                                      data-site="https://blog.sacredapothecary.xyz/"
+                                      data-locale="en"
+                                      async>
+                                    </script>
+                                </div>
                             </div>
                             <p class="signup__privacy">We respect your privacy. Unsubscribe at any time.</p>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </section>

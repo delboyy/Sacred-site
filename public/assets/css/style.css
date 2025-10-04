@@ -1114,6 +1114,18 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 
+.ghost-signup-embed__container {
+  min-height: 58px;
+  max-width: 440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ghost-signup-embed {
+  display: flex;
+  justify-content: center;
+}
+
 .form__group {
   display: flex;
   gap: var(--space-12);
@@ -1137,6 +1149,10 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   margin: var(--space-16) 0 0 0;
   line-height: 1.4;
+}
+
+.email-signup .signup__privacy {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* Blog Preview Section */

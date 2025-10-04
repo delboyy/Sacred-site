@@ -194,15 +194,21 @@ function trackCheckout() {
 
 // Track email signups
 function trackEmailSignup() {
-    const signupForms = document.querySelectorAll('.signup__form');
+    const ghostSignupContainers = document.querySelectorAll('[data-ghost-signup]');
 
-    signupForms.forEach(form => {
-        form.addEventListener('submit', function(e) {
+    ghostSignupContainers.forEach(container => {
+        container.addEventListener('click', function handleGhostSignup(event) {
+            const interactive = event.target.closest('button, a');
+            if (!interactive) {
+                return;
+            }
+
             // GA4 Lead generation event
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'generate_lead', {
                     currency: 'USD',
-                    value: 0
+                    value: 0,
+                    method: 'ghost_embed'
                 });
             }
 
@@ -210,7 +216,8 @@ function trackEmailSignup() {
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
                     content_name: 'Email Signup',
-                    content_category: 'Newsletter'
+                    content_category: 'Newsletter',
+                    signup_method: 'ghost_embed'
                 });
             }
 
@@ -333,4 +340,3 @@ document.addEventListener('DOMContentLoaded', function() {
 // Export functions for global access
 window.initializeAnalytics = initializeAnalytics;
 window.trackCustomEvent = trackCustomEvent;
-
