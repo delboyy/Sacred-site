@@ -178,7 +178,22 @@
 - ✅ **Maintained existing button styles** while ensuring overlay functionality
 - ✅ **Committed and pushed changes** to complete the commerce migration
 
-### 17. Astro + MDX + TinaCMS Blog Implementation ✅
+### 17. Commerce Provider Migration: Lemon Squeezy → Gumroad ✅
+- ✅ **Created commerce configuration** (`config/commerce.json`) with Gumroad provider settings
+- ✅ **Added Gumroad embed script** to all HTML pages (`public/index.html`, `public/checkout.html`, `public/thank-you/index.html`)
+- ✅ **Converted all Buy Now CTAs** from Lemon Squeezy `data-ls-overlay` to Gumroad `gumroad-button` class
+- ✅ **Updated fallback behavior** with proper noscript links for JavaScript-disabled users
+- ✅ **Removed Lemon Squeezy script references** and updated page comments
+- ✅ **Maintained existing button styles** while ensuring overlay functionality
+- ✅ **Committed and pushed changes** to complete the commerce migration
+
+### 18. Final Vercel Runtime Configuration Fix ✅
+- ✅ **Added back functions runtime configuration** to `vercel.json`
+- ✅ **Specified nodejs18 runtime** for serverless functions (`src/pages/api/**/*.js`)
+- ✅ **Fixed deployment error** "Function Runtimes must have a valid version"
+- ✅ **Committed and pushed configuration** for successful deployment
+
+### 19. Astro + MDX + TinaCMS Blog Implementation ✅
 - ✅ **Set up Astro project** with MDX and TinaCMS integration
 - ✅ **Created content collections** for blog posts with frontmatter schema
 - ✅ **Built blog index page** with tag filtering (pagination ready for expansion)
