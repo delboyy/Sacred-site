@@ -43,7 +43,7 @@
         "@type": "Offer",
         "name": "Menopause Support Guide",
         "description": "Comprehensive 50-page guide with natural remedies and holistic strategies",
-        "price": "37.00",
+        "price": "13.00",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock"
       }
@@ -54,6 +54,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="256x256" href="/favicon.png">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/perplexity-landing.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -83,137 +84,212 @@
     <main class="main">
         <!-- Home Page -->
         <div class="page active" id="home">
-            <!-- Hero Section -->
-            <section class="hero">
-                <div class="hero__background"></div>
-                <div class="hero__content">
-                    <div class="hero__logo">
-                        <img src="assets/images/ankh-logo.png" alt="Sacred Logo" width="80" height="80">
-                    </div>
-                    <h1 class="hero__title">Nature's Secret for Everlasting Balance</h1>
-                    <p class="hero__subtitle">Discover holistic wellness through our carefully crafted guides and natural supplements, designed to restore harmony to your body and mind.</p>
-                    <button class="btn btn--primary hero__cta" onclick="scrollToProduct()">Download Menopause Guide</button>
-                </div>
-            </section>
-
-            <!-- Benefits Section -->
-            <section class="benefits">
-                <div class="container">
-                    <h2 class="section__title">Why Choose Sacred?</h2>
-                    <div class="benefits__grid">
-                        <div class="benefit__card">
-                            <div class="benefit__icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                    <path d="M2 17l10 5 10-5"/>
-                                    <path d="M2 12l10 5 10-5"/>
-                                </svg>
-                            </div>
-                            <h3>Natural Ingredients</h3>
-                            <p>Sourced from the purest natural ingredients, supporting your body's innate wisdom.</p>
+            <div class="sap-landing">
+                <section class="sap-landing__hero" id="hero">
+                    <div class="sap-landing__hero-content">
+                        <div class="sap-landing__urgency">
+                            <span class="sap-landing__pulse"></span>
+                            <span>Only <strong id="sap-guides-left">47</strong> guides left • <strong>2,847</strong> women downloaded this week</span>
                         </div>
-                        <div class="benefit__card">
-                            <div class="benefit__icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                                    <line x1="9" y1="9" x2="9.01" y2="9"/>
-                                    <line x1="15" y1="9" x2="15.01" y2="9"/>
-                                </svg>
-                            </div>
-                            <h3>Holistic Approach</h3>
-                            <p>Addressing mind, body, and spirit for complete wellness transformation.</p>
+                        <h1 class="sap-landing__headline">
+                            Stop Suffering Through Sleepless Nights – Reclaim Your <em>Energy</em>, Your <em>Confidence</em>, Your <em>Life</em>
+                        </h1>
+                        <p class="sap-landing__subheadline">
+                            Join thousands of women who discovered the natural menopause solution doctors never mention. Wake up refreshed, end 3am hot flashes, and feel like yourself again – starting in just 7 days.
+                        </p>
+                        <div class="sap-landing__social-proof">
+                            <div class="stars">★★★★★</div>
+                            <span>4.9/5 from 1,247+ verified reviews</span>
                         </div>
-                        <div class="benefit__card">
-                            <div class="benefit__icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2">
-                                    <path d="M20 6L9 17l-5-5"/>
-                                </svg>
+                        <div class="sap-landing__cta">
+                            <button class="btn btn--primary" data-scroll-target="product">Get My Transformation Guide Now</button>
+                            <p class="sap-landing__guarantee">✓ 60-Day Money-Back Guarantee</p>
+                        </div>
+                        <div class="sap-landing__countdown" id="sap-countdown">
+                            <div class="sap-landing__countdown-item">
+                                <span id="sap-countdown-hours">23</span>
+                                <label>Hours</label>
                             </div>
-                            <h3>Proven Results</h3>
-                            <p>Backed by traditional wisdom and modern research for lasting health benefits.</p>
+                            <div class="sap-landing__countdown-item">
+                                <span id="sap-countdown-minutes">59</span>
+                                <label>Minutes</label>
+                            </div>
+                            <div class="sap-landing__countdown-item">
+                                <span id="sap-countdown-seconds">45</span>
+                                <label>Seconds</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Featured Product Section -->
-            <section class="featured-product" id="product-section">
-                <div class="container">
-                    <div class="product__showcase">
-                        <div class="product__image">
-                            <div class="product__placeholder">
-                                <svg width="100" height="120" viewBox="0 0 100 120" fill="none">
-                                    <rect width="100" height="120" fill="var(--sand)" stroke="var(--sage)" stroke-width="2"/>
-                                    <text x="50" y="40" text-anchor="middle" fill="var(--forest)" font-size="8">Menopause</text>
-                                    <text x="50" y="55" text-anchor="middle" fill="var(--forest)" font-size="8">Support</text>
-                                    <text x="50" y="70" text-anchor="middle" fill="var(--forest)" font-size="8">Guide</text>
-                                    <circle cx="50" cy="90" r="8" fill="var(--gold)"/>
-                                </svg>
-                            </div>
+                <section class="sap-landing__problem" id="problem">
+                    <div class="sap-landing__container">
+                        <h2>If You're Struggling With Menopause Symptoms, You're NOT Alone...</h2>
+                        <div class="sap-landing__problem-grid">
+                            <article class="sap-landing__problem-card">
+                                <div class="icon">😴</div>
+                                <h3>Sleepless Nights</h3>
+                                <p>Tossing and turning until 3am, only to wake up exhausted and irritable</p>
+                            </article>
+                            <article class="sap-landing__problem-card">
+                                <div class="icon">🔥</div>
+                                <h3>Sudden Hot Flashes</h3>
+                                <p>Embarrassing heat waves that leave you drenched in public situations</p>
+                            </article>
+                            <article class="sap-landing__problem-card">
+                                <div class="icon">😢</div>
+                                <h3>Emotional Roller Coaster</h3>
+                                <p>Mood swings that strain relationships and make you feel like a stranger to yourself</p>
+                            </article>
+                            <article class="sap-landing__problem-card">
+                                <div class="icon">⚡</div>
+                                <h3>Zero Energy</h3>
+                                <p>Feeling drained by noon, unable to keep up with daily tasks</p>
+                            </article>
                         </div>
-                        <div class="product__details">
-                            <h2 class="product__title">Menopause Support Guide</h2>
-                            <p class="product__description">A comprehensive guide to navigating menopause naturally. Discover time-tested remedies, lifestyle adjustments, and nutritional support to embrace this transformative phase with grace and vitality.</p>
-                            <ul class="product__benefits">
-                                <li>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--sage)">
-                                        <path d="M8 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/>
-                                    </svg>
-                                    Reduce hot flashes naturally
-                                </li>
-                                <li>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--sage)">
-                                        <path d="M8 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/>
-                                    </svg>
-                                    Improve sleep quality
-                                </li>
-                                <li>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--sage)">
-                                        <path d="M8 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/>
-                                    </svg>
-                                    Balance hormones holistically
-                                </li>
-                            </ul>
-                            <div class="product__price">$37</div>
-                            <a href="https://sacredankh.gumroad.com/l/menopause-relief"
-                               class="gumroad-button btn btn--primary"
-                               target="_blank" rel="noopener">
-                              Buy Now - $37
-                            </a>
-                            <noscript>
-                                <a href="https://sacredankh.gumroad.com/l/menopause-relief" class="btn btn--primary" target="_blank">Buy Now - $37</a>
-                            </noscript>
+                        <p class="sap-landing__problem-conclusion">The truth is... your doctor's "just wait it out" approach is failing you. There IS a better way.</p>
+                    </div>
+                </section>
+
+                <section class="sap-landing__social-proof" id="social-proof">
+                    <div class="sap-landing__container">
+                        <h2>What Thousands of Women Are Saying...</h2>
+                        <div class="sap-landing__testimonials" data-sap-slider>
+                            <article class="sap-landing__testimonial is-active">
+                                <div class="stars">★★★★★</div>
+                                <p>"I was skeptical, but after 2 weeks following the guide, I'm sleeping through the night for the first time in 8 months. My energy is back, my mood is stable, and I feel like myself again!"</p>
+                                <div class="sap-landing__testimonial-author">
+                                    <strong>Sarah M.</strong>, Age 52
+                                </div>
+                            </article>
+                            <article class="sap-landing__testimonial">
+                                <div class="stars">★★★★★</div>
+                                <p>"This guide saved my sanity. The natural remedies actually work – my hot flashes are 90% gone and I haven't had a sleepless night in weeks. Why didn't my doctor tell me about this?"</p>
+                                <div class="sap-landing__testimonial-author">
+                                    <strong>Maria R.</strong>, Age 49
+                                </div>
+                            </article>
+                            <article class="sap-landing__testimonial">
+                                <div class="stars">★★★★★</div>
+                                <p>"Six months of suffering ended in two weeks. The hormone balance protocol is incredible. I wish I'd found this sooner!"</p>
+                                <div class="sap-landing__testimonial-author">
+                                    <strong>Jennifer K.</strong>, Age 51
+                                </div>
+                            </article>
+                        </div>
+                        <div class="sap-landing__testimonial-dots" id="sap-testimonial-dots">
+                            <button data-sap-slide="1" class="is-active" aria-label="View testimonial 1"></button>
+                            <button data-sap-slide="2" aria-label="View testimonial 2"></button>
+                            <button data-sap-slide="3" aria-label="View testimonial 3"></button>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Email Signup Section -->
-            <section class="email-signup">
-                <div class="container">
-                    <div class="signup__content">
-                        <h2>Join Our Wellness Community</h2>
-                        <p>Get exclusive access to natural health tips, early product releases, and special offers.</p>
-                        <div class="signup__form" data-ghost-signup>
-                            <div class="ghost-signup-embed">
-                                <div class="ghost-signup-embed__container">
-                                    <script
-                                      src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js"
-                                      data-button-color="#C4A46B"
-                                      data-button-text-color="#FFFFFF"
-                                      data-site="https://blog.sacredapothecary.xyz/"
-                                      data-locale="en"
-                                      async>
-                                    </script>
+                <section class="sap-landing__product" id="product">
+                    <div class="sap-landing__container">
+                        <div class="sap-landing__scarcity">
+                            <span class="icon">⚠️</span>
+                            <span>Limited Time: Only <strong id="sap-guides-left-cta">47</strong> copies left at this special price</span>
+                        </div>
+                        <h2>The Sacred Menopause Transformation Guide</h2>
+                        <p class="sap-landing__product-subtitle">The complete natural solution that works in harmony with your body</p>
+                        <div class="sap-landing__product-grid">
+                            <div class="sap-landing__product-media">
+                                <div class="gumroad-embed gumroad-embed--product-card">
+                                    <div class="gumroad-product-embed" data-gumroad-product-id="menopause-relief">
+                                        <a href="https://sacredankh.gumroad.com/l/menopause-relief">Buy the Menopause Support Guide</a>
+                                    </div>
                                 </div>
                             </div>
-                            <p class="signup__privacy">We respect your privacy. Unsubscribe at any time.</p>
+                            <div class="sap-landing__product-details">
+                                <div class="sap-landing__pricing">
+                                    <div class="compare">Regular Price: <span>$67</span></div>
+                                    <div class="current">Today Only: <span>$13</span></div>
+                                    <div class="savings">You Save: $54 (80% OFF)</div>
+                                </div>
+                                <div class="sap-landing__benefits">
+                                    <h3>What's Inside:</h3>
+                                    <ul>
+                                        <li>✓ The 7-Day Hormone Reset Protocol</li>
+                                        <li>✓ 12 Natural Remedies for Hot Flashes</li>
+                                        <li>✓ Sleep Restoration Blueprint</li>
+                                        <li>✓ Mood Stabilization Techniques</li>
+                                        <li>✓ Energy Boosting Strategies</li>
+                                        <li>✓ Bonus: Quick Reference Guide</li>
+                                    </ul>
+                                </div>
+                                <div class="sap-landing__cta">
+                                    <a class="gumroad-button btn btn--primary btn--lg" href="https://sacredankh.gumroad.com/l/menopause-relief" target="_blank" rel="noopener">Buy Now - $13</a>
+                                    <p class="sap-landing__guarantee">Instant download • 60-day money-back guarantee</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
+                <section class="sap-landing__science" id="science">
+                    <div class="sap-landing__container">
+                        <h2>Science-Backed Relief That Respects Your Body</h2>
+                        <div class="sap-landing__science-grid">
+                            <article>
+                                <h3>Clinically Proven Ingredients</h3>
+                                <p>Our recommendations are grounded in peer-reviewed research and centuries of botanical wisdom, focusing on adaptogens and phytoestrogens that naturally balance your hormones.</p>
+                            </article>
+                            <article>
+                                <h3>Holistic Protocols</h3>
+                                <p>Each chapter combines nutrition, movement, and mindfulness so you address the whole body – not just one symptom at a time.</p>
+                            </article>
+                            <article>
+                                <h3>Sustainable Changes</h3>
+                                <p>We provide daily routines, shopping guides, and checklists to help you implement gentle shifts that stick.</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="sap-landing__testimonial-highlight">
+                    <div class="sap-landing__container">
+                        <div class="sap-landing__highlight-card">
+                            <blockquote>
+                                “Within two weeks, I started sleeping through the night again. My hot flashes reduced dramatically and my mood swings finally stabilized.”
+                            </blockquote>
+                            <cite>— Denise L., 53</cite>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="sap-landing__cta-final" id="product-section">
+                    <div class="sap-landing__container">
+                        <div class="sap-landing__cta-card">
+                            <h2>Ready to Reclaim Your Evenings?</h2>
+                            <p>The Sacred Menopause Transformation Guide gives you the daily rituals, recipes, and remedies to take control of your symptoms.</p>
+                            <div class="sap-landing__cta-actions">
+                                <a class="gumroad-button btn btn--primary btn--lg" href="https://sacredankh.gumroad.com/l/menopause-relief" target="_blank" rel="noopener">Start Your Transformation - $13</a>
+                                <button class="btn btn--outline" data-scroll-target="problem">See What's Inside</button>
+                            </div>
+                        </div>
+                        <div class="sap-landing__newsletter">
+                            <h3>Prefer to Start With Our Free Morning Routine?</h3>
+                            <p>Join our community and access the 5-minute ritual that reduces hot flashes by 60%.</p>
+                            <div class="signup__form" data-ghost-signup>
+                                <div class="ghost-signup-embed">
+                                    <div class="ghost-signup-embed__container">
+                                        <script
+                                          src="https://cdn.jsdelivr.net/ghost/signup-form@~0.3/umd/signup-form.min.js"
+                                          data-button-color="#C4A46B"
+                                          data-button-text-color="#FFFFFF"
+                                          data-site="https://blog.sacredapothecary.xyz/"
+                                          data-locale="en"
+                                          async>
+                                        </script>
+                                    </div>
+                                </div>
+                                <p class="signup__privacy">We respect your privacy. Unsubscribe at any time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
 
         <!-- Product Page -->
@@ -222,14 +298,10 @@
                 <div class="container">
                     <div class="product-hero__content">
                         <div class="product-hero__image">
-                            <div class="product__placeholder large">
-                                <svg width="200" height="240" viewBox="0 0 200 240" fill="none">
-                                    <rect width="200" height="240" fill="var(--sand)" stroke="var(--sage)" stroke-width="3"/>
-                                    <text x="100" y="80" text-anchor="middle" fill="var(--forest)" font-size="16">Menopause</text>
-                                    <text x="100" y="110" text-anchor="middle" fill="var(--forest)" font-size="16">Support</text>
-                                    <text x="100" y="140" text-anchor="middle" fill="var(--forest)" font-size="16">Guide</text>
-                                    <circle cx="100" cy="180" r="15" fill="var(--gold)"/>
-                                </svg>
+                            <div class="gumroad-embed gumroad-embed--product-card">
+                                <div class="gumroad-product-embed" data-gumroad-product-id="menopause-relief">
+                                    <a href="https://sacredankh.gumroad.com/l/menopause-relief">Buy the Menopause Support Guide</a>
+                                </div>
                             </div>
                         </div>
                         <div class="product-hero__details">
@@ -268,50 +340,20 @@
                             </div>
                             
                             <div class="product-hero__purchase">
-                                <div class="product__price large">$37</div>
+                                <div class="product__price large">$13</div>
                                 <div class="gumroad-embed">
-                                    <div
-                                      class="gumroad-product-embed"
-                                      data-gumroad-product-id="menopause-relief"
-                                      data-outbound-embed="true"
-                                      data-display-style="compact"
-                                      data-button-text="Buy Now - $37"
-                                    >
-                                      <a href="https://sacredankh.gumroad.com/l/menopause-relief">Buy Now</a>
+                                    <div class="gumroad-button-wrapper">
+                                        <a class="gumroad-button btn btn--primary btn--lg" href="https://sacredankh.gumroad.com/l/menopause-relief" target="_blank" rel="noopener">
+                                            Buy Now - $13
+                                        </a>
                                     </div>
                                 </div>
                                 <noscript>
-                                    <a href="https://sacredankh.gumroad.com/l/menopause-relief" class="btn btn--primary btn--lg" target="_blank">Buy Now - $37</a>
+                                    <a href="https://sacredankh.gumroad.com/l/menopause-relief" class="btn btn--primary btn--lg" target="_blank">Buy Now - $13</a>
                                 </noscript>
-                                <p class="purchase__note">Instant digital download • 30-day money-back guarantee</p>
+                                <p class="purchase__note">Instant digital download • 60-day money-back guarantee</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Testimonials Section -->
-            <section class="testimonials">
-                <div class="container">
-                    <h2 class="section__title">What Our Community Says</h2>
-                    <div class="testimonials__slider" id="testimonialsSlider">
-                        <div class="testimonial__card active">
-                            <p>"This guide completely transformed my menopause experience. The natural remedies actually work, and I feel like myself again!"</p>
-                            <div class="testimonial__author">— Sarah M., 52</div>
-                        </div>
-                        <div class="testimonial__card">
-                            <p>"I wish I had found Sacred sooner. The holistic approach made all the difference in managing my symptoms naturally."</p>
-                            <div class="testimonial__author">— Jennifer L., 48</div>
-                        </div>
-                        <div class="testimonial__card">
-                            <p>"The recipes and lifestyle tips in this guide are amazing! My hot flashes reduced by 80% in just 6 weeks. Thank you, Sacred!"</p>
-                            <div class="testimonial__author">— Maria R., 55</div>
-                        </div>
-                    </div>
-                    <div class="testimonials__dots">
-                        <button class="dot active" onclick="showTestimonial(0)"></button>
-                        <button class="dot" onclick="showTestimonial(1)"></button>
-                        <button class="dot" onclick="showTestimonial(2)"></button>
                     </div>
                 </div>
             </section>
@@ -438,12 +480,12 @@
           aria-pressed="false"
         >
           <span class="mobile-sticky-cta__label">Get the Menopause Support Guide</span>
-          <span class="mobile-sticky-cta__price">$37</span>
+          <span class="mobile-sticky-cta__price">$13</span>
         </a>
     </div>
 
     <script src="assets/js/analytics.js"></script>
-    <script src="assets/js/app.js">    </script>
+    <script src="assets/js/app.js"></script>
     <script src="https://gumroad.com/js/gumroad-embed.js"></script>
 </body>
 </html>

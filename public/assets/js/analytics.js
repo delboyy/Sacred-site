@@ -79,12 +79,12 @@ function setupEcommerceTracking() {
     if (typeof gtag !== 'undefined') {
         gtag('event', 'view_item', {
             currency: 'USD',
-            value: 37,
+            value: 13,
             items: [{
                 item_id: 'menopause-guide',
                 item_name: 'Menopause Support Guide',
                 category: 'Digital Product',
-                price: 37,
+                price: 13,
                 quantity: 1
             }]
         });
@@ -101,12 +101,12 @@ function trackProductViews() {
         if (typeof gtag !== 'undefined') {
             gtag('event', 'view_item', {
                 currency: 'USD',
-                value: 37,
+                value: 13,
                 items: [{
                     item_id: 'menopause-guide',
                     item_name: 'Menopause Support Guide',
                     category: 'Digital Product',
-                    price: 37
+                    price: 13
                 }]
             });
         }
@@ -116,7 +116,7 @@ function trackProductViews() {
             fbq('track', 'ViewContent', {
                 content_name: 'Menopause Support Guide',
                 content_category: 'Digital Product',
-                value: 37,
+                value: 13,
                 currency: 'USD'
             });
         }
@@ -133,12 +133,12 @@ function trackAddToCart() {
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'add_to_cart', {
                     currency: 'USD',
-                    value: 37,
+                    value: 13,
                     items: [{
                         item_id: 'menopause-guide',
                         item_name: 'Menopause Support Guide',
                         category: 'Digital Product',
-                        price: 37,
+                        price: 13,
                         quantity: 1
                     }]
                 });
@@ -149,10 +149,10 @@ function trackAddToCart() {
                 fbq('track', 'AddToCart', {
                     content_name: 'Menopause Support Guide',
                     content_category: 'Digital Product',
-                    value: 37,
-                    currency: 'USD'
-                });
-            }
+                value: 13,
+                currency: 'USD'
+            });
+        }
 
             console.log('Add to cart tracked');
         });
@@ -167,12 +167,12 @@ function trackCheckout() {
         if (typeof gtag !== 'undefined') {
             gtag('event', 'begin_checkout', {
                 currency: 'USD',
-                value: 37,
+                value: 13,
                 items: [{
                     item_id: 'menopause-guide',
                     item_name: 'Menopause Support Guide',
                     category: 'Digital Product',
-                    price: 37,
+                    price: 13,
                     quantity: 1
                 }]
             });
@@ -182,7 +182,7 @@ function trackCheckout() {
         if (typeof fbq !== 'undefined') {
             fbq('track', 'InitiateCheckout', {
                 content_name: 'Menopause Support Guide',
-                value: 37,
+                value: 13,
                 currency: 'USD',
                 num_items: 1
             });

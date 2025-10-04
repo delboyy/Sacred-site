@@ -2,8 +2,7 @@
 
 ## ✅ COMPLETED FEATURES
 
-### 1. Marketing Site Implementation
-- ✅ Structured the single-page experience (`public/index.html`) with hero, benefits, testimonials, and product storytelling.
+- ✅ Rebuilt the single-page experience (`public/index.html`) using the Perplexity Labs design (hero, urgency, social proof, science, CTA) scoped under `.sap-landing`.
 - ✅ Implemented responsive navigation (desktop/mobile) with smooth hash routing and an external Ghost blog link (`https://blog.sacredapothecary.xyz`).
 - ✅ Improved mobile nav behaviour so external links close the menu before opening in a new tab.
 - ✅ Maintained Astro-powered About/Product pages with shared layouts and styling parity.
@@ -84,7 +83,7 @@
 ### 9. Gumroad Overlay Checkout Implementation ✅
 - ✅ **Added Gumroad embed script** to `public/index.html`, `public/checkout.html`, and `public/thank-you/index.html`.
 - ✅ **Converted CTAs** to `gumroad-button` overlay triggers with consistent styling.
-- ✅ **Embedded full Gumroad product widget** (image, price, CTA) in the landing-page product section for richer merchandising.
+- ✅ **Embedded full Gumroad product widget** (image, price, CTA) in the landing-page hero & product sections for richer merchandising.
 - ✅ **Implemented `<noscript>` fallbacks** so direct checkout links work without JavaScript.
 - ✅ **Documented provider setup** in `README-checkout.md` and handover guides.
 - 🔄 **Test overlay functionality** and fallback behavior whenever URLs change.

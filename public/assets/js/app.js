@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAccordions();
     initializeFormHandling();
     initializeStickyCTA();
+    initializeLandingComponents();
 
     if (window.location.hash === '#product') {
         navigateToPage('product');
@@ -180,16 +181,153 @@ function updateStickyCTAVisibility(shouldShow) {
     }
 }
 
+// Landing page enhancements
+function initializeLandingComponents() {
+    const landingRoot = document.querySelector('.sap-landing');
+    if (!landingRoot) {
+        return;
+    }
+
+    setupLandingScrollLinks(landingRoot);
+    setupLandingCountdown();
+    setupLandingTestimonials();
+    setupGuideInventoryTicker();
+}
+
+function setupLandingScrollLinks(root) {
+    const triggers = root.querySelectorAll('[data-scroll-target]');
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', function (event) {
+            event.preventDefault();
+            const targetId = trigger.getAttribute('data-scroll-target');
+            scrollToLandingSection(targetId);
+        });
+    });
+}
+
+function scrollToLandingSection(targetId) {
+    if (!targetId) {
+        return;
+    }
+
+    if (currentPage !== 'home') {
+        navigateToPage('home');
+        setTimeout(() => smoothScrollToId(targetId === 'product' ? 'product-section' : targetId), 350);
+    } else {
+        smoothScrollToId(targetId === 'product' ? 'product-section' : targetId);
+    }
+}
+
+function smoothScrollToId(id) {
+    const element = document.getElementById(id);
+    if (!element) {
+        return;
+    }
+
+    const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+}
+
+function setupLandingCountdown() {
+    const hoursEl = document.getElementById('sap-countdown-hours');
+    const minutesEl = document.getElementById('sap-countdown-minutes');
+    const secondsEl = document.getElementById('sap-countdown-seconds');
+
+    if (!hoursEl || !minutesEl || !secondsEl) {
+        return;
+    }
+
+    const COUNTDOWN_KEY = 'sapCountdownTarget';
+    const now = Date.now();
+    let targetTime = parseInt(sessionStorage.getItem(COUNTDOWN_KEY), 10);
+
+    if (!targetTime || targetTime < now) {
+        targetTime = now + 24 * 60 * 60 * 1000;
+        sessionStorage.setItem(COUNTDOWN_KEY, targetTime.toString());
+    }
+
+    const updateCountdown = () => {
+        const distance = targetTime - Date.now();
+
+        if (distance <= 0) {
+            targetTime = Date.now() + 24 * 60 * 60 * 1000;
+            sessionStorage.setItem(COUNTDOWN_KEY, targetTime.toString());
+        }
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        hoursEl.textContent = String(Math.max(hours, 0)).padStart(2, '0');
+        minutesEl.textContent = String(Math.max(minutes, 0)).padStart(2, '0');
+        secondsEl.textContent = String(Math.max(seconds, 0)).padStart(2, '0');
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+function setupLandingTestimonials() {
+    const slider = document.querySelector('.sap-landing__testimonials');
+    const testimonials = slider ? Array.from(slider.querySelectorAll('.sap-landing__testimonial')) : [];
+    const dotsContainer = document.getElementById('sap-testimonial-dots');
+    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('button[data-sap-slide]')) : [];
+
+    if (!slider || testimonials.length === 0) {
+        return;
+    }
+
+    let index = 0;
+
+    const show = (nextIndex) => {
+        testimonials.forEach((item, i) => {
+            item.classList.toggle('is-active', i === nextIndex);
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('is-active', i === nextIndex);
+        });
+        index = nextIndex;
+    };
+
+    dots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', () => show(dotIndex));
+    });
+
+    setInterval(() => {
+        const next = (index + 1) % testimonials.length;
+        show(next);
+    }, 5000);
+}
+
+function setupGuideInventoryTicker() {
+    const counters = [
+        document.getElementById('sap-guides-left'),
+        document.getElementById('sap-guides-left-cta')
+    ].filter(Boolean);
+
+    if (counters.length === 0) {
+        return;
+    }
+
+    let current = 47;
+    counters.forEach(counter => counter.textContent = String(current));
+
+    setInterval(() => {
+        if (current <= 12) {
+            return;
+        }
+        const decrement = Math.floor(Math.random() * 3);
+        if (decrement === 0) {
+            return;
+        }
+        current = Math.max(current - decrement, 12);
+        counters.forEach(counter => counter.textContent = String(current));
+    }, 20000);
+}
+
 // Smooth Scrolling Functions
 function scrollToProduct() {
-    const productSection = document.getElementById('product-section');
-    if (productSection) {
-        const offsetTop = productSection.offsetTop - 80; // Account for fixed nav
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-        });
-    }
+    smoothScrollToId('product-section');
 }
 
 // Testimonials Slider Functions
@@ -630,7 +768,7 @@ window.addEventListener('scroll', throttledScrollHandler);
 function initializeAnimations() {
     if (!('IntersectionObserver' in window)) {
         // Fallback for browsers without IntersectionObserver support
-        const animateElements = document.querySelectorAll('.benefit__card, .article__card, .value__card');
+        const animateElements = document.querySelectorAll('.benefit__card, .article__card, .value__card, .sap-landing__problem-card, .sap-landing__science-grid article, .sap-landing__highlight-card, .sap-landing__cta-card');
         animateElements.forEach(el => el.classList.add('animate-in'));
         return;
     }
@@ -650,7 +788,7 @@ function initializeAnimations() {
     }, observerOptions);
     
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.benefit__card, .article__card, .value__card');
+    const animateElements = document.querySelectorAll('.benefit__card, .article__card, .value__card, .sap-landing__problem-card, .sap-landing__science-grid article, .sap-landing__highlight-card, .sap-landing__cta-card');
     animateElements.forEach(el => {
         if (el) {
             observer.observe(el);
@@ -660,7 +798,7 @@ function initializeAnimations() {
 
 // Animation styles
 const animationStyles = `
-    .benefit__card, .article__card, .value__card {
+    .benefit__card, .article__card, .value__card, .sap-landing__problem-card, .sap-landing__science-grid article, .sap-landing__highlight-card, .sap-landing__cta-card {
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.6s ease-out;

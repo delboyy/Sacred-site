@@ -1,0 +1,357 @@
+.sap-landing {
+  font-family: var(--font-family-base, "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  color: var(--color-text, #13343b);
+  background: var(--color-background, #fcfcf9);
+}
+
+.sap-landing * {
+  box-sizing: border-box;
+}
+
+.sap-landing a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sap-landing__container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-24, 24px);
+}
+
+.sap-landing__hero {
+  padding: clamp(4rem, 6vw, 6.5rem) 0 3rem;
+  background: linear-gradient(135deg, rgba(33, 128, 141, 0.1) 0%, rgba(239, 237, 229, 0.8) 100%);
+}
+
+.sap-landing__hero-content {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sap-landing__urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(var(--color-teal-500-rgb, 33, 128, 141), 0.12);
+  color: var(--color-primary, #21808d);
+  font-weight: 500;
+}
+
+.sap-landing__pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary, #21808d);
+  box-shadow: 0 0 0 0 rgba(var(--color-teal-500-rgb, 33, 128, 141), 0.6);
+  animation: sap-pulse 1.8s infinite;
+}
+
+@keyframes sap-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(var(--color-teal-500-rgb, 33, 128, 141), 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(var(--color-teal-500-rgb, 33, 128, 141), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--color-teal-500-rgb, 33, 128, 141), 0); }
+}
+
+.sap-landing__headline {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 1.1;
+  color: var(--color-text, #13343b);
+}
+
+.sap-landing__headline em {
+  color: var(--color-primary, #21808d);
+  font-style: normal;
+}
+
+.sap-landing__subheadline {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: rgba(var(--color-slate-500-rgb, 98, 108, 113), 0.9);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sap-landing .stars {
+  letter-spacing: 0.2rem;
+  color: #ffb631;
+  font-weight: 600;
+}
+
+.sap-landing__cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.sap-landing__countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.sap-landing__countdown-item {
+  min-width: 84px;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  background: rgba(var(--color-teal-500-rgb, 33, 128, 141), 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.sap-landing__countdown-item span {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-primary, #21808d);
+}
+
+.sap-landing__countdown-item label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(var(--color-slate-500-rgb, 98, 108, 113), 0.8);
+}
+
+.sap-landing__problem {
+  padding: clamp(3.5rem, 6vw, 5rem) 0;
+}
+
+.sap-landing__problem h2 {
+  text-align: center;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 2.5rem;
+}
+
+.sap-landing__problem-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.sap-landing__problem-card {
+  padding: 1.75rem;
+  border-radius: 20px;
+  background: var(--color-surface, #fffdfd);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.04));
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.sap-landing__problem-card .icon {
+  font-size: 2rem;
+}
+
+.sap-landing__problem-conclusion {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-primary, #21808d);
+}
+
+.sap-landing__testimonials {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--color-surface, #fffdfd);
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0,0,0,0.04));
+}
+
+.sap-landing__testimonial {
+  display: none;
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.sap-landing__testimonial.is-active {
+  display: block;
+}
+
+.sap-landing__testimonial p {
+  font-size: 1.1rem;
+  color: rgba(var(--color-slate-500-rgb, 98,108,113), 0.95);
+  margin-bottom: 1.25rem;
+}
+
+.sap-landing__testimonial-author {
+  font-weight: 600;
+  color: var(--color-text, #13343b);
+}
+
+.sap-landing__testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.sap-landing__testimonial-dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(var(--color-teal-500-rgb, 33,128,141), 0.25);
+  cursor: pointer;
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.sap-landing__testimonial-dots button.is-active {
+  background: var(--color-primary, #21808d);
+  transform: scale(1.1);
+}
+
+.sap-landing__product {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  background: rgba(var(--color-teal-500-rgb, 33,128,141), 0.05);
+}
+
+.sap-landing__scarcity {
+  display: inline-flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(var(--color-red-400-rgb, 255,84,89), 0.12);
+  color: var(--color-red-500, #c0152f);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.sap-landing__product-grid {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+}
+
+.sap-landing__product-media {
+  width: 100%;
+}
+
+.sap-landing__pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--color-surface, #fffdfd);
+  padding: 1.5rem;
+  border-radius: 18px;
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.04));
+  margin-bottom: 1.5rem;
+}
+
+.sap-landing__pricing .compare span {
+  text-decoration: line-through;
+}
+
+.sap-landing__pricing .current span {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary, #21808d);
+}
+
+.sap-landing__benefits ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.sap-landing__cta {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.sap-landing__science {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+}
+
+.sap-landing__science-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.sap-landing__science-grid article {
+  background: var(--color-surface, #fffdfd);
+  padding: 1.75rem;
+  border-radius: 18px;
+  box-shadow: var(--shadow-xs, 0 1px 2px rgba(0,0,0,0.04));
+}
+
+.sap-landing__testimonial-highlight {
+  padding: clamp(2.5rem, 4vw, 3.5rem) 0;
+}
+
+.sap-landing__highlight-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(209, 196, 143, 0.25) 0%, rgba(255, 255, 255, 0.95) 100%);
+  text-align: center;
+  font-style: italic;
+  color: var(--color-text, #13343b);
+}
+
+.sap-landing__cta-final {
+  padding: clamp(3rem, 5vw, 4.5rem) 0;
+}
+
+.sap-landing__cta-card {
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: 24px;
+  background: rgba(var(--color-teal-500-rgb, 33,128,141), 0.12);
+  text-align: center;
+}
+
+.sap-landing__cta-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.sap-landing__newsletter {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: 20px;
+  background: var(--color-surface, #fffdfd);
+  box-shadow: var(--shadow-xs, 0 1px 2px rgba(0, 0, 0, 0.04));
+}
+
+.sap-landing__newsletter p {
+  margin-bottom: 1.25rem;
+  color: rgba(var(--color-slate-500-rgb, 98,108,113), 0.9);
+}
+
+@media (max-width: 768px) {
+  .sap-landing__countdown {
+    gap: 1rem;
+  }
+
+  .sap-landing__cta-actions {
+    flex-direction: column;
+  }
+
+  .sap-landing__cta-card {
+    text-align: left;
+  }
+}
