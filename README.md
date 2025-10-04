@@ -90,12 +90,13 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ### Build & Deploy
 1. **Build**: `npm run build`
 2. **Preview**: `npm run preview`
-3. **Deploy to Vercel**: Connect repo to Vercel for auto-deployment
+3. **Deploy to Vercel**: Follow `docs/VERCEL_DEPLOYMENT.md` for complete setup
 
 ## Key Files
 
 ### Documentation
 - `docs/PROJECT_STATUS.md` - Complete development status and roadmap
+- `docs/VERCEL_DEPLOYMENT.md` - Production deployment guide
 - `docs/ASTRO_BLOG_SETUP.md` - Blog system implementation guide
 - `docs/LEMON_SQUEEZY_SETUP.md` - E-commerce setup instructions
 - `docs/WEBHOOK_ATTRIBUTION_SETUP.md` - Server-side attribution setup

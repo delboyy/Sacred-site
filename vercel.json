@@ -1,34 +1,10 @@
 {
-  "version": 2,
+  "framework": "astro",
   "functions": {
     "src/pages/api/**/*.js": {
       "runtime": "nodejs18.x"
     }
   },
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/src/pages/api/$1"
-    },
-    {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml",
-      "headers": {
-        "Content-Type": "application/xml"
-      }
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "/robots.txt",
-      "headers": {
-        "Content-Type": "text/plain"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -52,7 +28,7 @@
       ]
     },
     {
-      "source": "/js/(.*)",
+      "source": "/_astro/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -61,16 +37,7 @@
       ]
     },
     {
-      "source": "/style.css",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/assets/images/ankh-logo.png",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -84,6 +51,10 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=86400"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
         }
       ]
     },
@@ -93,15 +64,14 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=86400"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
         }
       ]
     }
   ],
-  "functions": {},
-  "regions": ["iad1"],
-  "outputDirectory": ".",
-  "installCommand": "echo 'No build step required'",
-  "buildCommand": "echo 'Static site - no build needed'",
-  "devCommand": "python3 -m http.server 3000"
+  "regions": ["iad1"]
 }
 
