@@ -31,6 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .sap-landing__urgency {
@@ -95,6 +96,16 @@
 .sap-landing__cta .btn {
   min-width: 240px;
   text-align: center;
+}
+
+.sap-landing .btn--primary,
+.sap-landing .btn--primary:visited {
+  color: var(--color-btn-primary-text, #fdfbf4);
+}
+
+.sap-landing .btn--outline,
+.sap-landing .btn--outline:visited {
+  color: var(--color-text, #13343b);
 }
 
 .sap-landing__countdown {

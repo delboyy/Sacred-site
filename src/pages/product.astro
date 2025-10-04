@@ -1,14 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Product information
 const productTitle = "Menopause Support Guide - Sacred";
 const productDescription = "A comprehensive 50-page guide to navigating menopause naturally with time-tested remedies, lifestyle adjustments, and nutritional support.";
 const productImage = "/assets/images/ankh-logo.png";
-const productPrice = 37;
+const productPrice = 13;
 const productCurrency = "USD";
 
-// Structured Data for Product
 const productStructuredData = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -31,8 +29,8 @@ const productStructuredData = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "200"
+    "ratingValue": "4.8",
+    "reviewCount": "387"
   }
 };
 ---
@@ -45,6 +43,37 @@ const productStructuredData = {
   type="product"
   structuredData={productStructuredData}
 >
-  <!-- Redirect to the main page product section -->
-  <meta http-equiv="refresh" content="0; url=/index.html#product" />
+  <main class="product-page">
+    <section class="product-page__hero">
+      <div class="product-page__container">
+        <div class="product-page__media">
+          <div class="gumroad-embed gumroad-embed--product-card">
+            <div class="gumroad-product-embed" data-gumroad-product-id="menopause-relief">
+              <a href="https://sacredankh.gumroad.com/l/menopause-relief">Buy the Menopause Support Guide</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-page__details">
+          <h1>Menopause Support Guide</h1>
+          <p class="product-page__description">A comprehensive, natural roadmap that helps you balance hormones, sleep deeply, and reclaim lasting energy.</p>
+          <div class="product-page__pricing">
+            <span class="product-page__price">$13</span>
+            <span class="product-page__badge">Digital download • Instant access</span>
+          </div>
+          <ul class="product-page__list">
+            <li>7-Day Hormone Reset Protocol</li>
+            <li>12 Natural Remedies for Hot Flashes</li>
+            <li>Sleep Restoration Blueprint</li>
+            <li>Mood &amp; Energy Stabilization Techniques</li>
+            <li>Quick Reference Cheat Sheets &amp; Recipes</li>
+          </ul>
+          <a class="gumroad-button btn btn--primary btn--lg" href="https://sacredankh.gumroad.com/l/menopause-relief" target="_blank" rel="noopener">
+            Start Your Transformation - $13
+          </a>
+          <p class="product-page__guarantee">✓ 60-Day Money-Back Guarantee</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="https://gumroad.com/js/gumroad-embed.js" defer></script>
 </BaseLayout>
