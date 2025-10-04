@@ -29,7 +29,7 @@
 - ✅ Included download instructions and community engagement
 
 ### 4. Analytics & Tracking System
-- ✅ Created `js/analytics.js` - comprehensive tracking setup
+- ✅ Created `public/assets/js/analytics.js` - comprehensive tracking setup
 - ✅ Implemented GA4 with e-commerce events:
   - Product views, add-to-cart, checkout initiation, purchases
 - ✅ Added Meta Pixel integration for Facebook/Instagram ads
@@ -68,11 +68,10 @@
 
 ## 🔧 CONFIGURATION NEEDED (Manual Setup)
 
-### Analytics & Tracking Setup
-- 🔄 **GA4 Measurement ID**: Replace `GA4_MEASUREMENT_ID` in `js/analytics.js`
+- 🔄 **GA4 Measurement ID**: Replace `GA4_MEASUREMENT_ID` in `public/assets/js/analytics.js`
   - Get from Google Analytics 4 property
   - Format: `G-XXXXXXXXXX`
-- 🔄 **Meta Pixel ID**: Replace `META_PIXEL_ID` in `js/analytics.js`
+- 🔄 **Meta Pixel ID**: Replace `META_PIXEL_ID` in `public/assets/js/analytics.js`
   - Get from Facebook Business Manager > Events Manager
   - Format: `XXXXXXXXXXXXXXXX`
 
@@ -102,7 +101,7 @@
   - Update Open Graph images
 
 ### 9. Lemon Squeezy Overlay Checkout Implementation ✅
-- ✅ **Created overlay checkout script** (`js/lemonsqueezy.js`)
+- ✅ **Created overlay checkout script** (`public/assets/js/lemonsqueezy.js`)
 - ✅ **Updated CTA buttons** to use `data-ls-overlay` attributes
 - ✅ **Implemented fallback behavior** with `<noscript>` tags
 - ✅ **Added script to all HTML pages** (index.html, checkout.html)
@@ -188,12 +187,11 @@
 - ✅ **Committed and pushed changes** to complete the commerce migration
 
 ### 18. Final Vercel Runtime Configuration Fix ✅
-- ✅ **Fixed Astro configuration** for proper Vercel deployment (`output: 'server'`)
-- ✅ **Updated deprecated Vercel adapter import** (`@astrojs/vercel` instead of `@astrojs/vercel/static`)
-- ✅ **Added framework specification** to `vercel.json` to help Vercel detect Astro project
-- ✅ **Added functions runtime configuration** for serverless functions (`nodejs18`)
-- ✅ **Fixed deployment error** "Function Runtimes must have a valid version"
-- ✅ **Committed and pushed configuration** for successful deployment
+- ✅ **Confirmed Astro server output** with `@astrojs/vercel` adapter for production SSR
+- ✅ **Kept `framework: "astro"`** in `vercel.json` so Vercel auto-detects the project
+- ✅ **Removed custom functions runtime override** allowing adapter to supply the correct `nodejs22.x` runtime
+- ✅ **Validated build + deploy logs** now complete without "Function Runtimes must have a valid version" error
+- ✅ **Documented deployment procedure** in `docs/VERCEL_DEPLOYMENT.md`
 
 ### 19. Astro + MDX + TinaCMS Blog Implementation ✅
 - ✅ **Set up Astro project** with MDX and TinaCMS integration
@@ -211,6 +209,12 @@
 - ✅ **Fixed continuous loading issue** - moved static HTML files to public/ directory, resolved Astro configuration conflicts, and created proper root route redirect
 - ✅ **Local development server working** - all routes loading correctly (/, /blog, /blog/[slug], /about, /product, /checkout.html, /thank-you/)
 - ✅ **Hybrid architecture complete** - static HTML pages coexist with Astro-powered blog
+
+### 20. Static Asset Publishing Fix ✅
+- ✅ **Moved CSS/JS/images** into `public/assets/` so Vercel publishes them with each deploy
+- ✅ **Updated MDX posts** to reference the deployed asset paths for cover images
+- ✅ **Refreshed docs + README** so maintenance steps point to the new asset locations
+- ✅ **Rebuilt project** confirming `.vercel/output/static/assets/` includes the required files
 
 ## 🚀 DEPLOYMENT STEPS
 
