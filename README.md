@@ -92,6 +92,8 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 2. **Preview**: `npm run preview`
 3. **Deploy to Vercel**: Follow `docs/VERCEL_DEPLOYMENT.md` for complete setup
 
+**⚠️ Important**: Vercel deployment requires the serverless functions to use ES modules format. The webhook API has been updated to use the correct `export async function POST({ request })` format compatible with nodejs18 runtime.
+
 ## Key Files
 
 ### Documentation
