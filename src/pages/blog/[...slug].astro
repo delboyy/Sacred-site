@@ -1,0 +1,361 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { post: entry },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Generate Table of Contents from headings
+const content = await post.render();
+const headings = [];
+
+// Simple TOC generation from content
+// In a real implementation, you might want to use a more sophisticated approach
+const tocItems = [
+  { level: 2, text: "Introduction", id: "introduction" },
+  // You could extract headings from the content here
+];
+
+// Structured Data for Article
+const articleStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": post.data.cover.startsWith('http') ? post.data.cover : `https://sacred-site.com${post.data.cover}`,
+  "datePublished": post.data.date.toISOString(),
+  "dateModified": post.data.date.toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": "Sacred",
+    "url": "https://sacred-site.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sacred",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sacred-site.com/assets/images/ankh-logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://sacred-site.com/blog/${post.slug}`
+  },
+  "keywords": post.data.tags.join(", ")
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} - Sacred`}
+  description={post.data.description}
+  image={post.data.cover}
+  url={`/blog/${post.slug}`}
+  type="article"
+  structuredData={articleStructuredData}
+>
+  <article class="blog-post">
+    <div class="container">
+      <!-- Article Header -->
+      <header class="article__header">
+        <div class="article__meta">
+          <span class="article__category">{post.data.tags[0]}</span>
+          <span class="article__date">
+            {new Date(post.data.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </span>
+          <span class="article__read-time">{post.data.readingTime} min read</span>
+        </div>
+        <h1 class="article__title">{post.data.title}</h1>
+        <p class="article__subtitle">{post.data.description}</p>
+      </header>
+
+      <!-- Article Content -->
+      <div class="article__content">
+        <!-- Table of Contents -->
+        <aside class="toc">
+          <h3>Table of Contents</h3>
+          <nav>
+            <ul>
+              {tocItems.map(item => (
+                <li class={`toc-level-${item.level}`}>
+                  <a href={`#${item.id}`}>{item.text}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <Content />
+      </div>
+
+      <!-- Article Footer -->
+      <footer class="article__footer">
+        <div class="article__tags">
+          {post.data.tags.map(tag => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+
+        <div class="article__navigation">
+          <a href="/blog" class="nav-link back">
+            ← Back to Blog
+          </a>
+          <a href="/" class="nav-link home">
+            Return Home
+          </a>
+        </div>
+      </footer>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .article__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .article__meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    flex-wrap: wrap;
+  }
+
+  .article__category {
+    background: var(--primary);
+    color: var(--btn-primary-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .article__title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 1rem 0;
+    font-weight: 700;
+  }
+
+  .article__subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .article__content {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 3rem;
+    margin: 3rem 0;
+  }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .toc h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+
+  .toc nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc nav li {
+    margin: 0.5rem 0;
+  }
+
+  .toc nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .toc nav a:hover {
+    color: var(--primary);
+  }
+
+  .toc-level-2 {
+    margin-left: 1rem;
+  }
+
+  .toc-level-3 {
+    margin-left: 2rem;
+  }
+
+  .article__footer {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin-top: 3rem;
+  }
+
+  .article__tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .article__tags .tag {
+    background: var(--color-bg-2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+  }
+
+  .article__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .nav-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--primary-hover);
+  }
+
+  .nav-link.back {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Typography styles */
+  .article__content h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .article__content h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.5rem 0;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .article__content p {
+    line-height: 1.7;
+    margin: 0 0 1.5rem 0;
+    color: var(--text);
+  }
+
+  .article__content ul,
+  .article__content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+
+  .article__content li {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+  }
+
+  .article__content blockquote {
+    border-left: 4px solid var(--primary);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .article__content strong {
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .article__content em {
+    font-style: italic;
+  }
+
+  .article__content code {
+    background: var(--color-bg-2);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Berkeley Mono', monospace;
+    font-size: 0.9em;
+  }
+
+  .article__content pre {
+    background: var(--color-bg-2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .article__content pre code {
+    background: transparent;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .article__title {
+      font-size: 2rem;
+    }
+
+    .article__content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .toc {
+      position: static;
+      order: -1;
+    }
+
+    .article__meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .article__navigation {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

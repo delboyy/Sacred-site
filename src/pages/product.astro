@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Product information
+const productTitle = "Menopause Support Guide - Sacred";
+const productDescription = "A comprehensive 50-page guide to navigating menopause naturally with time-tested remedies, lifestyle adjustments, and nutritional support.";
+const productImage = "/assets/images/ankh-logo.png";
+const productPrice = 37;
+const productCurrency = "USD";
+
+// Structured Data for Product
+const productStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Menopause Support Guide",
+  "description": productDescription,
+  "image": `https://sacred-site.com${productImage}`,
+  "brand": {
+    "@type": "Brand",
+    "name": "Sacred"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": productPrice,
+    "priceCurrency": productCurrency,
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Sacred"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "200"
+  }
+};
+---
+
+<BaseLayout
+  title={productTitle}
+  description={productDescription}
+  image={productImage}
+  url="/product"
+  type="product"
+  structuredData={productStructuredData}
+>
+  <!-- Redirect to the main page product section -->
+  <meta http-equiv="refresh" content="0; url=/index.html#product" />
+</BaseLayout>

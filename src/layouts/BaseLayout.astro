@@ -1,0 +1,248 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article' | 'product';
+  structuredData?: any;
+}
+
+const { title, description, image = "/assets/images/ankh-logo.png", url, type = 'website', structuredData } = Astro.props;
+
+// Default SEO values
+const siteUrl = "https://sacred-site.com";
+const canonicalUrl = url ? `${siteUrl}${url}` : siteUrl + Astro.url.pathname;
+
+// Use provided values or defaults
+const metaImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const metaUrl = canonicalUrl;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={metaUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={metaUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={metaImage} />
+    <meta property="og:site_name" content="Sacred" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={metaUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={metaImage} />
+
+    <!-- Structured Data -->
+    {structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav__container">
+        <div class="nav__brand">
+          <a href="/" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+            <img src="/assets/images/ankh-logo.png" alt="Sacred Logo" class="nav__logo" width="32" height="32">
+            <span class="nav__brand-text">Sacred</span>
+          </a>
+        </div>
+
+        <div class="nav__menu" id="navMenu">
+          <a href="/" class="nav__link">Home</a>
+          <a href="/product" class="nav__link">Product</a>
+          <a href="/blog" class="nav__link active">Blog</a>
+          <a href="/about" class="nav__link">About</a>
+        </div>
+
+        <button class="nav__toggle" id="navToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="main">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__brand">
+            <div class="footer__logo">
+              <img src="/assets/images/ankh-logo.png" alt="Sacred Logo" width="32" height="32">
+              <span>Sacred</span>
+            </div>
+            <p>Natural wellness for modern life</p>
+          </div>
+
+          <div class="footer__links">
+            <div class="footer__column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product">Products</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/about">About</a></li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="mailto:support@sacred-site.com">Contact Us</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#shipping">Shipping</a></li>
+                <li><a href="#returns">Returns</a></li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <h4>Connect</h4>
+              <div class="footer__social">
+                <a href="#" target="_blank" aria-label="Instagram">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  </svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Facebook">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                  </svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Pinterest">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M8.5 14.5L14 9"/>
+                    <path d="M14 9L10.5 14.5"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p>&copy; 2024 Sacred. All rights reserved.</p>
+          <div class="footer__legal">
+            <a href="#" target="_blank">Privacy Policy</a>
+            <a href="#" target="_blank">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Analytics and other scripts are loaded by individual pages -->
+  </body>
+</html>
+
+<style>
+  /* Blog-specific styles */
+  .cover-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+
+  .blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .blog-meta {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .blog-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+
+  .tag {
+    background: var(--color-bg-2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .toc h3 {
+    margin-top: 0;
+    color: var(--text);
+  }
+
+  .toc ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .toc li {
+    margin: 0.5rem 0;
+  }
+
+  .toc a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .toc a:hover {
+    color: var(--primary);
+  }
+
+  .toc .toc-level-2 {
+    margin-left: 1rem;
+  }
+
+  .toc .toc-level-3 {
+    margin-left: 2rem;
+  }
+</style>

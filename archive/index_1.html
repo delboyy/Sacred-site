@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacred - Nature's Secret for Everlasting Balance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__container">
+            <div class="nav__brand">
+                <svg class="nav__logo" width="32" height="32" viewBox="0 0 32 32">
+                    <path d="M16 2c-2 0-4 1-5 3-1 2-1 4 1 6l8 8c2 2 4 2 6 1 2-1 3-3 3-5s-1-4-3-5l-8-8c-1-1-2-1-2 0z" fill="var(--forest)"/>
+                    <path d="M8 14c-1 1-1 3 1 4l6 6c1 1 3 1 4-1s1-3-1-4l-6-6c-1-1-3-1-4 1z" fill="var(--sage)"/>
+                    <circle cx="16" cy="16" r="2" fill="var(--gold)"/>
+                </svg>
+                <span class="nav__brand-text">Sacred</span>
+            </div>
+            
+            <div class="nav__menu" id="navMenu">
+                <a href="#home" class="nav__link active" data-page="home">Home</a>
+                <a href="#product" class="nav__link" data-page="product">Product</a>
+                <a href="#blog" class="nav__link" data-page="blog">Blog</a>
+                <a href="#about" class="nav__link" data-page="about">About</a>
+            </div>
+            
+            <button class="nav__toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Page -->
+        <div class="page active" id="home">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero__background"></div>
+                <div class="hero__content">
+                    <div class="hero__logo">
+                        <svg width="80" height="80" viewBox="0 0 80 80">
+                            <path d="M40 5c-5 0-10 2.5-12.5 7.5-2.5 5-2.5 10 2.5 15l20 20c5 5 10 5 15 2.5 5-2.5 7.5-7.5 7.5-12.5s-2.5-10-7.5-12.5l-20-20c-2.5-2.5-5-2.5-5 0z" fill="var(--forest)"/>
+                            <path d="M20 35c-2.5 2.5-2.5 7.5 2.5 10l15 15c2.5 2.5 7.5 2.5 10-2.5s2.5-7.5-2.5-10l-15-15c-2.5-2.5-7.5-2.5-10 2.5z" fill="var(--sage)"/>
+                            <circle cx="40" cy="40" r="5" fill="var(--gold)"/>
+                        </svg>
+                    </div>
+                    <h1 class="hero__title">Nature's Secret for Everlasting Balance</h1>
+                    <p class="hero__subtitle">Discover holistic wellness through our carefully crafted guides and natural supplements, designed to restore harmony to your body and mind.</p>
+                    <button class="btn btn--primary hero__cta" onclick="scrollToProduct()">Download Menopause Guide</button>
+                </div>
+            </section>
+
+            <!-- Benefits Section -->
+            <section class="benefits">
+                <div class="container">
+                    <h2 class="section__title">Why Choose Sacred?</h2>
+                    <div class="benefits__grid">
+                        <div class="benefit__card">
+                            <div class="benefit__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <h3>Natural Ingredients</h3>
+                            <p>Sourced from the purest natural ingredients, supporting your body's innate wisdom.</p>
+                        </div>
+                        <div class="benefit__card">
+                            <div class="benefit__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"/>
+                                </svg>
+                            </div>
+                            <h3>Holistic Approach</h3>
+                            <p>Addressing mind, body, and spirit for complete wellness transformation.</p>
+                        </div>
+                        <div class="benefit__card">
+                            <div class="benefit__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--forest)" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                            </div>
+                            <h3>Proven Results</h3>
+                            <p>Backed by traditional wisdom and modern research for lasting health benefits.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Product Section -->
+            <section class="featured-product" id="product-section">
+                <div class="container">
+                    <div class="product__showcase">
+                        <div class="product__image">
+                            <div class="product__placeholder">
+                                <svg width="100" height="120" viewBox="0 0 100 120" fill="none">
+                                    <rect width="100" height="120" fill="var(--sand)" stroke="var(--sage)" stroke-width="2"/>
+                                    <text x="50" y="40" text-anchor="middle" fill="var(--forest)" font-size="8">Menopause</text>
+                                    <text x="50" y="55" text-anchor="middle" fill="var(--forest)" font-size="8">Support</text>
+                                    <text x="50" y="70" text-anchor="middle" fill="var(--forest)" font-size="8">Guide</text>
+                                    <circle cx="50" cy="90" r="8" fill="var(--gold)"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="product__details">
+                            <h2 class="product__title">Menopause Support Guide</h2>
+                            <p class="product__description">A comprehensive guide to navigating menopause naturally. Discover time-tested remedies, lifestyle adjustments, and nutritional support to embrace this transformative phase with grace and vitality.</p>
+                            <ul class="product__benefits">
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--sage)">
+                                        <path d="M8 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/>
+                                    </svg>
+                                    Reduce hot flashes naturally
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--sage)">
+                                        <path d="M8 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/>
+                                    </svg>
+                                    Improve sleep quality
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--sage)">
+                                        <path d="M8 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/>
+                                    </svg>
+                                    Balance hormones holistically
+                                </li>
+                            </ul>
+                            <div class="product__price">$37</div>
+                            <button class="btn btn--primary" onclick="navigateToPage('product')">View Full Details</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Email Signup Section -->
+            <section class="email-signup">
+                <div class="container">
+                    <div class="signup__content">
+                        <h2>Join Our Wellness Community</h2>
+                        <p>Get exclusive access to natural health tips, early product releases, and special offers.</p>
+                        <form class="signup__form" onsubmit="handleEmailSignup(event)">
+                            <div class="form__group">
+                                <input type="text" name="name" placeholder="Your Name" class="form-control signup-name" required>
+                                <input type="email" name="email" placeholder="Your Email" class="form-control signup-email" required>
+                                <button type="submit" class="btn btn--secondary">Join Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Preview Section -->
+            <section class="blog-preview">
+                <div class="container">
+                    <h2 class="section__title">Latest Wellness Insights</h2>
+                    <div class="blog__grid">
+                        <article class="blog__card">
+                            <div class="blog__image">
+                                <div class="blog__placeholder" style="background: var(--color-bg-3);">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="var(--sage)">
+                                        <path d="M20 5l15 10v15l-15 10-15-10V15z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="blog__content">
+                                <h3>5 Herbs for Natural Hormone Balance</h3>
+                                <p>Discover powerful botanical allies that support your endocrine system...</p>
+                                <a href="#" class="blog__link" onclick="navigateToPage('blog')">Read More</a>
+                            </div>
+                        </article>
+                        <article class="blog__card">
+                            <div class="blog__image">
+                                <div class="blog__placeholder" style="background: var(--color-bg-5);">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="var(--sage)">
+                                        <circle cx="20" cy="20" r="15"/>
+                                        <path d="M20 10v20M10 20h20"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="blog__content">
+                                <h3>Mindful Eating for Digestive Wellness</h3>
+                                <p>Transform your relationship with food through conscious nutrition practices...</p>
+                                <a href="#" class="blog__link" onclick="navigateToPage('blog')">Read More</a>
+                            </div>
+                        </article>
+                        <article class="blog__card">
+                            <div class="blog__image">
+                                <div class="blog__placeholder" style="background: var(--color-bg-2);">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="var(--sage)">
+                                        <path d="M20 5C10 5 5 12 5 20s5 15 15 15 15-7 15-15S30 5 20 5z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="blog__content">
+                                <h3>Creating Sacred Morning Rituals</h3>
+                                <p>Start each day with intention through grounding practices and self-care...</p>
+                                <a href="#" class="blog__link" onclick="navigateToPage('blog')">Read More</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Product Page -->
+        <div class="page" id="product">
+            <section class="product-hero">
+                <div class="container">
+                    <div class="product-hero__content">
+                        <div class="product-hero__image">
+                            <div class="product__placeholder large">
+                                <svg width="200" height="240" viewBox="0 0 200 240" fill="none">
+                                    <rect width="200" height="240" fill="var(--sand)" stroke="var(--sage)" stroke-width="3"/>
+                                    <text x="100" y="80" text-anchor="middle" fill="var(--forest)" font-size="16">Menopause</text>
+                                    <text x="100" y="110" text-anchor="middle" fill="var(--forest)" font-size="16">Support</text>
+                                    <text x="100" y="140" text-anchor="middle" fill="var(--forest)" font-size="16">Guide</text>
+                                    <circle cx="100" cy="180" r="15" fill="var(--gold)"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="product-hero__details">
+                            <h1>Menopause Support Guide</h1>
+                            <p class="product-hero__description">Transform your menopause journey with our comprehensive 50-page guide featuring natural remedies, nutritional guidance, and lifestyle strategies developed by holistic health experts.</p>
+                            
+                            <div class="product__accordion">
+                                <div class="accordion__item">
+                                    <button class="accordion__header" onclick="toggleAccordion(this)">
+                                        <span>What's Included</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--forest)">
+                                            <path d="M8 4v8M4 8h8"/>
+                                        </svg>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <ul>
+                                            <li>50+ natural remedies for hot flashes</li>
+                                            <li>Hormone-balancing meal plans</li>
+                                            <li>Sleep optimization strategies</li>
+                                            <li>Stress management techniques</li>
+                                            <li>Exercise routines for every stage</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="accordion__item">
+                                    <button class="accordion__header" onclick="toggleAccordion(this)">
+                                        <span>Natural Ingredients Focus</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="var(--forest)">
+                                            <path d="M8 4v8M4 8h8"/>
+                                        </svg>
+                                    </button>
+                                    <div class="accordion__content">
+                                        <p>Learn about powerful botanicals like Black Cohosh, Red Clover, Dong Quai, and Maca Root, plus how to incorporate them safely into your daily routine.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="product-hero__purchase">
+                                <div class="product__price large">$37</div>
+                                <button class="btn btn--primary btn--lg">Add to Cart</button>
+                                <p class="purchase__note">Instant digital download • 30-day money-back guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials">
+                <div class="container">
+                    <h2 class="section__title">What Our Community Says</h2>
+                    <div class="testimonials__slider" id="testimonialsSlider">
+                        <div class="testimonial__card active">
+                            <p>"This guide completely transformed my menopause experience. The natural remedies actually work, and I feel like myself again!"</p>
+                            <div class="testimonial__author">— Sarah M., 52</div>
+                        </div>
+                        <div class="testimonial__card">
+                            <p>"I wish I had found Sacred sooner. The holistic approach made all the difference in managing my symptoms naturally."</p>
+                            <div class="testimonial__author">— Jennifer L., 48</div>
+                        </div>
+                        <div class="testimonial__card">
+                            <p>"The recipes and lifestyle tips in this guide are amazing! My hot flashes reduced by 80% in just 6 weeks. Thank you, Sacred!"</p>
+                            <div class="testimonial__author">— Maria R., 55</div>
+                        </div>
+                    </div>
+                    <div class="testimonials__dots">
+                        <button class="dot active" onclick="showTestimonial(0)"></button>
+                        <button class="dot" onclick="showTestimonial(1)"></button>
+                        <button class="dot" onclick="showTestimonial(2)"></button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Blog Page -->
+        <div class="page" id="blog">
+            <section class="blog-listing">
+                <div class="container">
+                    <h1 class="page__title">Wellness Blog</h1>
+                    <p class="page__subtitle">Discover natural health insights and holistic living tips</p>
+                    
+                    <div class="blog__articles">
+                        <article class="article__card">
+                            <div class="article__image">
+                                <div class="blog__placeholder" style="background: var(--color-bg-3);"></div>
+                            </div>
+                            <div class="article__content">
+                                <h2>5 Herbs for Natural Hormone Balance</h2>
+                                <p class="article__excerpt">Discover powerful botanical allies that support your endocrine system and promote hormonal harmony throughout life's transitions...</p>
+                                <div class="article__meta">
+                                    <span class="article__date">March 15, 2024</span>
+                                    <span class="article__category">Herbal Medicine</span>
+                                </div>
+                                <a href="#" class="btn btn--outline" onclick="navigateToPost('hormone-balance')">Read Article</a>
+                            </div>
+                        </article>
+
+                        <article class="article__card">
+                            <div class="article__image">
+                                <div class="blog__placeholder" style="background: var(--color-bg-5);"></div>
+                            </div>
+                            <div class="article__content">
+                                <h2>Mindful Eating for Digestive Wellness</h2>
+                                <p class="article__excerpt">Transform your relationship with food through conscious nutrition practices that support optimal digestion and nutrient absorption...</p>
+                                <div class="article__meta">
+                                    <span class="article__date">March 10, 2024</span>
+                                    <span class="article__category">Nutrition</span>
+                                </div>
+                                <a href="#" class="btn btn--outline" onclick="navigateToPost('mindful-eating')">Read Article</a>
+                            </div>
+                        </article>
+
+                        <article class="article__card">
+                            <div class="article__image">
+                                <div class="blog__placeholder" style="background: var(--color-bg-2);"></div>
+                            </div>
+                            <div class="article__content">
+                                <h2>Creating Sacred Morning Rituals</h2>
+                                <p class="article__excerpt">Start each day with intention through grounding practices and self-care rituals that set the tone for wellness and mindfulness...</p>
+                                <div class="article__meta">
+                                    <span class="article__date">March 5, 2024</span>
+                                    <span class="article__category">Mindfulness</span>
+                                </div>
+                                <a href="#" class="btn btn--outline" onclick="navigateToPost('morning-rituals')">Read Article</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div class="page" id="about">
+            <section class="about-hero">
+                <div class="container">
+                    <h1 class="page__title">About Sacred</h1>
+                    <p class="page__subtitle">Rooted in ancient wisdom, designed for modern life</p>
+                </div>
+            </section>
+
+            <section class="about-content">
+                <div class="container">
+                    <div class="about__story">
+                        <h2>Our Story</h2>
+                        <p>Sacred was born from a deep belief that true wellness comes from honoring the body's natural wisdom. Founded on the principle that health is not the absence of symptoms, but the presence of vitality, we bridge ancient healing traditions with modern understanding.</p>
+                        <p>Our journey began when our founder experienced her own health transformation through natural healing methods. Frustrated by the one-size-fits-all approach of conventional medicine, she discovered the power of personalized, holistic wellness.</p>
+                    </div>
+
+                    <div class="about__mission">
+                        <h2>Our Mission</h2>
+                        <p>We believe every woman deserves access to natural, effective wellness solutions that honor her unique journey. Our carefully curated guides and supplements are designed to support your body's innate healing capacity while respecting the interconnectedness of mind, body, and spirit.</p>
+                    </div>
+
+                    <div class="about__values">
+                        <h2>Our Values</h2>
+                        <div class="values__grid">
+                            <div class="value__card">
+                                <h3>Natural First</h3>
+                                <p>We prioritize gentle, plant-based solutions that work with your body, not against it.</p>
+                            </div>
+                            <div class="value__card">
+                                <h3>Holistic Approach</h3>
+                                <p>True wellness encompasses physical, emotional, and spiritual well-being.</p>
+                            </div>
+                            <div class="value__card">
+                                <h3>Empowered Choice</h3>
+                                <p>We provide education and tools so you can make informed decisions about your health.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32">
+                            <path d="M16 2c-2 0-4 1-5 3-1 2-1 4 1 6l8 8c2 2 4 2 6 1 2-1 3-3 3-5s-1-4-3-5l-8-8c-1-1-2-1-2 0z" fill="var(--sage)"/>
+                            <path d="M8 14c-1 1-1 3 1 4l6 6c1 1 3 1 4-1s1-3-1-4l-6-6c-1-1-3-1-4 1z" fill="var(--gold)"/>
+                            <circle cx="16" cy="16" r="2" fill="var(--forest)"/>
+                        </svg>
+                        <span>Sacred</span>
+                    </div>
+                    <p>Natural wellness for modern life</p>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#" onclick="navigateToPage('home')">Home</a></li>
+                            <li><a href="#" onclick="navigateToPage('product')">Products</a></li>
+                            <li><a href="#" onclick="navigateToPage('blog')">Blog</a></li>
+                            <li><a href="#" onclick="navigateToPage('about')">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#" target="_blank">Contact Us</a></li>
+                            <li><a href="#" target="_blank">FAQ</a></li>
+                            <li><a href="#" target="_blank">Shipping</a></li>
+                            <li><a href="#" target="_blank">Returns</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Connect</h4>
+                        <div class="footer__social">
+                            <a href="#" target="_blank" aria-label="Instagram">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" aria-label="Facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" aria-label="Pinterest">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M8.5 14.5L14 9"/>
+                                    <path d="M14 9L10.5 14.5"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 Sacred. All rights reserved.</p>
+                <div class="footer__legal">
+                    <a href="#" target="_blank">Privacy Policy</a>
+                    <a href="#" target="_blank">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

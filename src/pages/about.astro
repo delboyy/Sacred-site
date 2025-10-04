@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// About page information
+const aboutTitle = "About Sacred - Natural Wellness for Modern Life";
+const aboutDescription = "Learn about Sacred's mission to provide natural wellness solutions, time-tested remedies, and holistic approaches to modern health challenges.";
+const aboutImage = "/assets/images/ankh-logo.png";
+
+// Structured Data for Organization
+const aboutStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sacred",
+  "url": "https://sacred-site.com",
+  "logo": "https://sacred-site.com/assets/images/ankh-logo.png",
+  "description": aboutDescription,
+  "sameAs": [
+    // Add social media URLs when available
+  ]
+};
+---
+
+<BaseLayout
+  title={aboutTitle}
+  description={aboutDescription}
+  image={aboutImage}
+  url="/about"
+  structuredData={aboutStructuredData}
+>
+  <!-- Redirect to the main page about section -->
+  <meta http-equiv="refresh" content="0; url=/index.html#about" />
+</BaseLayout>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Sacred</title>
+    <meta name="description" content="Thank you for your purchase! Your Menopause Support Guide download link has been sent to your email.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- GA4 Base Tag - REPLACE GA4_MEASUREMENT_ID with your actual ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA4_MEASUREMENT_ID"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA4_MEASUREMENT_ID');
+    </script>
+
+    <!-- Meta Pixel Base Code - REPLACE META_PIXEL_ID with your actual ID -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'META_PIXEL_ID');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=META_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__container">
+            <div class="nav__brand">
+                <a href="../index.html" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                    <svg class="nav__logo" width="32" height="32" viewBox="0 0 32 32">
+                        <path d="M16 2c-2 0-4 1-5 3-1 2-1 4 1 6l8 8c2 2 4 2 6 1 2-1 3-3 3-5s-1-4-3-5l-8-8c-1-1-2-1-2 0z" fill="var(--forest)"/>
+                        <path d="M8 14c-1 1-1 3 1 4l6 6c1 1 3 1 4-1s1-3-1-4l-6-6c-1-1-3-1-4 1z" fill="var(--sage)"/>
+                        <circle cx="16" cy="16" r="2" fill="var(--gold)"/>
+                    </svg>
+                    <span class="nav__brand-text">Sacred</span>
+                </a>
+            </div>
+
+            <div class="nav__menu" id="navMenu">
+                <a href="../index.html#home" class="nav__link">Home</a>
+                <a href="../index.html#product" class="nav__link">Product</a>
+                <a href="../blog/index.html" class="nav__link">Blog</a>
+                <a href="../index.html#about" class="nav__link">About</a>
+            </div>
+
+            <button class="nav__toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <section class="thank-you-success">
+            <div class="container">
+                <div class="success-content">
+                    <!-- Success Header -->
+                    <div class="success-header">
+                        <div class="success-icon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="var(--sage)">
+                                <circle cx="40" cy="40" r="36" fill="var(--sage)" fill-opacity="0.1"/>
+                                <circle cx="40" cy="40" r="24" fill="none" stroke="var(--sage)" stroke-width="3"/>
+                                <path d="M28 38l8 8 16-16" stroke="var(--sage)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h1>Payment Successful!</h1>
+                        <p class="success-subtitle">Thank you for your purchase. Your order has been confirmed.</p>
+                    </div>
+
+                    <!-- Order Details -->
+                    <div class="order-summary-card">
+                        <h3>Order Details</h3>
+                        <div class="order-details">
+                            <div class="order-detail">
+                                <span class="label">Order ID:</span>
+                                <span class="value" id="order-id">Loading...</span>
+                            </div>
+                            <div class="order-detail">
+                                <span class="label">Amount Paid:</span>
+                                <span class="value" id="order-total">Loading...</span>
+                            </div>
+                            <div class="order-detail">
+                                <span class="label">Status:</span>
+                                <span class="value status-success" id="order-status">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- What's Next -->
+                    <div class="next-steps-section">
+                        <h3>What's Next?</h3>
+                        <div class="steps-grid">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Check Your Email</h4>
+                                    <p>You'll receive your download link and receipt within the next 5 minutes.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Download Your Guide</h4>
+                                    <p>Click the download link in your email to get instant access to your Menopause Support Guide.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Start Your Journey</h4>
+                                    <p>Begin implementing the natural wellness strategies in your comprehensive guide.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <a href="#downloads" class="btn btn--primary" id="download-btn">
+                            Return to Downloads
+                        </a>
+                        <a href="mailto:support@sacred-site.com" class="btn btn--outline" id="support-btn">
+                            Contact Support
+                        </a>
+                    </div>
+
+                    <!-- Additional Resources -->
+                    <div class="additional-resources">
+                        <h3>Explore More Wellness Content</h3>
+                        <p>While you wait for your download, discover more natural health insights:</p>
+                        <div class="resource-links">
+                            <a href="../blog/index.html" class="resource-link">
+                                📰 Read Our Blog
+                            </a>
+                            <a href="../index.html#about" class="resource-link">
+                                ℹ️ Learn About Sacred
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32">
+                            <path d="M16 2c-2 0-4 1-5 3-1 2-1 4 1 6l8 8c2 2 4 2 6 1 2-1 3-3 3-5s-1-4-3-5l-8-8c-1-1-2-1-2 0z" fill="var(--sage)"/>
+                            <path d="M8 14c-1 1-1 3 1 4l6 6c1 1 3 1 4-1s1-3-1-4l-6-6c-1-1-3-1-4 1z" fill="var(--gold)"/>
+                            <circle cx="16" cy="16" r="2" fill="var(--forest)"/>
+                        </svg>
+                        <span>Sacred</span>
+                    </div>
+                    <p>Natural wellness for modern life</p>
+                </div>
+
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="../index.html#home">Home</a></li>
+                            <li><a href="../index.html#product">Products</a></li>
+                            <li><a href="../blog/index.html">Blog</a></li>
+                            <li><a href="../index.html#about">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="mailto:support@sacred-site.com">Contact Us</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#shipping">Shipping</a></li>
+                            <li><a href="#returns">Returns</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__column">
+                        <h4>Connect</h4>
+                        <div class="footer__social">
+                            <a href="#" target="_blank" aria-label="Instagram">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" aria-label="Facebook">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                                </svg>
+                            </a>
+                            <a href="#" target="_blank" aria-label="Pinterest">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M8.5 14.5L14 9"/>
+                                    <path d="M14 9L10.5 14.5"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2024 Sacred. All rights reserved.</p>
+                <div class="footer__legal">
+                    <a href="#" target="_blank">Privacy Policy</a>
+                    <a href="#" target="_blank">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Thank You Page Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('order_id') || 'N/A';
+            const total = parseFloat(urlParams.get('total')) || 37.00;
+            const status = urlParams.get('status') || 'success';
+
+            // Update UI with order details
+            document.getElementById('order-id').textContent = orderId;
+            document.getElementById('order-total').textContent = `$${total.toFixed(2)} USD`;
+            document.getElementById('order-status').textContent = status.charAt(0).toUpperCase() + status.slice(1);
+
+            // Fire GA4 Purchase Event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'purchase', {
+                    transaction_id: orderId,
+                    value: total,
+                    currency: 'USD',
+                    items: [{
+                        item_id: 'menopause-guide',
+                        item_name: 'Menopause Support Guide',
+                        category: 'Digital Product',
+                        price: total,
+                        quantity: 1
+                    }]
+                });
+
+                console.log('GA4 Purchase event fired:', {
+                    transaction_id: orderId,
+                    value: total,
+                    currency: 'USD'
+                });
+            } else {
+                console.warn('GA4 not available - purchase event not fired');
+            }
+
+            // Fire Meta Pixel Purchase Event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Purchase', {
+                    value: total,
+                    currency: 'USD',
+                    content_name: 'Menopause Support Guide',
+                    content_type: 'product'
+                });
+
+                console.log('Meta Pixel Purchase event fired:', {
+                    value: total,
+                    currency: 'USD'
+                });
+            } else {
+                console.warn('Meta Pixel not available - purchase event not fired');
+            }
+
+            // Handle download button click
+            document.getElementById('download-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                // In production, this would link to actual downloads page
+                alert('Your download link has been sent to your email. Please check your inbox and spam folder.');
+            });
+
+            // Handle support button click
+            document.getElementById('support-btn').addEventListener('click', function(e) {
+                // This will open the user's email client
+                const subject = encodeURIComponent(`Support Request - Order ${orderId}`);
+                const body = encodeURIComponent(`Hi Sacred Support Team,\n\nI need help with my order ${orderId}.\n\nBest regards,`);
+                this.href = `mailto:support@sacred-site.com?subject=${subject}&body=${body}`;
+            });
+        });
+    </script>
+</body>
+</html>

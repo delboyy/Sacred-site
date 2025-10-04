@@ -1,0 +1,30 @@
+{
+  "name": "sacred-site",
+  "version": "1.0.0",
+  "description": "A static website for Sacred, providing natural wellness solutions and a comprehensive menopause support guide.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "tinacms": "tinacms server:start -c tina/config.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.6",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/vercel": "^8.2.8",
+    "astro": "^5.14.1",
+    "tinacms": "^2.9.0"
+  }
+}

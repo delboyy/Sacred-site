@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Homepage information
+const homeTitle = "Sacred - Natural Wellness for Modern Life";
+const homeDescription = "Natural wellness for modern life - Expert guidance on menopause support, natural remedies, and holistic living. Discover time-tested approaches to health and well-being.";
+const homeImage = "/assets/images/ankh-logo.png";
+
+// Structured Data for Organization and WebSite
+const homeStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sacred",
+    "url": "https://sacred-site.com",
+    "logo": "https://sacred-site.com/assets/images/ankh-logo.png",
+    "description": homeDescription,
+    "foundingDate": "2024",
+    "sameAs": [
+      // Add social media URLs when available
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Sacred",
+    "url": "https://sacred-site.com",
+    "description": homeDescription,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sacred"
+    }
+  }
+];
+---
+
+<BaseLayout
+  title={homeTitle}
+  description={homeDescription}
+  image={homeImage}
+  url="/"
+  structuredData={homeStructuredData}
+>
+  <!-- Redirect to the static homepage -->
+  <meta http-equiv="refresh" content="0; url=/index.html" />
+</BaseLayout>
