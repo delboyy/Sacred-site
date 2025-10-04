@@ -314,11 +314,16 @@
   padding: clamp(3rem, 5vw, 4.5rem) 0;
 }
 
+
 .sap-landing__cta-card {
   padding: clamp(2rem, 4vw, 3rem);
   border-radius: 24px;
   background: rgba(var(--color-teal-500-rgb, 33,128,141), 0.12);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
 }
 
 .sap-landing__cta-actions {
@@ -327,6 +332,15 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+}
+
+body .sap-landing__cta-actions .btn {
+  min-width: 220px;
+  text-align: center;
+}
+
+.sap-landing__cta-card .btn--primary {
+  color: var(--color-btn-primary-text, #fdfbf4);
 }
 
 .sap-landing__newsletter {

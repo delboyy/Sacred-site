@@ -42,7 +42,11 @@ function initializeNavigation() {
     
     // Navigation link clicks
     navLinks.forEach(link => {
-        link.addEventListener('click', handleNavClick);
+        if (link.hasAttribute('data-page')) {
+            link.addEventListener('click', handleNavClick);
+        } else {
+            link.addEventListener('click', () => closeMobileNav());
+        }
     });
     
     // Close mobile nav when clicking outside
@@ -278,6 +282,7 @@ function setupLandingTestimonials() {
     }
 
     let index = 0;
+    let autoplayTimer;
 
     const show = (nextIndex) => {
         testimonials.forEach((item, i) => {
@@ -289,14 +294,22 @@ function setupLandingTestimonials() {
         index = nextIndex;
     };
 
+    const resetAutoplay = () => {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+        }
+        autoplayTimer = setInterval(() => {
+            const next = (index + 1) % testimonials.length;
+            show(next);
+        }, 7000);
+    };
+
+    resetAutoplay();
+
     dots.forEach((dot, dotIndex) => {
         dot.addEventListener('click', () => show(dotIndex));
+        dot.addEventListener('click', resetAutoplay);
     });
-
-    setInterval(() => {
-        const next = (index + 1) % testimonials.length;
-        show(next);
-    }, 5000);
 }
 
 function setupGuideInventoryTicker() {
