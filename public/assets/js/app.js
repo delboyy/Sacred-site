@@ -71,6 +71,7 @@ function handleNavClick(event) {
     const targetPage = link.getAttribute('data-page');
 
     if (!targetPage) {
+        closeMobileNav();
         return; // allow default navigation for external links
     }
 

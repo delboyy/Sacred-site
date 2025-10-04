@@ -5,6 +5,7 @@
 ### 1. Marketing Site Implementation
 - ✅ Structured the single-page experience (`public/index.html`) with hero, benefits, testimonials, and product storytelling.
 - ✅ Implemented responsive navigation (desktop/mobile) with smooth hash routing and an external Ghost blog link (`https://blog.sacredapothecary.xyz`).
+- ✅ Improved mobile nav behaviour so external links close the menu before opening in a new tab.
 - ✅ Maintained Astro-powered About/Product pages with shared layouts and styling parity.
 - ✅ Preserved the Astro blog route with a "coming soon" empty state for future native posts while removing outdated placeholders.
 
@@ -85,6 +86,7 @@
 - ✅ **Converted CTAs** to `gumroad-button` overlay triggers with consistent styling.
 - ✅ **Implemented `<noscript>` fallbacks** so direct checkout links work without JavaScript.
 - ✅ **Documented provider setup** in `README-checkout.md` and handover guides.
+- ✅ **Embedded product purchase card** directly in the landing page via Gumroad widget for richer merchandising.
 - 🔄 **Test overlay functionality** and fallback behavior whenever URLs change.
 
 ### 10. Dedicated Thank You Page Implementation ✅
