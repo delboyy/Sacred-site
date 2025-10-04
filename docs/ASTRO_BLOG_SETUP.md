@@ -196,7 +196,7 @@ The project includes `vercel.json` for optimal deployment:
 
 **Images not loading**
 - Use relative paths from site root
-- Place images in `assets/images/`
+- Place images in `public/assets/images/`
 - Check image file formats
 
 **Build fails**

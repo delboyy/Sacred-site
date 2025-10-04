@@ -7,7 +7,7 @@
 2. Click "Create New Post" or edit existing post
 3. Fill in the fields:
    - **Title**: Post headline
-   - **Cover**: Upload/select cover image from `assets/images/`
+   - **Cover**: Upload/select cover image from `public/assets/images/`
    - **Body**: Write content in the rich text editor
 4. Set frontmatter automatically (title, description, date, tags, readingTime)
 5. Click "Save" to publish
@@ -36,7 +36,7 @@ More content...
 
 ```
 
-3. Add cover image to `assets/images/`
+3. Add cover image to `public/assets/images/`
 4. Test locally: `npm run dev` and visit `/blog/your-post-slug`
 
 ### Publishing
@@ -78,14 +78,14 @@ If you need to update price display in the UI:
 ## How to Change OG Images (Open Graph)
 
 ### Homepage OG Image
-1. Replace `assets/images/ankh-logo.png` or create new image
+1. Replace `public/assets/images/ankh-logo.png` or create new image
 2. Update references in `src/layouts/BaseLayout.astro`:
    ```astro
    <meta property="og:image" content={new URL(image, Astro.url)} />
    ```
 
 ### Blog Post OG Images
-1. Upload new cover image to `assets/images/`
+1. Upload new cover image to `public/assets/images/`
 2. Update the `cover` field in the blog post frontmatter:
    ```yaml
    cover: "/assets/images/new-cover-image.jpg"
@@ -101,8 +101,8 @@ If you need to update price display in the UI:
 ## How to Rotate Hero Assets
 
 ### Hero Background/Image
-1. **Replace hero image**: Put new image in `assets/images/`
-2. **Update CSS** (`assets/css/style.css`):
+1. **Replace hero image**: Put new image in `public/assets/images/`
+2. **Update CSS** (`public/assets/css/style.css`):
    ```css
    .hero {
      background-image: url('/assets/images/new-hero-bg.jpg');
@@ -120,7 +120,7 @@ If you need to update price display in the UI:
    ```
 
 ### Hero Logo
-1. **Replace logo file**: `assets/images/ankh-logo.png`
+1. **Replace logo file**: `public/assets/images/ankh-logo.png`
 2. **Or update path** in HTML/Astro files if changing filename
 3. **Test all locations**:
    - Header navigation
@@ -138,7 +138,7 @@ If you need to update price display in the UI:
 - Modify contact email/phone
 
 ### Change Colors/Branding
-- Update CSS custom properties in `assets/css/style.css`:
+- Update CSS custom properties in `public/assets/css/style.css`:
   ```css
   :root {
     --forest: #2d5a3d;  /* Update brand colors */
@@ -150,11 +150,11 @@ If you need to update price display in the UI:
 ### Add New Pages
 1. Create HTML file in `public/` (static) or Astro file in `src/pages/` (dynamic)
 2. Add to navigation in `public/index.html` and `src/layouts/BaseLayout.astro`
-3. Update sitemap: `assets/seo/sitemap.xml`
+3. Update sitemap: `public/assets/seo/sitemap.xml`
 4. Test all links
 
 ### Update Analytics
-- GA4: Update measurement ID in `assets/js/analytics.js`
+- GA4: Update measurement ID in `public/assets/js/analytics.js`
 - Meta: Update pixel ID in same file
 - Test events still fire correctly
 
@@ -195,7 +195,7 @@ npm run preview
 │   ├── content/blog/      # Blog posts (.mdx)
 │   ├── layouts/          # Shared layouts
 │   └── pages/            # Dynamic routes
-├── assets/
+├── public/assets/
 │   ├── css/              # Stylesheets
 │   ├── js/               # JavaScript
 │   └── images/           # Images and assets
@@ -212,7 +212,7 @@ npm run preview
 - Restart dev server
 
 ### Images Not Loading
-- Check file path in assets/images/
+- Check file path in public/assets/images/
 - Verify correct relative/absolute paths
 - Clear browser cache
 

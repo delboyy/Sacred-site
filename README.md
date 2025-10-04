@@ -34,7 +34,7 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 │   │   ├── about.astro      # Redirect to about section
 │   │   └── rss.xml.js       # RSS feed generation
 │   └── styles/              # Additional styles
-├── assets/                  # Static assets
+├── public/assets/           # Static assets (styles, scripts, images)
 │   ├── css/
 │   │   └── style.css        # Main stylesheet
 │   ├── js/
@@ -85,7 +85,7 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ### Content Management
 - **Blog posts**: Edit in TinaCMS at `http://localhost:4001/admin`
 - **Static pages**: Edit HTML files directly
-- **Assets**: Place images in `assets/images/`
+- **Assets**: Place images in `public/assets/images/`
 
 ### Build & Deploy
 1. **Build**: `npm run build`

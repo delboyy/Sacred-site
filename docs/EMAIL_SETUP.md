@@ -23,7 +23,7 @@ The email signup form currently saves submissions to localStorage as a fallback.
 
 ### Step 2: Update the configuration
 
-In `assets/js/app.js`, find the `EMAIL_CONFIG` object and update:
+In `public/assets/js/app.js`, find the `EMAIL_CONFIG` object and update:
 
 ```javascript
 const EMAIL_CONFIG = {
