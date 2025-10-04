@@ -97,6 +97,8 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ### Documentation
 - `docs/PROJECT_STATUS.md` - Complete development status and roadmap
 - `docs/VERCEL_DEPLOYMENT.md` - Production deployment guide
+- `docs/QA_CHECKLIST.md` - Final QA testing checklist
+- `docs/HANDOVER_NOTES.md` - Maintenance and content management guide
 - `docs/ASTRO_BLOG_SETUP.md` - Blog system implementation guide
 - `docs/LEMON_SQUEEZY_SETUP.md` - E-commerce setup instructions
 - `docs/WEBHOOK_ATTRIBUTION_SETUP.md` - Server-side attribution setup

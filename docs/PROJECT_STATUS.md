@@ -152,7 +152,17 @@
 - ✅ **Included troubleshooting guide** for common deployment issues
 - ✅ **Updated main README** with deployment references
 
-### 14. Astro + MDX + TinaCMS Blog Implementation ✅
+### 14. QA Checklist & Handover Documentation ✅
+- ✅ **Created comprehensive QA checklist** (`docs/QA_CHECKLIST.md`) covering all functionality
+- ✅ **Included navigation, e-commerce, blog, SEO, performance, and mobile testing**
+- ✅ **Added accessibility and cross-browser testing sections**
+- ✅ **Created detailed handover notes** (`docs/HANDOVER_NOTES.md`) for maintenance tasks
+- ✅ **Documented blog post creation** (TinaCMS and manual methods)
+- ✅ **Covered product price updates** and OG image changes
+- ✅ **Included hero asset rotation** and content management workflows
+- ✅ **Added troubleshooting guides** and development workflow documentation
+
+### 15. Astro + MDX + TinaCMS Blog Implementation ✅
 - ✅ **Set up Astro project** with MDX and TinaCMS integration
 - ✅ **Created content collections** for blog posts with frontmatter schema
 - ✅ **Built blog index page** with tag filtering (pagination ready for expansion)
