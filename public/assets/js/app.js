@@ -9,6 +9,9 @@ let currentPage = 'home';
 let currentTestimonial = 0;
 const testimonials = document.querySelectorAll('.testimonial__card');
 const testimonialDots = document.querySelectorAll('.dot');
+const stickyCTA = document.getElementById('mobileStickyCTA');
+const stickyCTAButton = document.getElementById('mobileStickyCTAButton');
+const mobileCTAMediaQuery = window.matchMedia('(max-width: 767px)');
 
 // Initialize application
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,6 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTestimonialSlider();
     initializeAccordions();
     initializeFormHandling();
+    initializeStickyCTA();
+
+    if (window.location.hash === '#product') {
+        navigateToPage('product');
+    }
+});
+
+window.addEventListener('hashchange', function() {
+    if (window.location.hash === '#product') {
+        navigateToPage('product');
+    }
 });
 
 // Navigation Functions
@@ -64,7 +78,7 @@ function handleNavClick(event) {
 
 function navigateToPage(pageName) {
     if (pageName === currentPage) return;
-    
+
     // Hide current page
     const currentPageElement = document.getElementById(currentPage);
     if (currentPageElement) {
@@ -85,11 +99,13 @@ function navigateToPage(pageName) {
         
         // Update page title
         updatePageTitle(pageName);
-        
+
         // Reset testimonial to first one when navigating to product page
         if (pageName === 'product' && testimonials.length > 0) {
             showTestimonial(0);
         }
+
+        updateStickyCTAVisibility(pageName === 'product');
     }
 }
 
@@ -109,8 +125,56 @@ function updatePageTitle(pageName) {
         blog: 'Wellness Blog - Sacred',
         about: 'About Us - Sacred'
     };
-    
+
     document.title = titles[pageName] || 'Sacred';
+}
+
+function initializeStickyCTA() {
+    if (!stickyCTA) {
+        return;
+    }
+
+    updateStickyCTAVisibility(currentPage === 'product');
+
+    if (stickyCTAButton) {
+        stickyCTAButton.addEventListener('click', function() {
+            stickyCTAButton.setAttribute('aria-pressed', 'true');
+            setTimeout(() => stickyCTAButton.setAttribute('aria-pressed', 'false'), 1200);
+        });
+    }
+
+    if (mobileCTAMediaQuery && typeof mobileCTAMediaQuery.addEventListener === 'function') {
+        mobileCTAMediaQuery.addEventListener('change', () => {
+            updateStickyCTAVisibility(currentPage === 'product');
+        });
+    } else if (mobileCTAMediaQuery && typeof mobileCTAMediaQuery.addListener === 'function') {
+        mobileCTAMediaQuery.addListener(() => {
+            updateStickyCTAVisibility(currentPage === 'product');
+        });
+    }
+}
+
+function updateStickyCTAVisibility(shouldShow) {
+    if (!stickyCTA) {
+        return;
+    }
+
+    let hasCompletedPurchase = false;
+
+    try {
+        hasCompletedPurchase = sessionStorage.getItem('sacredPurchaseCompleted') === 'true';
+    } catch (error) {
+        hasCompletedPurchase = false;
+    }
+    const canDisplay = shouldShow && mobileCTAMediaQuery.matches && !hasCompletedPurchase;
+
+    if (canDisplay) {
+        stickyCTA.classList.add('mobile-sticky-cta--visible');
+        document.body.classList.add('mobile-cta-visible');
+    } else {
+        stickyCTA.classList.remove('mobile-sticky-cta--visible');
+        document.body.classList.remove('mobile-cta-visible');
+    }
 }
 
 // Smooth Scrolling Functions

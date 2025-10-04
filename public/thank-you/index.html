@@ -236,6 +236,12 @@
     <script>
         // Thank You Page Logic
         document.addEventListener('DOMContentLoaded', function() {
+            try {
+                sessionStorage.setItem('sacredPurchaseCompleted', 'true');
+            } catch (error) {
+                console.warn('Session storage unavailable, purchase flag not stored.', error);
+            }
+
             // Get URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const orderId = urlParams.get('order_id') || 'N/A';
