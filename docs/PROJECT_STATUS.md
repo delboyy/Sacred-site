@@ -226,6 +226,7 @@
 - ✅ **Removed static blog previews** and navigation links pointing to unfinished articles
 - ✅ **Deleted temporary blog HTML/MDX files** so Vercel no longer deploys sample posts
 - ✅ **Added a "coming soon" empty state** to the Astro blog route for direct visitors
+- ✅ **Re-linked navigation/footer** to the live Ghost blog at `blog.sacredapothecary.xyz`
 
 ## 🚀 DEPLOYMENT STEPS
 

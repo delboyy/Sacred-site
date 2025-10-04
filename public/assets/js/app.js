@@ -67,13 +67,16 @@ function closeMobileNav() {
 }
 
 function handleNavClick(event) {
-    event.preventDefault();
-    const targetPage = event.target.getAttribute('data-page');
-    
-    if (targetPage) {
-        navigateToPage(targetPage);
-        closeMobileNav();
+    const link = event.currentTarget;
+    const targetPage = link.getAttribute('data-page');
+
+    if (!targetPage) {
+        return; // allow default navigation for external links
     }
+
+    event.preventDefault();
+    navigateToPage(targetPage);
+    closeMobileNav();
 }
 
 function navigateToPage(pageName) {
