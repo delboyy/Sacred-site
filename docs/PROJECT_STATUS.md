@@ -222,6 +222,11 @@
 - ✅ **Injected responsive padding adjustments** preventing overlap with footers/banners on small screens
 - ✅ **Wired accessibility attributes & hash routing** so `/product` redirects immediately show the CTA
 
+### 22. Placeholder Blog Content Removed ✅
+- ✅ **Removed static blog previews** and navigation links pointing to unfinished articles
+- ✅ **Deleted temporary blog HTML/MDX files** so Vercel no longer deploys sample posts
+- ✅ **Added a "coming soon" empty state** to the Astro blog route for direct visitors
+
 ## 🚀 DEPLOYMENT STEPS
 
 ### Vercel Deployment

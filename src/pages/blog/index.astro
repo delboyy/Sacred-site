@@ -56,52 +56,61 @@ const blogStructuredData = {
       <p class="page__subtitle">Discover natural health insights and holistic living tips</p>
 
       <!-- Tag Filter -->
-      <div class="tag-filter">
-        <div class="tag-filter__container">
-          <button class="filter-btn active" data-tag="all">All Posts</button>
-          {allTags.map(tag => (
-            <button class="filter-btn" data-tag={tag}>
-              {tag.charAt(0).toUpperCase() + tag.slice(1).replace('-', ' ')}
-            </button>
-          ))}
+      {allTags.length > 0 && (
+        <div class="tag-filter">
+          <div class="tag-filter__container">
+            <button class="filter-btn active" data-tag="all">All Posts</button>
+            {allTags.map(tag => (
+              <button class="filter-btn" data-tag={tag}>
+                {tag.charAt(0).toUpperCase() + tag.slice(1).replace('-', ' ')}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <!-- Blog Posts Grid -->
       <div class="blog__articles" id="blog-posts">
-        {posts.map(post => (
-          <article class="article__card" data-tags={post.data.tags.join(',')}>
-            <div class="article__image">
-              <img
-                src={post.data.cover}
-                alt={post.data.title}
-                loading="lazy"
-                class="blog__placeholder"
-              />
-            </div>
-            <div class="article__content">
-              <h2>{post.data.title}</h2>
-              <p class="article__excerpt">{post.data.description}</p>
-              <div class="article__meta">
-                <span class="article__date">
-                  {new Date(post.data.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </span>
-                <span class="article__category">{post.data.tags[0]}</span>
-                <span class="reading-time">{post.data.readingTime} min read</span>
+        {posts.length === 0 ? (
+          <div class="blog__empty">
+            <h2>Articles Coming Soon</h2>
+            <p>We\'re refreshing our wellness content. Check back soon for new insights.</p>
+          </div>
+        ) : (
+          posts.map(post => (
+            <article class="article__card" data-tags={post.data.tags.join(',')}>
+              <div class="article__image">
+                <img
+                  src={post.data.cover}
+                  alt={post.data.title}
+                  loading="lazy"
+                  class="blog__placeholder"
+                />
               </div>
-              <div class="article__tags">
-                {post.data.tags.map(tag => (
-                  <span class="tag">{tag}</span>
-                ))}
+              <div class="article__content">
+                <h2>{post.data.title}</h2>
+                <p class="article__excerpt">{post.data.description}</p>
+                <div class="article__meta">
+                  <span class="article__date">
+                    {new Date(post.data.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
+                  <span class="article__category">{post.data.tags[0]}</span>
+                  <span class="reading-time">{post.data.readingTime} min read</span>
+                </div>
+                <div class="article__tags">
+                  {post.data.tags.map(tag => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+                <a href={`/blog/${post.slug}`} class="btn btn--outline">Read Article</a>
               </div>
-              <a href={`/blog/${post.slug}`} class="btn btn--outline">Read Article</a>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))
+        )}
       </div>
 
       <!-- Pagination - Coming Soon -->
@@ -149,6 +158,21 @@ const blogStructuredData = {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
     margin: 2rem 0;
+  }
+
+  .blog__empty {
+    grid-column: 1 / -1;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+  }
+
+  .blog__empty h2 {
+    margin-bottom: 0.75rem;
+    color: var(--text);
   }
 
   .article__card {

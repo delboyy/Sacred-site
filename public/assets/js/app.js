@@ -122,10 +122,9 @@ function updatePageTitle(pageName) {
     const titles = {
         home: 'Sacred - Nature\'s Secret for Everlasting Balance',
         product: 'Menopause Support Guide - Sacred',
-        blog: 'Wellness Blog - Sacred',
         about: 'About Us - Sacred'
     };
-
+    
     document.title = titles[pageName] || 'Sacred';
 }
 
@@ -575,13 +574,6 @@ function closeNotification(closeButton) {
     }
 }
 
-// Blog and Post Navigation
-function navigateToPost(postSlug) {
-    // In a real application, this would navigate to the specific post
-    // For now, we'll just show a placeholder
-    showNotification('Blog post functionality coming soon!', 'info');
-}
-
 // Utility Functions
 function debounce(func, wait) {
     let timeout;
@@ -634,7 +626,7 @@ window.addEventListener('scroll', throttledScrollHandler);
 function initializeAnimations() {
     if (!('IntersectionObserver' in window)) {
         // Fallback for browsers without IntersectionObserver support
-        const animateElements = document.querySelectorAll('.benefit__card, .blog__card, .article__card, .value__card');
+        const animateElements = document.querySelectorAll('.benefit__card, .article__card, .value__card');
         animateElements.forEach(el => el.classList.add('animate-in'));
         return;
     }
@@ -654,7 +646,7 @@ function initializeAnimations() {
     }, observerOptions);
     
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.benefit__card, .blog__card, .article__card, .value__card');
+    const animateElements = document.querySelectorAll('.benefit__card, .article__card, .value__card');
     animateElements.forEach(el => {
         if (el) {
             observer.observe(el);
@@ -664,7 +656,7 @@ function initializeAnimations() {
 
 // Animation styles
 const animationStyles = `
-    .benefit__card, .blog__card, .article__card, .value__card {
+    .benefit__card, .article__card, .value__card {
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.6s ease-out;
@@ -790,5 +782,4 @@ window.scrollToProduct = scrollToProduct;
 window.showTestimonial = showTestimonial;
 window.toggleAccordion = toggleAccordion;
 window.handleEmailSignup = handleEmailSignup;
-window.navigateToPost = navigateToPost;
 window.closeNotification = closeNotification;
