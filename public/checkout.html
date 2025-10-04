@@ -12,8 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Lemon Squeezy Script -->
-    <script src="https://assets.lemonsqueezy.com/lemon.js"></script>
+    <!-- Gumroad Script -->
 
     <!-- GA4 and Meta Pixel will be loaded via analytics.js -->
 </head>
@@ -148,13 +147,16 @@
                                 </div>
                             </div>
 
-                            <!-- Lemon Squeezy Checkout Button -->
+                            <!-- Gumroad Checkout Button -->
                             <div class="checkout-actions">
-                                <a href="https://sacred.lemonsqueezy.com/checkout/buy/YOUR_PRODUCT_ID_HERE" class="btn btn--primary btn--lg btn--full" data-ls-overlay="YOUR_LEMON_SQUEEZY_BUY_URL_HERE" id="checkout-button">
+                                <a href="https://sacredankh.gumroad.com/l/menopause-relief"
+                                   class="gumroad-button btn btn--primary btn--lg btn--full"
+                                   target="_blank" rel="noopener"
+                                   id="checkout-button">
                                     Complete Purchase - $37
                                 </a>
                                 <noscript>
-                                    <a href="YOUR_LEMON_SQUEEZY_BUY_URL_HERE" class="btn btn--primary btn--lg btn--full" target="_blank">
+                                    <a href="https://sacredankh.gumroad.com/l/menopause-relief" class="btn btn--primary btn--lg btn--full" target="_blank">
                                         Complete Purchase - $37
                                     </a>
                                 </noscript>
@@ -163,7 +165,7 @@
                                         <path d="M8 1l2 2v2h2l2 2v8l-2 2H4l-2-2V5l2-2h2V3l2-2z"/>
                                         <path d="M6 9l2 2 4-4"/>
                                     </svg>
-                                    Secure checkout powered by Lemon Squeezy
+                                    Secure checkout powered by Gumroad
                                 </p>
                             </div>
 
@@ -303,10 +305,9 @@
     </footer>
 
     <script src="assets/js/analytics.js"></script>
-    <script src="assets/js/lemonsqueezy.js"></script>
     <script src="assets/js/app.js"></script>
     <script>
-        // Lemon Squeezy checkout integration
+        // Gumroad checkout integration
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize analytics if available
             if (typeof initializeAnalytics === 'function') {
@@ -328,5 +329,6 @@
             }
         });
     </script>
+    <script src="https://gumroad.com/js/gumroad-embed.js"></script>
 </body>
 </html>

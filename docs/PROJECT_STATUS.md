@@ -169,7 +169,16 @@
 - ✅ **Ensured nodejs18 runtime compatibility** with proper ES modules syntax
 - ✅ **Committed and pushed fixes** to resolve deployment blocking issue
 
-### 16. Astro + MDX + TinaCMS Blog Implementation ✅
+### 16. Commerce Provider Migration: Lemon Squeezy → Gumroad ✅
+- ✅ **Created commerce configuration** (`config/commerce.json`) with Gumroad provider settings
+- ✅ **Added Gumroad embed script** to all HTML pages (`public/index.html`, `public/checkout.html`, `public/thank-you/index.html`)
+- ✅ **Converted all Buy Now CTAs** from Lemon Squeezy `data-ls-overlay` to Gumroad `gumroad-button` class
+- ✅ **Updated fallback behavior** with proper noscript links for JavaScript-disabled users
+- ✅ **Removed Lemon Squeezy script references** and updated page comments
+- ✅ **Maintained existing button styles** while ensuring overlay functionality
+- ✅ **Committed and pushed changes** to complete the commerce migration
+
+### 17. Astro + MDX + TinaCMS Blog Implementation ✅
 - ✅ **Set up Astro project** with MDX and TinaCMS integration
 - ✅ **Created content collections** for blog posts with frontmatter schema
 - ✅ **Built blog index page** with tag filtering (pagination ready for expansion)
