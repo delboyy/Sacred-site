@@ -3,12 +3,7 @@
 
 import crypto from 'crypto';
 
-export default async function handler(req, res) {
-  // Only accept POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
+export async function POST({ request }) {
   try {
     const {
       LEMON_SQUEEZY_WEBHOOK_SECRET,
@@ -21,17 +16,23 @@ export default async function handler(req, res) {
     // Validate required environment variables
     if (!LEMON_SQUEEZY_WEBHOOK_SECRET) {
       console.error('Missing LEMON_SQUEEZY_WEBHOOK_SECRET');
-      return res.status(500).json({ error: 'Server configuration error' });
+      return new Response(JSON.stringify({ error: 'Server configuration error' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     // Verify webhook signature
-    const signature = req.headers['x-signature'];
+    const signature = request.headers.get('x-signature');
     if (!signature) {
       console.error('Missing webhook signature');
-      return res.status(401).json({ error: 'Unauthorized' });
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
-    const body = JSON.stringify(req.body);
+    const body = await request.text();
     const expectedSignature = crypto
       .createHmac('sha256', LEMON_SQUEEZY_WEBHOOK_SECRET)
       .update(body)
@@ -39,10 +40,13 @@ export default async function handler(req, res) {
 
     if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))) {
       console.error('Invalid webhook signature');
-      return res.status(401).json({ error: 'Unauthorized' });
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
-    const event = req.body;
+    const event = JSON.parse(body);
 
     // Log the event for debugging
     console.log('Lemon Squeezy webhook received:', {
@@ -55,7 +59,10 @@ export default async function handler(req, res) {
     // Only process order_created events (successful purchases)
     if (event.meta?.event_name !== 'order_created') {
       console.log('Ignoring non-purchase event:', event.meta?.event_name);
-      return res.status(200).json({ message: 'Event ignored' });
+      return new Response(JSON.stringify({ message: 'Event ignored' }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     const orderData = event.data.attributes;
@@ -109,16 +116,22 @@ export default async function handler(req, res) {
       console.warn('Some tracking calls failed, but webhook processed successfully');
     }
 
-    res.status(200).json({
+    return new Response(JSON.stringify({
       message: 'Purchase attribution processed successfully',
       transaction_id: purchaseData.transaction_id,
       ga4_sent: ga4Promises.length > 0,
       meta_sent: metaPromises.length > 0
+    }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
     });
 
   } catch (error) {
     console.error('Webhook processing error:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }
 
