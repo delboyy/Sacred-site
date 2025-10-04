@@ -190,7 +190,7 @@
 ### 18. Final Vercel Runtime Configuration Fix ✅
 - ✅ **Fixed Astro configuration** for proper Vercel deployment (`output: 'server'`)
 - ✅ **Updated deprecated Vercel adapter import** (`@astrojs/vercel` instead of `@astrojs/vercel/static`)
-- ✅ **Removed framework specification** from `vercel.json` (handled by adapter)
+- ✅ **Added framework specification** to `vercel.json` to help Vercel detect Astro project
 - ✅ **Added functions runtime configuration** for serverless functions (`nodejs18`)
 - ✅ **Fixed deployment error** "Function Runtimes must have a valid version"
 - ✅ **Committed and pushed configuration** for successful deployment
