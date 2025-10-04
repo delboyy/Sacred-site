@@ -1,10 +1,5 @@
 {
   "framework": "astro",
-  "functions": {
-    "src/pages/api/**/*.js": {
-      "runtime": "nodejs18"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
@@ -72,6 +67,11 @@
       ]
     }
   ],
+  "functions": {
+    "src/pages/api/**/*.js": {
+      "runtime": "nodejs18"
+    }
+  },
   "regions": ["iad1"]
 }
 
