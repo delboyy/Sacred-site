@@ -1,6 +1,9 @@
 {
   "provider": "gumroad",
-  "products": {
-    "sleep_guide": "https://sacredankh.gumroad.com/l/menopause-relief"
+  "product": {
+    "id": "menopause-relief",
+    "url": "https://sacredankh.gumroad.com/l/menopause-relief",
+    "price": 13,
+    "currency": "USD"
   }
 }
