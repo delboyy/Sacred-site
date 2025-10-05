@@ -180,7 +180,7 @@
     --color-warning: var(--color-orange-400);
     --color-info: var(--color-gray-300);
     --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-    --color-btn-primary-text: var(--color-slate-900);
+    --color-btn-primary-text: var(--color-cream-50);
     --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
     --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
     --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
@@ -240,7 +240,7 @@
   --color-warning: var(--color-orange-400);
   --color-info: var(--color-gray-300);
   --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-  --color-btn-primary-text: var(--color-slate-900);
+  --color-btn-primary-text: var(--color-cream-50);
   --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
   --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
   --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
@@ -414,15 +414,19 @@ pre code {
 
 .btn--primary {
   background: var(--color-primary);
-  color: var(--color-btn-primary-text);
+  color: #fdfbf4;
 }
 
 .gumroad-button {
-  color: var(--color-btn-primary-text) !important;
+  background-color: var(--color-primary) !important;
+  border-color: rgba(var(--color-teal-500-rgb), 0.35) !important;
+  color: #fdfbf4 !important;
 }
 
-.gumroad-button span {
-  color: inherit;
+.gumroad-button span,
+.gumroad-button strong,
+.gumroad-button em {
+  color: inherit !important;
 }
 
 .btn--primary:hover {
