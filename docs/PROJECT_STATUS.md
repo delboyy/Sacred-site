@@ -5,7 +5,7 @@
 ## ✅ COMPLETED FEATURES
 
 - ✅ Rebuilt the single-page experience (`public/index.html`) using the Perplexity Labs design (hero, urgency, social proof, science, CTA) scoped under `.sap-landing`.
-- ✅ Implemented responsive navigation (desktop/mobile) with smooth hash routing and an external Ghost blog link (`https://blog.sacredapothecary.xyz`).
+- ✅ Implemented responsive navigation (desktop/mobile) with smooth hash routing and an external blog link (`https://blog.sacredapothecary.xyz`).
 - ✅ Improved mobile nav behaviour so external links close the menu before opening in a new tab.
 - ✅ Maintained Astro-powered About/Product pages with shared layouts and styling parity.
 - ✅ Preserved the Astro blog route with a "coming soon" empty state for future native posts while removing outdated placeholders.
@@ -107,9 +107,9 @@
 - ✅ **Provided GA4 and Meta base code snippets** for site-wide implementation
 
 ### 11. Newsletter & Lead Capture ✅
-- ✅ **Embedded Ghost signup widget** on the home page with branded styling and privacy messaging.
-- ✅ **Updated analytics tracking** (`public/assets/js/analytics.js`) to fire GA4/Meta lead events on Ghost interactions.
-- ✅ **Archived legacy form handling** in docs while pointing maintainers to Ghost configuration.
+- ✅ **Embedded MailerLite signup widget** on the home page with branded styling and privacy messaging.
+- ✅ **Updated analytics tracking** (`public/assets/js/analytics.js`) to fire GA4/Meta lead events on MailerLite interactions.
+- ✅ **Archived legacy Ghost form handling** in docs while pointing maintainers to the new MailerLite workflow.
 - ✅ **Documented email capture updates** in `docs/EMAIL_SETUP.md` and handover notes.
 
 ### 12. Serverless Purchase Attribution ✅
@@ -195,8 +195,8 @@
 ### 22. Branding & Newsletter Integration ✅
 - ✅ **Converted uploaded logo** into a 256×256 favicon (`public/favicon.png`) and wired it through all static pages and Astro layout.
 - ✅ **Archived source asset** under `public/assets/images/` for reuse.
-- ✅ **Replaced onsite email form** with Ghost's embed (`blog.sacredapothecary.xyz`) while keeping privacy messaging + styling.
-- ✅ **Updated analytics instrumentation** to track Ghost signup interactions across GA4 and Meta Pixel.
+- ✅ **Integrated MailerLite signup embed** in the landing page and tuned styling to match the brand.
+- ✅ **Updated analytics instrumentation** to track MailerLite signup interactions across GA4 and Meta Pixel.
 
 ### 23. Commerce Data Centralization ✅
 - ✅ Added `config/commerce.json` as the single source of truth for Gumroad product name/id/url/price.

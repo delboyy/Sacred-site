@@ -101,6 +101,13 @@ Product data is centralized in `config/commerce.json`. Update the `price`, `curr
    - Footer
    - Blog layout
 
+### Email Signup (MailerLite)
+1. Manage the embed in MailerLite (account ID `1838172`, form ID `ahLGnc`).
+2. Update the signup block in `public/index.html` (look for `data-mailerlite-signup`).
+3. Universal loader script lives near the bottom of the same file—replace account ID there if it changes.
+4. Styling is controlled via `.mailerlite-embed` rules in `public/assets/css/style.css`.
+5. Analytics events fire on button clicks via `public/assets/js/analytics.js`; adjust the method string if you rework the embed structure.
+
 ---
 
 ## Common Maintenance Tasks

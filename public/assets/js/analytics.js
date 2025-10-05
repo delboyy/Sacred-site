@@ -226,11 +226,11 @@ function trackCheckout() {
 
 // Track email signups
 function trackEmailSignup() {
-    const ghostSignupContainers = document.querySelectorAll('[data-ghost-signup]');
+    const signupContainers = document.querySelectorAll('[data-mailerlite-signup]');
 
-    ghostSignupContainers.forEach(container => {
-        container.addEventListener('click', function handleGhostSignup(event) {
-            const interactive = event.target.closest('button, a');
+    signupContainers.forEach(container => {
+        container.addEventListener('click', function handleMailerLiteSignup(event) {
+            const interactive = event.target.closest('button, a, input[type="submit"]');
             if (!interactive) {
                 return;
             }
@@ -240,7 +240,7 @@ function trackEmailSignup() {
                 gtag('event', 'generate_lead', {
                     currency: 'USD',
                     value: 0,
-                    method: 'ghost_embed'
+                    method: 'mailerlite_embed'
                 });
             }
 
@@ -249,7 +249,7 @@ function trackEmailSignup() {
                 fbq('track', 'Lead', {
                     content_name: 'Email Signup',
                     content_category: 'Newsletter',
-                    signup_method: 'ghost_embed'
+                    signup_method: 'mailerlite_embed'
                 });
             }
 
