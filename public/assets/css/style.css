@@ -417,6 +417,14 @@ pre code {
   color: var(--color-btn-primary-text);
 }
 
+.gumroad-button {
+  color: var(--color-btn-primary-text) !important;
+}
+
+.gumroad-button span {
+  color: inherit;
+}
+
 .btn--primary:hover {
   background: var(--color-primary-hover);
 }

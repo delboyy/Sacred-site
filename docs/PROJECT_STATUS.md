@@ -15,6 +15,8 @@
 - ✅ Integrated Gumroad overlay checkout across hero CTAs, product section, checkout page, and mobile sticky banner.
 - ✅ Added graceful `noscript` fallbacks and consistent styling for the direct checkout link.
 - ✅ Centralised provider configuration in `config/commerce.json` to simplify URL updates.
+- ✅ Embedded Gumroad product widget in the landing `.sap-landing__product` block and `/product` Astro route for parity.
+- ✅ Synced CTA copy and price callouts to the current $13 offer.
 
 ### 3. Thank You Page & Conversion Tracking
 - ✅ Created `thank-you.html` - post-purchase confirmation page
@@ -32,6 +34,7 @@
 - ✅ Added email signup conversion tracking
 - ✅ Implemented error tracking and performance monitoring
 - ✅ Added tracking scripts to all relevant HTML files
+- ✅ Refactored Gumroad tracking selectors to use `getCommerceConfig()` so price/id/currency stay in sync across pages.
 
 ### 5. SEO Optimization
 - ✅ Created `sitemap.xml` - complete site structure for search engines
@@ -46,6 +49,7 @@
 - ✅ Updated sitemap.xml to include all new blog routes
 - ✅ All routes tested and returning 200 status codes
 - ✅ Ready for Google Lighthouse SEO audit
+- ✅ Regenerated sitemap to drop deprecated landing pages and consolidated canonical `robots.txt` / `sitemap.xml`
 
 ### 6. Logo Implementation ✅
 - ✅ **Navigation Logo** - Updated both static HTML and Astro navigation to use ankh-logo.png
@@ -67,10 +71,12 @@
 - 🔄 **GA4 Measurement ID**: Replace `GA4_MEASUREMENT_ID` in `public/assets/js/analytics.js` and thank-you snippets (format `G-XXXXXXXXXX`).
 - 🔄 **Meta Pixel ID**: Replace `META_PIXEL_ID` in the same locations for Meta tracking.
 
-### Gumroad Commerce Setup
-- 🔄 Confirm Gumroad product URL (`https://sacredankh.gumroad.com/l/menopause-relief`) in `config/commerce.json` and all CTA buttons.
+### Gumroad Commerce Checklist
+- 🔄 Confirm Gumroad product URL (`https://sacredankh.gumroad.com/l/menopause-relief`) and pricing in `config/commerce.json` (auto-propagates to the site).
 - 🔄 Configure Gumroad overlay + post-purchase redirect to `https://sacredapothecary.xyz/thank-you/` within the Gumroad dashboard.
 - 🔄 Test overlay and fallback purchases across desktop and mobile flows.
+- 🔄 Keep landing-page savings copy (`Regular Price`, `You Save`) aligned with any pricing updates.
+- 🔄 Optional: remove legacy Lemon Squeezy webhook/env vars if no longer required.
 
 ### Social Media & Branding
 - 🔄 **Update Social Media Links**
@@ -192,6 +198,17 @@
 - ✅ **Replaced onsite email form** with Ghost's embed (`blog.sacredapothecary.xyz`) while keeping privacy messaging + styling.
 - ✅ **Updated analytics instrumentation** to track Ghost signup interactions across GA4 and Meta Pixel.
 
+### 23. Commerce Data Centralization ✅
+- ✅ Added `config/commerce.json` as the single source of truth for Gumroad product name/id/url/price.
+- ✅ Introduced `scripts/sync-commerce.mjs` to mirror config into `public/assets/data/commerce.json` and `public/assets/js/commerce-data.js` before dev/build.
+- ✅ Created `public/assets/js/commerce.js` to hydrate DOM elements via `data-commerce-*` attributes and broadcast `getCommerceConfig()`.
+- ✅ Ensured landing, checkout, thank-you, `/product`, and analytics flows all consume the unified commerce payload.
+
+### 24. TinaCMS Decommissioning ✅
+- ✅ Removed TinaCMS dependency, npm script, and `/src/pages/admin/[...routes].astro`.
+- ✅ Pruned Tina-specific docs/handover notes and refreshed README guidance for the MDX workflow.
+- ✅ Verified build output and navigation work without Tina-admin tooling.
+
 ## 🚀 DEPLOYMENT STEPS
 
 ### Vercel Deployment
@@ -261,9 +278,9 @@ The website is now **production-ready** with a complete e-commerce system, blog,
 
 **Priority Actions:**
 1. Set up analytics tracking IDs (GA4 + Meta Pixel)
-2. Configure Gumroad product settings and pricing
+2. Verify Gumroad product settings + post-purchase redirect
 3. Deploy to Vercel with custom domain
 4. Update social media links and branding
 5. Test all functionality thoroughly
 
-The static architecture has been preserved, requiring no build process and ensuring fast, reliable performance.
+Latest verification: `npm run build` (Astro + Vercel adapter) completes successfully; commerce data sync runs automatically via `scripts/sync-commerce.mjs` before dev/build.

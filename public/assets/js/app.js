@@ -224,11 +224,13 @@ function scrollToLandingSection(targetId) {
         return;
     }
 
+    const resolvedId = resolveLandingTarget(targetId);
+
     if (currentPage !== 'home') {
         navigateToPage('home');
-        setTimeout(() => smoothScrollToId(targetId === 'product' ? 'product-section' : targetId), 350);
+        setTimeout(() => smoothScrollToId(resolvedId), 350);
     } else {
-        smoothScrollToId(targetId === 'product' ? 'product-section' : targetId);
+        smoothScrollToId(resolvedId);
     }
 }
 
@@ -240,6 +242,16 @@ function smoothScrollToId(id) {
 
     const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80;
     window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+}
+
+function resolveLandingTarget(targetId) {
+    if (targetId === 'product') {
+        if (document.getElementById('product')) {
+            return 'product';
+        }
+        return 'product-section';
+    }
+    return targetId;
 }
 
 function setupLandingCountdown() {
