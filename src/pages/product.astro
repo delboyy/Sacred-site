@@ -1,16 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import commerce from '../../config/commerce.json';
 
 const productTitle = "Menopause Support Guide - Sacred";
 const productDescription = "A comprehensive 50-page guide to navigating menopause naturally with time-tested remedies, lifestyle adjustments, and nutritional support.";
 const productImage = "/assets/images/ankh-logo.png";
-const productPrice = 13;
-const productCurrency = "USD";
+const productData = commerce.product || {};
+const productName = productData.name || "Menopause Support Guide";
+const productPrice = productData.price || 13;
+const productCurrency = productData.currency || "USD";
+const productUrl = productData.url || "https://sacredankh.gumroad.com/l/menopause-relief";
+const productId = productData.id || "menopause-relief";
+const productPriceDisplay = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: productCurrency,
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0
+}).format(productPrice);
 
 const productStructuredData = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Menopause Support Guide",
+  "name": productName,
   "description": productDescription,
   "image": `https://sacred-site.com${productImage}`,
   "brand": {
@@ -48,16 +59,16 @@ const productStructuredData = {
       <div class="product-page__container">
         <div class="product-page__media">
           <div class="gumroad-embed gumroad-embed--product-card">
-            <div class="gumroad-product-embed" data-gumroad-product-id="menopause-relief">
-              <a href="https://sacredankh.gumroad.com/l/menopause-relief">Buy the Menopause Support Guide</a>
+            <div class="gumroad-product-embed" data-gumroad-product-id={productId} data-commerce-product-id>
+              <a data-commerce-url href={productUrl}>Buy the {productName}</a>
             </div>
           </div>
         </div>
         <div class="product-page__details">
-          <h1>Menopause Support Guide</h1>
+          <h1 data-commerce-name>{productName}</h1>
           <p class="product-page__description">A comprehensive, natural roadmap that helps you balance hormones, sleep deeply, and reclaim lasting energy.</p>
           <div class="product-page__pricing">
-            <span class="product-page__price">$13</span>
+            <span class="product-page__price" data-commerce-price data-commerce-format="currency-0">{productPriceDisplay}</span>
             <span class="product-page__badge">Digital download • Instant access</span>
           </div>
           <ul class="product-page__list">
@@ -67,8 +78,8 @@ const productStructuredData = {
             <li>Mood &amp; Energy Stabilization Techniques</li>
             <li>Quick Reference Cheat Sheets &amp; Recipes</li>
           </ul>
-          <a class="gumroad-button btn btn--primary btn--lg" href="https://sacredankh.gumroad.com/l/menopause-relief" target="_blank" rel="noopener">
-            Start Your Transformation - $13
+          <a class="gumroad-button btn btn--primary btn--lg" data-commerce-url href={productUrl} target="_blank" rel="noopener">
+            Start Your Transformation - <span data-commerce-price data-commerce-format="currency-0">{productPriceDisplay}</span>
           </a>
           <p class="product-page__guarantee">✓ 60-Day Money-Back Guarantee</p>
         </div>

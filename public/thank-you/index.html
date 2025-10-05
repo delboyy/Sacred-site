@@ -234,6 +234,8 @@
         </div>
     </footer>
 
+    <script src="../assets/js/commerce-data.js"></script>
+    <script src="../assets/js/commerce.js"></script>
     <script>
         // Thank You Page Logic
         document.addEventListener('DOMContentLoaded', function() {
@@ -246,12 +248,27 @@
             // Get URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const orderId = urlParams.get('order_id') || 'N/A';
-            const total = parseFloat(urlParams.get('total')) || 37.00;
+            const commerce = window.getCommerceConfig ? window.getCommerceConfig() : null;
+            const product = commerce?.product || {
+                id: 'menopause-relief',
+                name: 'Menopause Support Guide',
+                price: 13,
+                currency: 'USD'
+            };
+            const currency = product.currency || 'USD';
+            const rawTotal = parseFloat(urlParams.get('total'));
+            const total = Number.isFinite(rawTotal) ? rawTotal : product.price;
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency,
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
             const status = urlParams.get('status') || 'success';
 
             // Update UI with order details
             document.getElementById('order-id').textContent = orderId;
-            document.getElementById('order-total').textContent = `$${total.toFixed(2)} USD`;
+            document.getElementById('order-total').textContent = `${formatter.format(total)} ${currency}`;
             document.getElementById('order-status').textContent = status.charAt(0).toUpperCase() + status.slice(1);
 
             // Fire GA4 Purchase Event
@@ -259,10 +276,10 @@
                 gtag('event', 'purchase', {
                     transaction_id: orderId,
                     value: total,
-                    currency: 'USD',
+                    currency,
                     items: [{
-                        item_id: 'menopause-guide',
-                        item_name: 'Menopause Support Guide',
+                        item_id: product.id,
+                        item_name: product.name,
                         category: 'Digital Product',
                         price: total,
                         quantity: 1
@@ -272,7 +289,7 @@
                 console.log('GA4 Purchase event fired:', {
                     transaction_id: orderId,
                     value: total,
-                    currency: 'USD'
+                    currency
                 });
             } else {
                 console.warn('GA4 not available - purchase event not fired');
@@ -282,14 +299,14 @@
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Purchase', {
                     value: total,
-                    currency: 'USD',
-                    content_name: 'Menopause Support Guide',
+                    currency,
+                    content_name: product.name,
                     content_type: 'product'
                 });
 
                 console.log('Meta Pixel Purchase event fired:', {
                     value: total,
-                    currency: 'USD'
+                    currency
                 });
             } else {
                 console.warn('Meta Pixel not available - purchase event not fired');

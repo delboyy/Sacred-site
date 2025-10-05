@@ -5,6 +5,31 @@
 const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with your GA4 Measurement ID
 const META_PIXEL_ID = 'XXXXXXXXXXXXXXXX'; // Replace with your Meta Pixel ID
 
+const DEFAULT_PRODUCT = {
+    id: 'menopause-relief',
+    name: 'Menopause Support Guide',
+    category: 'Digital Product',
+    price: 13,
+    currency: 'USD',
+    url: 'https://sacredankh.gumroad.com/l/menopause-relief'
+};
+
+function getProductDetails() {
+    const commerce = typeof window !== 'undefined' && typeof window.getCommerceConfig === 'function'
+        ? window.getCommerceConfig()
+        : null;
+    const product = commerce?.product || {};
+
+    return {
+        id: product.id || DEFAULT_PRODUCT.id,
+        name: product.name || DEFAULT_PRODUCT.name,
+        category: DEFAULT_PRODUCT.category,
+        price: Number(product.price) || DEFAULT_PRODUCT.price,
+        currency: product.currency || DEFAULT_PRODUCT.currency,
+        url: product.url || DEFAULT_PRODUCT.url
+    };
+}
+
 // Initialize analytics when DOM is ready
 function initializeAnalytics() {
     initGA4();
@@ -77,14 +102,15 @@ function setupEcommerceTracking() {
 
     // Enhanced ecommerce setup for GA4
     if (typeof gtag !== 'undefined') {
+        const product = getProductDetails();
         gtag('event', 'view_item', {
-            currency: 'USD',
-            value: 13,
+            currency: product.currency,
+            value: product.price,
             items: [{
-                item_id: 'menopause-guide',
-                item_name: 'Menopause Support Guide',
-                category: 'Digital Product',
-                price: 13,
+                item_id: product.id,
+                item_name: product.name,
+                category: product.category,
+                price: product.price,
                 quantity: 1
             }]
         });
@@ -94,19 +120,20 @@ function setupEcommerceTracking() {
 // Track product view events
 function trackProductViews() {
     // Track when user views product details
-    const productSections = document.querySelectorAll('.product-hero, .featured-product');
+    const productSections = document.querySelectorAll('.sap-landing__product, .product-page__hero, .product-summary__details');
 
     if (productSections.length > 0) {
+        const product = getProductDetails();
         // Track product view on page load for product pages
         if (typeof gtag !== 'undefined') {
             gtag('event', 'view_item', {
-                currency: 'USD',
-                value: 13,
+                currency: product.currency,
+                value: product.price,
                 items: [{
-                    item_id: 'menopause-guide',
-                    item_name: 'Menopause Support Guide',
-                    category: 'Digital Product',
-                    price: 13
+                    item_id: product.id,
+                    item_name: product.name,
+                    category: product.category,
+                    price: product.price
                 }]
             });
         }
@@ -114,10 +141,10 @@ function trackProductViews() {
         // Meta Pixel ViewContent event
         if (typeof fbq !== 'undefined') {
             fbq('track', 'ViewContent', {
-                content_name: 'Menopause Support Guide',
-                content_category: 'Digital Product',
-                value: 13,
-                currency: 'USD'
+                content_name: product.name,
+                content_category: product.category,
+                value: product.price,
+                currency: product.currency
             });
         }
     }
@@ -125,20 +152,24 @@ function trackProductViews() {
 
 // Track add to cart events
 function trackAddToCart() {
-    const addToCartButtons = document.querySelectorAll('a[href="checkout.html"], .btn[href="checkout.html"]');
+    const buttons = new Set([
+        ...document.querySelectorAll('[data-commerce-url]'),
+        ...document.querySelectorAll('a[href="checkout.html"], .btn[href="checkout.html"]')
+    ]);
 
-    addToCartButtons.forEach(button => {
+    buttons.forEach(button => {
         button.addEventListener('click', function(e) {
+            const product = getProductDetails();
             // GA4 Add to Cart event
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'add_to_cart', {
-                    currency: 'USD',
-                    value: 13,
+                    currency: product.currency,
+                    value: product.price,
                     items: [{
-                        item_id: 'menopause-guide',
-                        item_name: 'Menopause Support Guide',
-                        category: 'Digital Product',
-                        price: 13,
+                        item_id: product.id,
+                        item_name: product.name,
+                        category: product.category,
+                        price: product.price,
                         quantity: 1
                     }]
                 });
@@ -147,12 +178,12 @@ function trackAddToCart() {
             // Meta Pixel AddToCart event
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'AddToCart', {
-                    content_name: 'Menopause Support Guide',
-                    content_category: 'Digital Product',
-                value: 13,
-                currency: 'USD'
-            });
-        }
+                    content_name: product.name,
+                    content_category: product.category,
+                    value: product.price,
+                    currency: product.currency
+                });
+            }
 
             console.log('Add to cart tracked');
         });
@@ -163,16 +194,17 @@ function trackAddToCart() {
 function trackCheckout() {
     // Track when user visits checkout page
     if (window.location.pathname.includes('checkout')) {
+        const product = getProductDetails();
         // GA4 Begin Checkout event
         if (typeof gtag !== 'undefined') {
             gtag('event', 'begin_checkout', {
-                currency: 'USD',
-                value: 13,
+                currency: product.currency,
+                value: product.price,
                 items: [{
-                    item_id: 'menopause-guide',
-                    item_name: 'Menopause Support Guide',
-                    category: 'Digital Product',
-                    price: 13,
+                    item_id: product.id,
+                    item_name: product.name,
+                    category: product.category,
+                    price: product.price,
                     quantity: 1
                 }]
             });
@@ -181,9 +213,9 @@ function trackCheckout() {
         // Meta Pixel InitiateCheckout event
         if (typeof fbq !== 'undefined') {
             fbq('track', 'InitiateCheckout', {
-                content_name: 'Menopause Support Guide',
-                value: 13,
-                currency: 'USD',
+                content_name: product.name,
+                value: product.price,
+                currency: product.currency,
                 num_items: 1
             });
         }

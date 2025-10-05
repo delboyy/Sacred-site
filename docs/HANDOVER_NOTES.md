@@ -2,17 +2,7 @@
 
 ## How to Add a New Blog Post
 
-### Method 1: Using TinaCMS (Visual Editor)
-1. Navigate to `http://localhost:4001/admin` (run `npm run tinacms` locally)
-2. Click "Create New Post" or edit existing post
-3. Fill in the fields:
-   - **Title**: Post headline
-   - **Cover**: Upload/select cover image from `public/assets/images/`
-   - **Body**: Write content in the rich text editor
-4. Set frontmatter automatically (title, description, date, tags, readingTime)
-5. Click "Save" to publish
-
-### Method 2: Manual File Creation
+### Manual File Creation
 1. Create new `.mdx` file in `src/content/blog/`
 2. Use this template:
 
@@ -48,30 +38,13 @@ More content...
 
 ## How to Update Product Price
 
-### Lemon Squeezy Dashboard
-1. Go to [app.lemonsqueezy.com](https://app.lemonsqueezy.com)
-2. Navigate to Products → Your Product
-3. Click "Edit" on the variant
-4. Update the price
-5. Save changes
+### Gumroad Dashboard
+1. Go to [gumroad.com](https://gumroad.com)
+2. Open the Menopause Support Guide product
+3. Adjust the price and publish changes
 
 ### Code Updates (If Needed)
-If you need to update price display in the UI:
-
-1. **Static HTML** (`public/index.html`):
-   ```html
-   <!-- Find price mentions and update -->
-   <span class="price">$37</span>  <!-- Change to new price -->
-   ```
-
-2. **Structured Data** (`src/pages/product.astro`):
-   ```javascript
-   const productPrice = 37;  // Update this value
-   ```
-
-3. **Analytics Events** (if price affects tracking):
-   - Update price values in GA4/Meta tracking code
-   - Ensure consistent pricing across all systems
+Product data is centralized in `config/commerce.json`. Update the `price`, `currency`, or `url` there first, then ensure any hard-coded mentions in static HTML/analytics stay in sync. After changes, rebuild locally and verify the landing page, `/product`, and checkout CTA text all display the new amount.
 
 ---
 
@@ -150,7 +123,7 @@ If you need to update price display in the UI:
 ### Add New Pages
 1. Create HTML file in `public/` (static) or Astro file in `src/pages/` (dynamic)
 2. Add to navigation in `public/index.html` and `src/layouts/BaseLayout.astro`
-3. Update sitemap: `public/assets/seo/sitemap.xml`
+3. Update sitemap: `public/sitemap.xml`
 4. Test all links
 
 ### Update Analytics
@@ -172,9 +145,6 @@ If you need to update price display in the UI:
 ```bash
 # Start development server
 npm run dev
-
-# Start TinaCMS (optional)
-npm run tinacms
 
 # Build for production
 npm run build
@@ -231,9 +201,8 @@ npm run preview
 ## Support Resources
 
 - **Astro Docs**: [astro.build](https://astro.build)
-- **TinaCMS Docs**: [tina.io](https://tina.io)
+- **Gumroad Docs**: [help.gumroad.com](https://help.gumroad.com)
 - **Vercel Docs**: [vercel.com/docs](https://vercel.com/docs)
-- **Lemon Squeezy Docs**: [docs.lemonsqueezy.com](https://docs.lemonsqueezy.com)
 - **GA4 Docs**: [developers.google.com/analytics](https://developers.google.com/analytics)
 
 For technical issues, check the project documentation in the `docs/` folder or review the implementation in the codebase.

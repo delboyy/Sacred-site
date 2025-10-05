@@ -28,11 +28,10 @@
 - [ ] All buttons have proper hover states
 
 ## E-commerce Functionality
-### Lemon Squeezy Overlay
-- [ ] Overlay opens when clicking "Buy Now" buttons
-- [ ] Overlay closes when clicking outside or X button
-- [ ] Form validation works (email, payment details)
-- [ ] Test purchase completes successfully
+### Gumroad Overlay
+- [ ] Gumroad modal opens from every `data-commerce-url` button
+- [ ] Overlay closes via escape key or dismiss control
+- [ ] Test purchase completes successfully (Gumroad sandbox)
 - [ ] Redirect to thank-you page after purchase
 
 ### Thank-You Page
@@ -61,7 +60,6 @@
 - [ ] Related posts or navigation (if implemented)
 
 ### Content Management
-- [ ] TinaCMS admin accessible at `/admin` (if enabled)
 - [ ] Visual editor loads blog content
 - [ ] Save/publish functionality works
 

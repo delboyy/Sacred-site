@@ -64,7 +64,7 @@ Update any hardcoded URLs in your code to use the custom domain instead of `sacr
 
 ## Webhook Configuration
 
-### Lemon Squeezy Webhook Setup
+### Lemon Squeezy Webhook Setup (Legacy Optional)
 1. After deployment, get your production URL (e.g., `https://sacred-site.vercel.app`)
 2. Go to Lemon Squeezy Dashboard → Settings → Webhooks
 3. Create new webhook:
@@ -85,7 +85,7 @@ Update any hardcoded URLs in your code to use the custom domain instead of `sacr
 - Fill out the email form and check localStorage for submissions
 
 ### Webhook Testing
-- Use Lemon Squeezy's "Test Webhook" feature
+- (Optional) Use Lemon Squeezy's "Test Webhook" feature
 - Check Vercel function logs for successful attribution
 
 ## Troubleshooting
@@ -144,7 +144,7 @@ Update any hardcoded URLs in your code to use the custom domain instead of `sacr
 - Vercel Analytics for performance
 - GA4 for user behavior
 - Meta Events Manager for attribution
-- Lemon Squeezy dashboard for sales
+- Lemon Squeezy dashboard for sales (legacy accounts only)
 
 ## Support
 

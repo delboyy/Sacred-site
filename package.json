@@ -7,12 +7,15 @@
     "doc": "docs"
   },
   "scripts": {
+    "predev": "node scripts/sync-commerce.mjs",
+    "prestart": "node scripts/sync-commerce.mjs",
+    "prebuild": "node scripts/sync-commerce.mjs",
+    "prepreview": "node scripts/sync-commerce.mjs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "tinacms": "tinacms server:start -c tina/config.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -24,7 +27,6 @@
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/vercel": "^8.2.8",
-    "astro": "^5.14.1",
-    "tinacms": "^2.9.0"
+    "astro": "^5.14.1"
   }
 }

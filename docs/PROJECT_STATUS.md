@@ -1,5 +1,7 @@
 # Sacred Wellness Website - Implementation Status
 
+> **Note:** Legacy milestones for Lemon Squeezy remain in this log for historical context. Gumroad is the active commerce provider.
+
 ## ✅ COMPLETED FEATURES
 
 - ✅ Rebuilt the single-page experience (`public/index.html`) using the Perplexity Labs design (hero, urgency, social proof, science, CTA) scoped under `.sap-landing`.
@@ -132,7 +134,7 @@
 - ✅ **Included navigation, e-commerce, blog, SEO, performance, and mobile testing**
 - ✅ **Added accessibility and cross-browser testing sections**
 - ✅ **Created detailed handover notes** (`docs/HANDOVER_NOTES.md`) for maintenance tasks
-- ✅ **Documented blog post creation** (TinaCMS and manual methods)
+- ✅ **Documented blog post creation** (manual MDX workflow)
 - ✅ **Covered product price updates** and OG image changes
 - ✅ **Included hero asset rotation** and content management workflows
 - ✅ **Added troubleshooting guides** and development workflow documentation
@@ -152,8 +154,8 @@
 - ✅ **Maintained existing button styles** while ensuring overlay functionality
 - ✅ **Committed and pushed changes** to complete the commerce migration
 
-### 17. Astro + MDX + TinaCMS Infrastructure ✅
-- ✅ **Set up Astro project** with MDX collections and TinaCMS schema for future native blog content.
+### 17. Astro + MDX Content Infrastructure ✅
+- ✅ **Set up Astro project** with MDX collections for future native blog content.
 - ✅ **Built blog index + dynamic routes** with filtering support; currently displays a "coming soon" state while Ghost owns live articles.
 - ✅ **Maintained static pages** alongside Astro routes without routing conflicts.
 - ✅ **Resolved legacy issues** (duplicate files, script bundling, public directory structure) to stabilise builds.
@@ -259,7 +261,7 @@ The website is now **production-ready** with a complete e-commerce system, blog,
 
 **Priority Actions:**
 1. Set up analytics tracking IDs (GA4 + Meta Pixel)
-2. Configure Lemon Squeezy account and product
+2. Configure Gumroad product settings and pricing
 3. Deploy to Vercel with custom domain
 4. Update social media links and branding
 5. Test all functionality thoroughly

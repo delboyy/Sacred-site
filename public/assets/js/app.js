@@ -6,9 +6,6 @@ const pages = document.querySelectorAll('.page');
 
 // State management
 let currentPage = 'home';
-let currentTestimonial = 0;
-const testimonials = document.querySelectorAll('.testimonial__card');
-const testimonialDots = document.querySelectorAll('.dot');
 const stickyCTA = document.getElementById('mobileStickyCTA');
 const stickyCTAButton = document.getElementById('mobileStickyCTAButton');
 const mobileCTAMediaQuery = window.matchMedia('(max-width: 767px)');
@@ -16,20 +13,19 @@ const mobileCTAMediaQuery = window.matchMedia('(max-width: 767px)');
 // Initialize application
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
-    initializeTestimonialSlider();
     initializeAccordions();
     initializeFormHandling();
     initializeStickyCTA();
     initializeLandingComponents();
 
     if (window.location.hash === '#product') {
-        navigateToPage('product');
+        scrollToLandingSection('product');
     }
 });
 
 window.addEventListener('hashchange', function() {
     if (window.location.hash === '#product') {
-        navigateToPage('product');
+        scrollToLandingSection('product');
     }
 });
 
@@ -116,12 +112,7 @@ function navigateToPage(pageName) {
         // Update page title
         updatePageTitle(pageName);
 
-        // Reset testimonial to first one when navigating to product page
-        if (pageName === 'product' && testimonials.length > 0) {
-            showTestimonial(0);
-        }
-
-        updateStickyCTAVisibility(pageName === 'product');
+        updateStickyCTAVisibility(false);
     }
 }
 
@@ -137,7 +128,6 @@ function updateNavActiveState(activePage) {
 function updatePageTitle(pageName) {
     const titles = {
         home: 'Sacred - Nature\'s Secret for Everlasting Balance',
-        product: 'Menopause Support Guide - Sacred',
         about: 'About Us - Sacred'
     };
     
@@ -148,8 +138,21 @@ function initializeStickyCTA() {
     if (!stickyCTA) {
         return;
     }
+    const productSection = document.querySelector('.sap-landing__product');
+    let productSectionVisible = productSection ? false : true;
 
-    updateStickyCTAVisibility(currentPage === 'product');
+    if (productSection && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                productSectionVisible = entry.isIntersecting;
+                updateStickyCTAVisibility(productSectionVisible);
+            });
+        }, { threshold: 0.25 });
+
+        observer.observe(productSection);
+    }
+
+    updateStickyCTAVisibility(productSectionVisible);
 
     if (stickyCTAButton) {
         stickyCTAButton.addEventListener('click', function() {
@@ -160,11 +163,11 @@ function initializeStickyCTA() {
 
     if (mobileCTAMediaQuery && typeof mobileCTAMediaQuery.addEventListener === 'function') {
         mobileCTAMediaQuery.addEventListener('change', () => {
-            updateStickyCTAVisibility(currentPage === 'product');
+            updateStickyCTAVisibility(productSectionVisible);
         });
     } else if (mobileCTAMediaQuery && typeof mobileCTAMediaQuery.addListener === 'function') {
         mobileCTAMediaQuery.addListener(() => {
-            updateStickyCTAVisibility(currentPage === 'product');
+            updateStickyCTAVisibility(productSectionVisible);
         });
     }
 }
@@ -345,52 +348,6 @@ function setupGuideInventoryTicker() {
         current = Math.max(current - decrement, 12);
         counters.forEach(counter => counter.textContent = String(current));
     }, 20000);
-}
-
-// Smooth Scrolling Functions
-function scrollToProduct() {
-    smoothScrollToId('product-section');
-}
-
-// Testimonials Slider Functions
-function initializeTestimonialSlider() {
-    if (testimonials.length > 0) {
-        // Auto-advance testimonials every 6 seconds
-        setInterval(nextTestimonial, 6000);
-    }
-}
-
-function showTestimonial(index) {
-    if (index < 0 || index >= testimonials.length) {
-        return; // Invalid index
-    }
-    
-    if (index === currentTestimonial) return;
-    
-    // Hide current testimonial
-    if (testimonials[currentTestimonial]) {
-        testimonials[currentTestimonial].classList.remove('active');
-    }
-    
-    if (testimonialDots[currentTestimonial]) {
-        testimonialDots[currentTestimonial].classList.remove('active');
-    }
-    
-    // Show new testimonial
-    currentTestimonial = index;
-    
-    if (testimonials[currentTestimonial]) {
-        testimonials[currentTestimonial].classList.add('active');
-    }
-    
-    if (testimonialDots[currentTestimonial]) {
-        testimonialDots[currentTestimonial].classList.add('active');
-    }
-}
-
-function nextTestimonial() {
-    const nextIndex = (currentTestimonial + 1) % testimonials.length;
-    showTestimonial(nextIndex);
 }
 
 // Accordion Functions
@@ -856,58 +813,6 @@ document.addEventListener('keydown', function(event) {
             }
         }
     }
-    
-    // Arrow keys for testimonial navigation (only when on product page)
-    if (currentPage === 'product' && testimonials.length > 0) {
-        if (event.key === 'ArrowLeft') {
-            event.preventDefault();
-            const prevIndex = currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1;
-            showTestimonial(prevIndex);
-        } else if (event.key === 'ArrowRight') {
-            event.preventDefault();
-            const nextIndex = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(nextIndex);
-        }
-    }
-});
-
-// Touch/Swipe Support for Testimonials
-let touchStartX = 0;
-let touchEndX = 0;
-
-function handleTouchStart(event) {
-    touchStartX = event.changedTouches[0].screenX;
-}
-
-function handleTouchEnd(event) {
-    touchEndX = event.changedTouches[0].screenX;
-    handleSwipe();
-}
-
-function handleSwipe() {
-    const swipeThreshold = 50;
-    const swipeDistance = touchEndX - touchStartX;
-    
-    if (Math.abs(swipeDistance) > swipeThreshold && testimonials.length > 0) {
-        if (swipeDistance > 0) {
-            // Swipe right - previous testimonial
-            const prevIndex = currentTestimonial === 0 ? testimonials.length - 1 : currentTestimonial - 1;
-            showTestimonial(prevIndex);
-        } else {
-            // Swipe left - next testimonial
-            const nextIndex = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(nextIndex);
-        }
-    }
-}
-
-// Add touch listeners to testimonials container
-document.addEventListener('DOMContentLoaded', function() {
-    const testimonialsSlider = document.getElementById('testimonialsSlider');
-    if (testimonialsSlider) {
-        testimonialsSlider.addEventListener('touchstart', handleTouchStart, { passive: true });
-        testimonialsSlider.addEventListener('touchend', handleTouchEnd, { passive: true });
-    }
 });
 
 // Performance optimization: Lazy loading for images
@@ -942,8 +847,6 @@ window.addEventListener('error', function(event) {
 
 // Export functions for global access
 window.navigateToPage = navigateToPage;
-window.scrollToProduct = scrollToProduct;
-window.showTestimonial = showTestimonial;
 window.toggleAccordion = toggleAccordion;
 window.handleEmailSignup = handleEmailSignup;
 window.closeNotification = closeNotification;

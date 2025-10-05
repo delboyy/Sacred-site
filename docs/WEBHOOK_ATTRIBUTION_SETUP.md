@@ -2,6 +2,8 @@
 
 This guide explains how to set up server-side purchase attribution using Lemon Squeezy webhooks, GA4 Measurement Protocol, and Meta Conversions API.
 
+> **Note:** Gumroad is the active storefront. The Lemon Squeezy webhook remains available as a legacy integration for teams who still rely on that provider.
+
 ## Overview
 
 The serverless function at `/api/webhooks/lemon-squeezy` receives Lemon Squeezy purchase webhooks and automatically sends server-side Purchase events to both Google Analytics 4 and Meta (Facebook) Pixel.

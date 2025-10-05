@@ -12,7 +12,6 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ├── vercel.json              # Vercel deployment config
 ├── docs/                    # Documentation
 │   ├── PROJECT_STATUS.md    # Development progress
-│   ├── LEMON_SQUEEZY_SETUP.md # E-commerce setup
 │   ├── ANALYTICS_SETUP.md   # Analytics setup
 │   └── ASTRO_BLOG_SETUP.md  # Blog implementation guide
 ├── src/                     # Astro source files
@@ -28,8 +27,6 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 │   │   ├── blog/
 │   │   │   ├── index.astro # Blog listing with pagination
 │   │   │   └── [...slug].astro # Individual blog posts
-│   │   ├── admin/
-│   │   │   └── [...routes].astro # TinaCMS admin
 │   │   ├── product.astro    # Redirect to product section
 │   │   ├── about.astro      # Redirect to about section
 │   │   └── rss.xml.js       # RSS feed generation
@@ -55,8 +52,6 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ├── index.html               # Homepage (static)
 ├── thank-you/
 │   └── index.html           # Post-purchase page
-├── tina/                    # TinaCMS configuration
-│   └── config.ts            # CMS schema and settings
 └── archive/                 # Old/backup files
     ├── app_1.js
     └── index_1.html
@@ -65,10 +60,10 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ## Features
 
 - **Hybrid Architecture**: Astro-powered blog + static HTML pages
-- **MDX Blog System**: TinaCMS visual editing with Git integration
-- **Serverless Attribution**: Lemon Squeezy webhooks → GA4 + Meta CAPI
+- **MDX Blog System**: Structured for future MDX-powered posts
+- **Serverless Attribution (optional)**: Legacy Lemon Squeezy webhook handler retained for GA4 + Meta CAPI
 - **Responsive Design**: Mobile-first approach with modern CSS
-- **E-commerce Integration**: Lemon Squeezy overlay checkout
+- **E-commerce Integration**: Gumroad overlay checkout powered by `config/commerce.json`
 - **Analytics**: GA4 and Meta Pixel tracking with conversion events
 - **SEO Optimized**: Meta tags, structured data, sitemap, RSS feeds
 - **Email Capture**: ESP-ready signup with localStorage fallback
@@ -79,11 +74,10 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ### Development Setup
 1. **Install dependencies**: `npm install`
 2. **Start Astro dev server**: `npm run dev`
-3. **Start TinaCMS (optional)**: `npm run tinacms` (in separate terminal)
-4. **Access the site**: `http://localhost:4321`
+3. **Access the site**: `http://localhost:4321`
 
 ### Content Management
-- **Blog posts**: Edit in TinaCMS at `http://localhost:4001/admin`
+- **Blog posts**: Add new MDX entries under `src/content/blog/`
 - **Static pages**: Edit HTML files directly
 - **Assets**: Place images in `public/assets/images/`
 
@@ -102,7 +96,6 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 - `docs/QA_CHECKLIST.md` - Final QA testing checklist
 - `docs/HANDOVER_NOTES.md` - Maintenance and content management guide
 - `docs/ASTRO_BLOG_SETUP.md` - Blog system implementation guide
-- `docs/LEMON_SQUEEZY_SETUP.md` - E-commerce setup instructions
 - `docs/WEBHOOK_ATTRIBUTION_SETUP.md` - Server-side attribution setup
 - `docs/ANALYTICS_SETUP.md` - Analytics implementation guide
 - `docs/EMAIL_SETUP.md` - Email capture setup guide
@@ -110,14 +103,12 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ### Core Files
 - `astro.config.mjs` - Astro configuration
 - `src/content/config.ts` - Blog content schema
-- `tina/config.ts` - TinaCMS configuration
 - `thank-you/index.html` - Post-purchase page with analytics
 
 ### Routes
 - `/` - Homepage (static HTML)
 - `/blog` - Blog listing (Astro + pagination)
 - `/blog/[slug]` - Individual blog posts (MDX)
-- `/admin` - TinaCMS visual editor
 - `/product` - Product section (redirects to homepage)
 - `/about` - About section (redirects to homepage)
 
@@ -126,8 +117,6 @@ A static website for Sacred, providing natural wellness solutions and a comprehe
 ```bash
 # Development
 npm run dev          # Start Astro dev server
-npm run tinacms      # Start TinaCMS admin server
-
 # Build
 npm run build        # Build for production
 npm run preview      # Preview production build
@@ -140,9 +129,8 @@ npm run astro        # Run Astro CLI commands
 
 - **Astro**: Static site generation framework
 - **MDX**: Markdown with JSX components
-- **TinaCMS**: Visual content management
 - **Tailwind CSS**: Utility-first styling (integrated)
-- **Lemon Squeezy**: E-commerce platform
+- **Gumroad**: E-commerce platform
 - **Google Analytics 4**: Web analytics
 - **Meta Pixel**: Social media tracking
 

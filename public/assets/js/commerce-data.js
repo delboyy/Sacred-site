@@ -1,4 +1,4 @@
-{
+window.__COMMERCE = {
   "provider": "gumroad",
   "product": {
     "name": "Menopause Support Guide",
@@ -8,3 +8,5 @@
     "currency": "USD"
   }
 }
+;
+window.dispatchEvent(new CustomEvent('commerce-ready', { detail: window.__COMMERCE }));
