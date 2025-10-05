@@ -42,10 +42,17 @@ function initializeNavigation() {
     
     // Navigation link clicks
     navLinks.forEach(link => {
-        if (link.hasAttribute('data-page')) {
+        const targetPage = link.getAttribute('data-page');
+        const scrollTarget = link.getAttribute('data-scroll-target');
+
+        if (targetPage) {
             link.addEventListener('click', handleNavClick);
-        } else {
-            link.addEventListener('click', () => closeMobileNav());
+        } else if (scrollTarget) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                closeMobileNav();
+                scrollToLandingSection(scrollTarget);
+            });
         }
     });
     

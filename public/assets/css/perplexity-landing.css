@@ -93,6 +93,39 @@
   align-items: center;
 }
 
+.sap-landing__cta .btn,
+.sap-landing__cta-actions .btn {
+  min-width: 240px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sap-landing .btn--primary,
+.sap-landing .btn--primary:visited {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text, #fdfbf4) !important;
+}
+
+.sap-landing .btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.sap-landing .btn--primary:active {
+  background: var(--color-primary-active);
+}
+
+.sap-landing .btn--outline,
+.sap-landing .btn--outline:visited {
+  color: var(--color-text, #13343b) !important;
+  border: 1px solid rgba(var(--color-teal-500-rgb, 33,128,141), 0.35);
+}
+
+.sap-landing .btn--outline:hover {
+  background: rgba(var(--color-teal-500-rgb, 33,128,141), 0.12);
+}
+
 .sap-landing__cta .btn {
   min-width: 240px;
   text-align: center;
