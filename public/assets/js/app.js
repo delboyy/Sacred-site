@@ -9,6 +9,51 @@ let currentPage = 'home';
 const stickyCTA = document.getElementById('mobileStickyCTA');
 const stickyCTAButton = document.getElementById('mobileStickyCTAButton');
 const mobileCTAMediaQuery = window.matchMedia('(max-width: 767px)');
+const GUMROAD_TEXT_COLOR = '#fdfbf4';
+
+function enforceGumroadButtonStyles() {
+    const buttons = document.querySelectorAll('.gumroad-button');
+    buttons.forEach(button => {
+        button.style.setProperty('color', GUMROAD_TEXT_COLOR, 'important');
+        button.style.setProperty('-webkit-text-fill-color', GUMROAD_TEXT_COLOR, 'important');
+        button.style.setProperty('background-color', 'var(--color-primary)', 'important');
+        button.style.setProperty('mix-blend-mode', 'normal', 'important');
+        button.style.setProperty('text-shadow', 'none', 'important');
+        button.style.setProperty('opacity', '1', 'important');
+
+        const descendants = button.querySelectorAll('*');
+        descendants.forEach(descendant => {
+            descendant.style.setProperty('color', GUMROAD_TEXT_COLOR, 'important');
+            descendant.style.setProperty('-webkit-text-fill-color', GUMROAD_TEXT_COLOR, 'important');
+            descendant.style.setProperty('text-shadow', 'none', 'important');
+            descendant.style.setProperty('opacity', '1', 'important');
+        });
+    });
+}
+
+function initializeGumroadButtonWatcher() {
+    enforceGumroadButtonStyles();
+
+    let attempts = 0;
+    const interval = setInterval(() => {
+        attempts += 1;
+        enforceGumroadButtonStyles();
+        if (attempts >= 12) {
+            clearInterval(interval);
+        }
+    }, 400);
+
+    const observer = new MutationObserver(() => {
+        enforceGumroadButtonStyles();
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+    });
+
+    window.addEventListener('load', enforceGumroadButtonStyles);
+}
 
 // Initialize application
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFormHandling();
     initializeStickyCTA();
     initializeLandingComponents();
+    initializeGumroadButtonWatcher();
 
     if (window.location.hash === '#product') {
         scrollToLandingSection('product');
