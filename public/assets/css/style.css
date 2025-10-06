@@ -415,18 +415,23 @@ pre code {
 .btn--primary {
   background: var(--color-primary);
   color: #fdfbf4;
+  -webkit-text-fill-color: #fdfbf4;
 }
 
-.gumroad-button {
+.gumroad-button,
+.gumroad-button:visited {
   background-color: var(--color-primary) !important;
   border-color: rgba(var(--color-teal-500-rgb), 0.35) !important;
   color: #fdfbf4 !important;
+  -webkit-text-fill-color: #fdfbf4 !important;
+  mix-blend-mode: normal !important;
+  text-shadow: none !important;
 }
 
-.gumroad-button span,
-.gumroad-button strong,
-.gumroad-button em {
+.gumroad-button *,
+.gumroad-button:visited * {
   color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
 }
 
 .btn--primary:hover {

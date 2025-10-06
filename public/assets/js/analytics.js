@@ -9,7 +9,7 @@ const DEFAULT_PRODUCT = {
     id: 'menopause-relief',
     name: 'Menopause Support Guide',
     category: 'Digital Product',
-    price: 13,
+    price: 30,
     currency: 'USD',
     url: 'https://sacredankh.gumroad.com/l/menopause-relief'
 };

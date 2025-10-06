@@ -106,6 +106,7 @@
 .sap-landing .btn--primary:visited {
   background: var(--color-primary);
   color: var(--color-btn-primary-text, #fdfbf4) !important;
+  -webkit-text-fill-color: var(--color-btn-primary-text, #fdfbf4) !important;
 }
 
 .sap-landing .btn--primary:hover {
