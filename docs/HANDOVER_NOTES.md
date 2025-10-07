@@ -117,6 +117,11 @@ Product data is centralized in `config/commerce.json`. Update the `price`, `curr
 - Update social media links
 - Modify contact email/phone
 
+### Update Privacy Policy
+- Edit the copy in `public/privacy.html`
+- Adjust sitemap entry (`public/sitemap.xml`) if the URL or change frequency changes
+- Ensure footer links in static pages and `src/layouts/BaseLayout.astro` remain accurate
+
 ### Change Colors/Branding
 - Update CSS custom properties in `public/assets/css/style.css`:
   ```css

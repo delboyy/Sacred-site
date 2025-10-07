@@ -198,6 +198,10 @@
 - ✅ **Integrated MailerLite signup embed** in the landing page and tuned styling to match the brand.
 - ✅ **Updated analytics instrumentation** to track MailerLite signup interactions across GA4 and Meta Pixel.
 
+### 23. Legal & Compliance ✅
+- ✅ **Published privacy policy** at `public/privacy.html` with site-wide footer links.
+- ✅ **Documented data practices** covering Gumroad transactions, MailerLite email management, and analytics usage.
+
 ### 23. Commerce Data Centralization ✅
 - ✅ Added `config/commerce.json` as the single source of truth for Gumroad product name/id/url/price.
 - ✅ Introduced `scripts/sync-commerce.mjs` to mirror config into `public/assets/data/commerce.json` and `public/assets/js/commerce-data.js` before dev/build.
