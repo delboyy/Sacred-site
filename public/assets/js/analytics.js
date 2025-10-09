@@ -1,4 +1,5 @@
-// Analytics and Tracking Setup for Sacre// Includes GA4 and Meta Pixel integration
+// Analytics and Tracking Setup for Sacred
+// Includes GA4 and Meta Pixel integration
 
 // Configuration - Replace with your actual tracking IDs
 const GA4_MEASUREMENT_ID = 'G-07JR5BCFXW';
@@ -39,25 +40,37 @@ function initializeAnalytics() {
 
 // Google Analytics 4 Setup
 function initGA4() {
-    // Load Google Analytics script
+    const configureGA4 = () => {
+        if (typeof gtag !== 'function') {
+            console.warn('gtag not available for GA4 configuration');
+            return;
+        }
+
+        gtag('config', GA4_MEASUREMENT_ID, {
+            'custom_map': {'custom_parameter': 'custom_value'},
+            'send_page_view': false,
+            'ecommerce': true
+        });
+
+        console.log('GA4 configured with ID:', GA4_MEASUREMENT_ID);
+    };
+
+    if (typeof gtag === 'function') {
+        configureGA4();
+        return;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} // eslint-disable-line no-inner-declarations
+    window.gtag = gtag;
+
     const gtagScript = document.createElement('script');
     gtagScript.async = true;
     gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
+    gtagScript.addEventListener('load', configureGA4);
     document.head.appendChild(gtagScript);
 
-    // Initialize gtag
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    window.gtag = gtag;
-
     gtag('js', new Date());
-    gtag('config', GA4_MEASUREMENT_ID, {
-        'custom_map': {'custom_parameter': 'custom_value'},
-        'send_page_view': true,
-        'ecommerce': true
-    });
-
-    console.log('GA4 initialized with ID:', GA4_MEASUREMENT_ID);
 }
 
 // Meta Pixel Setup
