@@ -7,15 +7,15 @@ const productDescription = "A comprehensive 50-page guide to navigating menopaus
 const productImage = "/assets/images/ankh-logo.png";
 const productData = commerce.product || {};
 const productName = productData.name || "Menopause Support Guide";
-const productPrice = productData.price || 13;
+const productPrice = productData.price || 19.99;
 const productCurrency = productData.currency || "USD";
 const productUrl = productData.url || "https://sacredankh.gumroad.com/l/menopause-relief";
 const productId = productData.id || "menopause-relief";
 const productPriceDisplay = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: productCurrency,
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2
 }).format(productPrice);
 
 const productStructuredData = {
@@ -68,7 +68,7 @@ const productStructuredData = {
           <h1 data-commerce-name>{productName}</h1>
           <p class="product-page__description">A comprehensive, natural roadmap that helps you balance hormones, sleep deeply, and reclaim lasting energy.</p>
           <div class="product-page__pricing">
-            <span class="product-page__price" data-commerce-price data-commerce-format="currency-0">{productPriceDisplay}</span>
+            <span class="product-page__price" data-commerce-price data-commerce-format="currency-2">{productPriceDisplay}</span>
             <span class="product-page__badge">Digital download • Instant access</span>
           </div>
           <ul class="product-page__list">
@@ -79,7 +79,7 @@ const productStructuredData = {
             <li>Quick Reference Cheat Sheets &amp; Recipes</li>
           </ul>
           <a class="gumroad-button btn btn--primary btn--lg" data-commerce-url href={productUrl} target="_blank" rel="noopener">
-            Start Your Transformation - <span data-commerce-price data-commerce-format="currency-0">{productPriceDisplay}</span>
+            Start Your Transformation - <span data-commerce-price data-commerce-format="currency-2">{productPriceDisplay}</span>
           </a>
           <p class="product-page__guarantee">✓ 60-Day Money-Back Guarantee</p>
         </div>

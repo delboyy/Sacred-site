@@ -16,7 +16,7 @@
 - ✅ Added graceful `noscript` fallbacks and consistent styling for the direct checkout link.
 - ✅ Centralised provider configuration in `config/commerce.json` to simplify URL updates.
 - ✅ Embedded Gumroad product widget in the landing `.sap-landing__product` block and `/product` Astro route for parity.
-- ✅ Synced CTA copy and price callouts to the current $30 offer.
+- ✅ Synced CTA copy and price callouts to the current $19.99 offer.
 
 ### 3. Thank You Page & Conversion Tracking
 - ✅ Created `thank-you.html` - post-purchase confirmation page

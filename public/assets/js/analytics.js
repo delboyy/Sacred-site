@@ -2,14 +2,15 @@
 // Includes GA4 and Meta Pixel integration
 
 // Configuration - Replace with your actual tracking IDs
-const GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Replace with your GA4 Measurement ID
+const GA4_MEASUREMENT_ID = 'G-07JR3B6CFXW';
+const GTM_CONTAINER_ID = 'GTM-NN9V3L8M';
 const META_PIXEL_ID = 'XXXXXXXXXXXXXXXX'; // Replace with your Meta Pixel ID
 
 const DEFAULT_PRODUCT = {
     id: 'menopause-relief',
     name: 'Menopause Support Guide',
     category: 'Digital Product',
-    price: 30,
+    price: 19.99,
     currency: 'USD',
     url: 'https://sacredankh.gumroad.com/l/menopause-relief'
 };

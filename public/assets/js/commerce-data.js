@@ -4,7 +4,7 @@ window.__COMMERCE = {
     "name": "Menopause Support Guide",
     "id": "menopause-relief",
     "url": "https://sacredankh.gumroad.com/l/menopause-relief",
-    "price": 30,
+    "price": 19.99,
     "currency": "USD"
   }
 }
