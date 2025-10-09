@@ -1,8 +1,7 @@
-// Analytics and Tracking Setup for Sacred
-// Includes GA4 and Meta Pixel integration
+// Analytics and Tracking Setup for Sacre// Includes GA4 and Meta Pixel integration
 
 // Configuration - Replace with your actual tracking IDs
-const GA4_MEASUREMENT_ID = 'G-07JR3B6CFXW';
+const GA4_MEASUREMENT_ID = 'G-07JR5BCFXW';
 const GTM_CONTAINER_ID = 'GTM-NN9V3L8M';
 const META_PIXEL_ID = 'XXXXXXXXXXXXXXXX'; // Replace with your Meta Pixel ID
 
