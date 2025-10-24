@@ -1,8 +1,8 @@
 # Changelog
 
 ## [Unreleased]
-- Replace landing page layout with Perplexity Labs design scoped under `.sap-landing`, preserving existing nav, analytics, and MailerLite newsletter embed.
-- Added Gumroad product widget (image, price, CTA) to hero and product sections; updated pricing to $19.99 across site and analytics.
+- Rebuilt the landing page with the updated Perplexity design (`public/assets/css/homepage.css`) while preserving nav, analytics, and newsletter integrations.
+- Switched all Gumroad CTAs to direct checkout buttons and synced sitewide pricing to $12.99.
 - Introduced countdown/testimonial slider/urgency behaviours tied into existing JS without global conflicts.
 - Added `public/assets/css/perplexity-landing.css` for scoped styling and extended `public/assets/js/app.js` with landing helpers.
 - Blog navigation now closes the mobile menu before opening the external blog.

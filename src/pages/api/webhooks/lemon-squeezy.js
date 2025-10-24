@@ -146,7 +146,7 @@ async function sendToGA4(purchaseData, measurementId, apiSecret) {
         value: purchaseData.value,
         currency: purchaseData.currency,
         items: [{
-          item_name: 'Menopause Support Guide',
+          item_name: 'Menopause Sleep Recovery Guide',
           item_id: 'menopause_guide',
           price: purchaseData.value,
           quantity: 1,
@@ -194,7 +194,7 @@ async function sendToMeta(purchaseData, pixelId, accessToken) {
       custom_data: {
         value: purchaseData.value,
         currency: purchaseData.currency,
-        content_name: 'Menopause Support Guide',
+        content_name: 'Menopause Sleep Recovery Guide',
         content_type: 'product',
         content_ids: ['menopause_guide']
       },

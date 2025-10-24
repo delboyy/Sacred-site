@@ -125,7 +125,7 @@ The webhook maps Lemon Squeezy order data to tracking events:
 - **Transaction ID**: `ls_{order_id}` (prefixed to avoid conflicts)
 - **Value**: Order total in dollars (converted from cents)
 - **Currency**: Order currency (converted to uppercase)
-- **Items**: Single item "Menopause Support Guide" with order value
+- **Items**: Single item "Menopause Sleep Recovery Guide" with order value
 - **Customer Data**: Email and name (hashed for Meta, not sent to GA4)
 
 ## Monitoring

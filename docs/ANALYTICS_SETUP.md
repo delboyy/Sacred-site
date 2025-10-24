@@ -96,7 +96,7 @@ gtag('event', 'purchase', {
     currency: 'USD',
     items: [{
         item_id: 'menopause-guide',
-        item_name: 'Menopause Support Guide',
+        item_name: 'Menopause Sleep Recovery Guide',
         category: 'Digital Product',
         price: total,
         quantity: 1
@@ -109,7 +109,7 @@ gtag('event', 'purchase', {
 fbq('track', 'Purchase', {
     value: total,
     currency: 'USD',
-    content_name: 'Menopause Support Guide',
+    content_name: 'Menopause Sleep Recovery Guide',
     content_type: 'product'
 });
 ```

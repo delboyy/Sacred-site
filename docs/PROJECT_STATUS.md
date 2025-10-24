@@ -16,7 +16,7 @@
 - ✅ Added graceful `noscript` fallbacks and consistent styling for the direct checkout link.
 - ✅ Centralised provider configuration in `config/commerce.json` to simplify URL updates.
 - ✅ Embedded Gumroad product widget in the landing `.sap-landing__product` block and `/product` Astro route for parity.
-- ✅ Synced CTA copy and price callouts to the current $19.99 offer.
+- ✅ Synced CTA copy and price callouts to the current $12.99 offer.
 
 ### 3. Thank You Page & Conversion Tracking
 - ✅ Created `thank-you.html` - post-purchase confirmation page
@@ -72,7 +72,7 @@
 - 🔄 **Meta Pixel ID**: Replace `META_PIXEL_ID` in the same locations for Meta tracking.
 
 ### Gumroad Commerce Checklist
-- 🔄 Confirm Gumroad product URL (`https://sacredankh.gumroad.com/l/menopause-relief`) and pricing in `config/commerce.json` (auto-propagates to the site).
+- 🔄 Confirm Gumroad product URL (`https://gumroad.com/checkout?_gl=1*15j4sn4*_ga*MTYwNTg2ODE2OS4xNzU5NTI1MDEz*_ga_6LJN6D94N6*czE3NjEzMjAyNTUkbzE0JGcxJHQxNzYxMzIxOTE5JGo1MSRsMCRoMA..`) and pricing in `config/commerce.json` (auto-propagates to the site).
 - 🔄 Configure Gumroad overlay + post-purchase redirect to `https://sacredapothecary.xyz/thank-you/` within the Gumroad dashboard.
 - 🔄 Test overlay and fallback purchases across desktop and mobile flows.
 - 🔄 Keep landing-page savings copy (`Regular Price`, `You Save`) aligned with any pricing updates.
@@ -153,11 +153,11 @@
 
 ### 16. Commerce Provider Migration: Lemon Squeezy → Gumroad ✅
 - ✅ **Created commerce configuration** (`config/commerce.json`) with Gumroad provider settings
-- ✅ **Added Gumroad embed script** to all HTML pages (`public/index.html`, `public/checkout.html`, `public/thank-you/index.html`)
-- ✅ **Converted all Buy Now CTAs** from Lemon Squeezy `data-ls-overlay` to Gumroad `gumroad-button` class
+- ✅ **Switched all Buy Now CTAs** to direct Gumroad checkout links driven by `data-commerce-url`
+- ✅ **Removed Gumroad embed script** in favour of lightweight button styling
 - ✅ **Updated fallback behavior** with proper noscript links for JavaScript-disabled users
 - ✅ **Removed Lemon Squeezy script references** and updated page comments
-- ✅ **Maintained existing button styles** while ensuring overlay functionality
+- ✅ **Maintained consistent button styling** while ensuring overlay-free checkout
 - ✅ **Committed and pushed changes** to complete the commerce migration
 
 ### 17. Astro + MDX Content Infrastructure ✅

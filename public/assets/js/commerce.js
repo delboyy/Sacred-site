@@ -3,8 +3,8 @@
     provider: 'gumroad',
     product: {
       id: 'menopause-relief',
-      url: 'https://sacredankh.gumroad.com/l/menopause-relief',
-      price: 19.99,
+      url: 'https://gumroad.com/checkout?_gl=1*15j4sn4*_ga*MTYwNTg2ODE2OS4xNzU5NTI1MDEz*_ga_6LJN6D94N6*czE3NjEzMjAyNTUkbzE0JGcxJHQxNzYxMzIxOTE5JGo1MSRsMCRoMA..',
+      price: 12.99,
       currency: 'USD'
     }
   };

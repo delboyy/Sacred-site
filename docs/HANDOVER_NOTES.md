@@ -40,7 +40,7 @@ More content...
 
 ### Gumroad Dashboard
 1. Go to [gumroad.com](https://gumroad.com)
-2. Open the Menopause Support Guide product
+2. Open the Menopause Sleep Recovery Guide product
 3. Adjust the price and publish changes
 
 ### Code Updates (If Needed)
