@@ -7,8 +7,6 @@ const pages = document.querySelectorAll('.page');
 // State management
 let currentPage = 'home';
 const stickyCTA = document.getElementById('mobileStickyCTA');
-const stickyCTAButton = document.getElementById('mobileStickyCTAButton');
-const mobileCTAMediaQuery = window.matchMedia('(max-width: 767px)');
 const GUMROAD_TEXT_COLOR = '#fdfbf4';
 
 function enforceGumroadButtonStyles() {
@@ -184,61 +182,11 @@ function initializeStickyCTA() {
     if (!stickyCTA) {
         return;
     }
-    const productSection = document.querySelector('.sap-landing__product');
-    let productSectionVisible = productSection ? false : true;
-
-    if (productSection && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                productSectionVisible = entry.isIntersecting;
-                updateStickyCTAVisibility(productSectionVisible);
-            });
-        }, { threshold: 0.25 });
-
-        observer.observe(productSection);
-    }
-
-    updateStickyCTAVisibility(productSectionVisible);
-
-    if (stickyCTAButton) {
-        stickyCTAButton.addEventListener('click', function() {
-            stickyCTAButton.setAttribute('aria-pressed', 'true');
-            setTimeout(() => stickyCTAButton.setAttribute('aria-pressed', 'false'), 1200);
-        });
-    }
-
-    if (mobileCTAMediaQuery && typeof mobileCTAMediaQuery.addEventListener === 'function') {
-        mobileCTAMediaQuery.addEventListener('change', () => {
-            updateStickyCTAVisibility(productSectionVisible);
-        });
-    } else if (mobileCTAMediaQuery && typeof mobileCTAMediaQuery.addListener === 'function') {
-        mobileCTAMediaQuery.addListener(() => {
-            updateStickyCTAVisibility(productSectionVisible);
-        });
-    }
+    stickyCTA.remove();
 }
 
-function updateStickyCTAVisibility(shouldShow) {
-    if (!stickyCTA) {
-        return;
-    }
-
-    let hasCompletedPurchase = false;
-
-    try {
-        hasCompletedPurchase = sessionStorage.getItem('sacredPurchaseCompleted') === 'true';
-    } catch (error) {
-        hasCompletedPurchase = false;
-    }
-    const canDisplay = shouldShow && mobileCTAMediaQuery.matches && !hasCompletedPurchase;
-
-    if (canDisplay) {
-        stickyCTA.classList.add('mobile-sticky-cta--visible');
-        document.body.classList.add('mobile-cta-visible');
-    } else {
-        stickyCTA.classList.remove('mobile-sticky-cta--visible');
-        document.body.classList.remove('mobile-cta-visible');
-    }
+function updateStickyCTAVisibility() {
+    // Sticky CTA disabled
 }
 
 // Landing page enhancements

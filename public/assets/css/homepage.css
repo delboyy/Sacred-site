@@ -154,6 +154,7 @@ p {
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow-sm);
+    padding: var(--space-1) 0;
 }
 
 .nav__container {
@@ -167,6 +168,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    align-items: center;
 }
 
 .nav__brand-text {
@@ -192,7 +194,20 @@ p {
 .nav__menu {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-3);
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+}
+
+.nav__menu.active {
+    transform: none;
 }
 
 .nav__link {
@@ -219,7 +234,15 @@ p {
 }
 
 .nav__toggle {
-    border: 1px solid var(--color-sage);
+    display: none !important;
+}
+
+.main {
+    margin-top: var(--space-5);
+}
+
+.mobile-sticky-cta {
+    display: none !important;
 }
 
 /* Buttons */
@@ -957,34 +980,50 @@ p {
 @media (max-width: 1023px) {
     .nav__container {
         flex-wrap: wrap;
-        gap: var(--space-4);
+        gap: var(--space-2);
+        justify-content: center;
     }
 
     .nav__menu {
         flex-wrap: wrap;
         justify-content: center;
+        gap: var(--space-2);
     }
 
     .nav__cta {
-        width: 100%;
+        width: auto;
         display: flex;
         justify-content: center;
+        margin-left: 0;
+        margin-top: var(--space-2);
     }
 }
 
 @media (max-width: 767px) {
     .nav__container {
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
     }
 
     .nav__menu {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
     }
 
     .nav__cta {
         margin-left: 0;
+        width: 100%;
+    }
+
+    .nav__cta .btn {
+        width: 100%;
+    }
+
+    .main {
+        margin-top: var(--space-4);
     }
 }
 
