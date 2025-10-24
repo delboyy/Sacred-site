@@ -298,10 +298,13 @@ p {
     grid-template-columns: 1fr;
     gap: var(--space-8);
     align-items: center;
+    justify-items: center;
 }
 
 .hero__content {
     text-align: center;
+    margin: 0 auto;
+    max-width: 640px;
 }
 
 .hero__image {
@@ -1030,11 +1033,13 @@ p {
 @media (min-width: 768px) {
     .hero__grid {
         grid-template-columns: 1fr 1fr;
+        justify-items: stretch;
         text-align: left;
     }
 
     .hero__content {
         text-align: left;
+        margin: 0;
     }
 
     .hero__headline {
