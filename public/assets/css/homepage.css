@@ -317,10 +317,12 @@ p {
 .guide-cover-card {
     background-color: var(--color-white);
     border-radius: var(--radius-xl);
-    padding: var(--space-6);
+    padding: var(--space-4);
     border: 2px solid var(--color-gold);
     box-shadow: var(--shadow-lg);
     max-width: 360px;
+    display: inline-flex;
+    justify-content: center;
 }
 
 .guide-cover-card img {
