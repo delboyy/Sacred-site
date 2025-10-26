@@ -1118,7 +1118,7 @@ p {
     .hero__grid {
         grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
         column-gap: var(--space-12);
-        align-items: start;
+        align-items: center;
     }
 
     .hero__content {
@@ -1128,11 +1128,11 @@ p {
 
     .hero__image {
         justify-content: flex-end;
-        align-self: stretch;
+        align-items: center;
+        display: flex;
     }
 
     .guide-cover-card {
-        max-width: none;
         width: fit-content;
         margin-left: auto;
     }
