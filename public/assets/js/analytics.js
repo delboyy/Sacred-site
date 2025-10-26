@@ -306,7 +306,7 @@ function trackSocialEngagement() {
     socialLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const platform = this.href.includes('instagram') ? 'Instagram' :
-                           this.href.includes('facebook') ? 'Facebook' :
+                this.href.includes('facebook') ? 'Facebook' :
                            this.href.includes('pinterest') ? 'Pinterest' : 'Social';
 
             if (typeof gtag !== 'undefined') {

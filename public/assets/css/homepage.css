@@ -1053,6 +1053,12 @@ p {
     }
 }
 
+@media (max-width: 480px) {
+    .hero__content {
+        padding: 0 var(--space-2);
+    }
+}
+
 @media (min-width: 1024px) {
     .nav__container {
         max-width: 1120px;

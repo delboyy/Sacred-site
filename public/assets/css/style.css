@@ -1944,7 +1944,7 @@ body.mobile-cta-visible #product.page.active {
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .hero__content {
-    padding: 0 var(--space-16);
+    padding: 0 var(--space-4);
   }
   
   .hero__title {
