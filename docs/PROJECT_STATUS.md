@@ -12,10 +12,10 @@
 
 ### 2. E-commerce Integration (Gumroad)
 - ✅ Created `public/checkout.html` - professional checkout page with product recap, FAQs, and CTA.
-- ✅ Integrated Gumroad overlay checkout across hero CTAs, product section, checkout page, and mobile sticky banner.
+- ✅ Replaced the Gumroad overlay with direct checkout buttons across the hero CTA, offer section, product page, and checkout page.
 - ✅ Added graceful `noscript` fallbacks and consistent styling for the direct checkout link.
 - ✅ Centralised provider configuration in `config/commerce.json` to simplify URL updates.
-- ✅ Embedded Gumroad product widget in the landing `.sap-landing__product` block and `/product` Astro route for parity.
+- ✅ Reused the Gumroad configuration across the `/product` Astro route for parity with the homepage CTA.
 - ✅ Synced CTA copy and price callouts to the current $12.99 offer.
 
 ### 3. Thank You Page & Conversion Tracking
@@ -73,8 +73,8 @@
 
 ### Gumroad Commerce Checklist
 - 🔄 Confirm Gumroad product URL (`https://gumroad.com/checkout?_gl=1*15j4sn4*_ga*MTYwNTg2ODE2OS4xNzU5NTI1MDEz*_ga_6LJN6D94N6*czE3NjEzMjAyNTUkbzE0JGcxJHQxNzYxMzIxOTE5JGo1MSRsMCRoMA..`) and pricing in `config/commerce.json` (auto-propagates to the site).
-- 🔄 Configure Gumroad overlay + post-purchase redirect to `https://sacredapothecary.xyz/thank-you/` within the Gumroad dashboard.
-- 🔄 Test overlay and fallback purchases across desktop and mobile flows.
+- 🔄 Configure the Gumroad product to redirect to `https://sacredapothecary.xyz/thank-you/` after purchase.
+- 🔄 Test direct-checkout and `noscript` fallback flows across desktop and mobile.
 - 🔄 Keep landing-page savings copy (`Regular Price`, `You Save`) aligned with any pricing updates.
 - 🔄 Optional: remove legacy Lemon Squeezy webhook/env vars if no longer required.
 
@@ -88,13 +88,12 @@
   - Add product images to checkout and blog posts
   - Update Open Graph images
 
-### 9. Gumroad Overlay Checkout Implementation ✅
-- ✅ **Added Gumroad embed script** to `public/index.html`, `public/checkout.html`, and `public/thank-you/index.html`.
-- ✅ **Converted CTAs** to `gumroad-button` overlay triggers with consistent styling.
-- ✅ **Embedded full Gumroad product widget** (image, price, CTA) in the landing-page hero & product sections for richer merchandising.
+### 9. Gumroad Direct Checkout Implementation ✅
+- ✅ **Linked CTAs directly to the Gumroad checkout** on `public/index.html`, `public/checkout.html`, and `public/thank-you/index.html`.
+- ✅ **Maintained consistent product presentation** across the homepage offer section and `/product` Astro route.
 - ✅ **Implemented `<noscript>` fallbacks** so direct checkout links work without JavaScript.
 - ✅ **Documented provider setup** in `README-checkout.md` and handover guides.
-- 🔄 **Test overlay functionality** and fallback behavior whenever URLs change.
+- 🔄 **Test direct purchase flows** whenever product URLs or pricing change.
 
 ### 10. Dedicated Thank You Page Implementation ✅
 - ✅ **Created `/thank-you/` directory** with standalone HTML page
@@ -181,7 +180,7 @@
 - ✅ **Rebuilt project** confirming `.vercel/output/static/assets/` includes the required files.
 
 ### 20. Mobile Product CTA Enhancement ✅
-- ✅ **Added mobile-only sticky CTA** on the product page to spotlight the Gumroad offer.
+- ✅ **Retired the legacy mobile-only sticky CTA** in favour of the streamlined direct checkout buttons.
 - ✅ **Implemented session-aware logic** (sessionStorage + thank-you flag) so it hides after purchase.
 - ✅ **Injected responsive padding adjustments** to prevent overlap with footers/banners.
 - ✅ **Wired accessibility attributes & hash routing** so `/product` redirects immediately show the CTA.
