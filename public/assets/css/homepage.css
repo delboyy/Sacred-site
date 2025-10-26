@@ -320,14 +320,14 @@ p {
     padding: var(--space-4);
     border: 2px solid var(--color-gold);
     box-shadow: var(--shadow-lg);
-    max-width: 360px;
+    max-width: 320px;
     display: inline-flex;
     justify-content: center;
 }
 
 .guide-cover-card img {
     display: block;
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: var(--radius-base);
 }
